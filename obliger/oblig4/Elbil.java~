@@ -1,7 +1,0 @@
-class Elbil extends Bil {
-    private int batteri;
-    
-    Elbil(int batteri){
-	this.batteri = batteri;
-    }
-}

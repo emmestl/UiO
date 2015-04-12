@@ -1,9 +1,0 @@
-class Rad extends AbstraktSoyle{
-    Rad(int antall){
-	super(antall);
-    }
-
-    public Rute getRute(int posisjon){
-	return ruter[posisjon];
-    }
-}

@@ -1,9 +1,0 @@
-class Personbil extends Fossilbil{
-    private int antallPlasser;
-    
-    Personbil(int ant){
-	antallPlasser = ant;
-    }
-}
-
-    

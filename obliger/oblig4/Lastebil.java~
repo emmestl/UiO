@@ -1,7 +1,0 @@
-class Latebil extends Fossilbil{
-    private double nytteVekt; 
-
-    Lastebil (double vekt){
-	nytteVekt = vekt;
-    }
-}
