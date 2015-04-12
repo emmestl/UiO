@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class FinnMulig<T> extends Thread{ 
     private Monitor m;
@@ -17,6 +18,7 @@ class FinnMulig<T> extends Thread{
 	    for (Rute r : ab){
 		if(r.verdi() != 0){
 		    ikkeMulige.add(r.verdi());
+		    //System.out.println (r.verdi());
 		}
 	    }
 	}
@@ -28,6 +30,16 @@ class FinnMulig<T> extends Thread{
 		}
 	    }
 	}
+	if(t instanceof Rad){
+	    System.out.println ("Rad (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
+	}
+	if(t instanceof Kolonne){
+	    System.out.println ("Kolonne (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
+	}
+	if(t instanceof Boks){
+	    System.out.println ("Boks (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
+	}
+	
 	m.beregn(ikkeMulige);
     }
 }
@@ -52,6 +64,8 @@ class Monitor{
 		alleTallene.remove(ikkeMulige.get(i));
 	    }
 	}
+	//System.out.println (Arrays.toString(alleTallene.toArray()));
+	
 	teller ++;
 	if (teller == totalTraader){
 	    notify();
@@ -60,10 +74,11 @@ class Monitor{
 
     public synchronized int[] finnMulige(){
 	try{
-	    wait();
+	    if(teller != totalTraader){
+		wait();
+	    }
 	}
 	catch (InterruptedException e){
-	    System.out.println ("Opperasjonen ble avbrutt");
 	    return null;
 	}
 	alleMulige = new int[alleTallene.size()];

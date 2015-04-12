@@ -12,6 +12,7 @@ class Rute{
     private int maksverdi;
     private Rute neste;
     private int teller = 0;
+    //static int teller1 = 0;
 
     Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
 	this.r = r;
@@ -74,6 +75,7 @@ class Rute{
       Tar ikke aa direkte brute forecer kjorer heller gjennom en gang forst og ser om det er noe som garantert kan settes inn
     */
     public boolean fyllUtDenneRutenOgResten(){
+	//System.out.println (teller1++);
 	if (teller == 0){
 	    finnAlleMuligeTall();
 	}
@@ -81,48 +83,48 @@ class Rute{
 	System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
 	if (muligeVerdier == null){
 	    teller = 0;
-	    //System.out.println ("------- MuligeVerdier == null");
+	    System.out.println ("------- MuligeVerdier == null");
 	    return false;
 	}
 	try{
 	    midlertidligVerdi = muligeVerdier[teller];
-	    //System.out.println ("----------Setter verdi " + midlertidligVerdi);
+	    teller ++;
+	    System.out.println ("----------Setter verdi " + midlertidligVerdi);
 	}
 	catch (Exception e){
 	    teller = 0;
-	    //System.out.println ("----------Ingen verdier funnet, gaar tilbake");
+	    System.out.println ("----------Ingen verdier funnet, gaar tilbake");
 	    return false;
 	}
 	
-	teller ++;
 	if (neste == null){
-	    //System.out.println ("Neste finnes ikke");
+	    System.out.println ("Neste finnes ikke");
 	    return true;
 	}
 	else if (!neste.fyllUtDenneRutenOgResten()){
 	    
-	    //System.out.println("---------Gaa tilbake prov paa nytt" + teller);
+	    System.out.println("---------Gaa tilbake prov paa nytt" + teller);
 	    neste.settVerdi(0);
-	    fyllUtDenneRutenOgResten();
+	    return fyllUtDenneRutenOgResten();
 	}
 	return true;
     }
 
     public void settNeste(){
 	
-	//System.out.print ("Rute " + getPosisjon() );
+	System.out.print ("Rute " + getPosisjon() );
 	
 	if (posisjonV != maksverdi -1){
 	    neste = r.getRute(posisjonV + 1);
-	    //System.out.println ("------ Neste " + neste.getPosisjon());
+	    System.out.println ("------ Neste " + neste.getPosisjon());
 	}
 	else if (posisjonL != maksverdi -1){
 	    neste = k.getRute(posisjonL+1).getRad().getRute(0);
-	    //System.out.println ("------ Neste " + neste.getPosisjon());
+	    System.out.println ("------ Neste " + neste.getPosisjon());
 	}
 	else{
 	    neste = null;
-	    //System.out.println ("------ Neste " + neste.getPosisjon());
+	    System.out.println ("------ Neste finnes ikke");
 	}
     }
 
