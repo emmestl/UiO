@@ -5,6 +5,7 @@ class AbstraktBrett implements Iterable<Rute>{
     protected Rute[][] alleRutene;
     protected int lengdeV;
     protected int lengdeL;
+    protected static String[] tallVerdi;
     
     AbstraktBrett(int lengdeV, int lengdeL){
 	this.lengdeV = lengdeV;
@@ -14,6 +15,21 @@ class AbstraktBrett implements Iterable<Rute>{
     
     public Iterator<Rute> iterator(){
 	return new RuteIterator();
+    }
+
+    public void utskrift(){
+	System.out.println(tallVerdi.length);
+	int teller = 0;
+	for (Rute r: this){
+	    if(teller == lengdeV){
+		System.out.println ();
+		teller = 0;
+	    }
+	    
+	    System.out.print (tallVerdi[r.verdi()]);
+	    teller ++;
+	}
+	System.out.println();
     }
     
     class RuteIterator implements Iterator<Rute> {
