@@ -1,0 +1,8 @@
+class Bil{
+    private String regNr;
+    
+    Bil (String regNr){
+	this.regNr = regNr;
+    }
+}
+

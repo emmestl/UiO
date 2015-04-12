@@ -1,0 +1,7 @@
+class Fossilbil extends Bil{
+    private double utslipp;
+    Fossilbil(double utslipp){
+	this.utslipp = utslipp;;
+    }
+}
+
