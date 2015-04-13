@@ -1,3 +1,4 @@
+import java.util.Arrays;
 class AbstraktSoyle{
     protected int [] verdier;
     protected Rute[] ruter;
@@ -18,5 +19,8 @@ class AbstraktSoyle{
 
     public Rute getRute(int posisjon){
 	return ruter[posisjon];
+    }
+    public void utskrift(){
+	System.out.println (Arrays.toString(verdier));
     }
 }

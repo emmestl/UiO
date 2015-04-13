@@ -10,6 +10,7 @@ class AbstraktBrett implements Iterable<Rute>{
     AbstraktBrett(int lengdeV, int lengdeL){
 	this.lengdeV = lengdeV;
 	this.lengdeL = lengdeL;
+	settTallVerdier(lengdeV*lengdeL);
     }
     AbstraktBrett(){}
     
@@ -18,7 +19,7 @@ class AbstraktBrett implements Iterable<Rute>{
     }
 
     public void utskrift(){
-	System.out.println(tallVerdi.length);
+	//System.out.println(tallVerdi.length);
 	int teller = 0;
 	for (Rute r: this){
 	    if(teller == lengdeV){
@@ -31,7 +32,25 @@ class AbstraktBrett implements Iterable<Rute>{
 	}
 	System.out.println();
     }
-    
+
+    protected void settTallVerdier(int lengde){
+	String alfabetet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	tallVerdi = new String[lengde +1];
+	tallVerdi[0] = ".";
+	for (int i = 1; i <= lengde; i ++){
+	    if (i < 10){
+		tallVerdi[i] = i +"";
+	    }
+	    else{
+		try{
+		    tallVerdi[i] = alfabetet.substring(i-10, i -9);
+		}
+		catch (Exception e){
+		    System.out.println ("Det er ikke flere bokstaver igjen i alfabetet");
+		}
+	    }
+	}
+    }
     class RuteIterator implements Iterator<Rute> {
 	private int i = 0;
 	private int j = 0;

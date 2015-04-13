@@ -6,7 +6,6 @@ class Brett extends AbstraktBrett{
     private Kolonne[] kolonnene;
     private Rad[] radene;
     private Boks[][] boksene;
-    private String[] tallVerdi;
 
     Brett(){
 	super();
@@ -62,42 +61,17 @@ class Brett extends AbstraktBrett{
 	}
     }
 
-    public void utskrift(){
-	int teller = 0;
-	for (Rute r: this){
-	    if(teller == radene.length){
-		System.out.println ();
-		teller = 0;
-	    }
-	    System.out.print (tallVerdi[r.verdi()]);
-	    teller ++;
-	}
-	System.out.println();
-    }
-
-    private void settTallVerdier(int lengde){
-	String alfabetet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	tallVerdi = new String[lengde +1];
-	tallVerdi[0] = ".";
-	for (int i = 1; i <= lengde; i ++){
-	    if (i < 10){
-		tallVerdi[i] = i +"";
-	    }
-	    else{
-		try{
-		    tallVerdi[i] = alfabetet.substring(i-10, i -9);
-		}
-		catch (Exception e){
-		    System.out.println ("Det er ikke flere bokstaver igjen i alfabetet");
-		}
-	    }
-	}
-    }
     public Rute getRute(int v, int l){
 	return alleRutene[v][l];
     }
     public Boks getBoks(int l, int v){
 	return boksene[v][l];
+    }
+    public Rad getRad(int i){
+	return radene[i];
+    }
+    public Kolonne getKolonne(int i){
+	return kolonnene[i];
     }
 
     public void los(){

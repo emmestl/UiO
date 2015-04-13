@@ -21,6 +21,9 @@ class FinnMulig<T> extends Thread{
 		    //System.out.println (r.verdi());
 		}
 	    }
+	    /*
+	    ab.utskrift();
+	    System.out.println ();*/
 	}
 	else if (t instanceof AbstraktSoyle){
 	    AbstraktSoyle as = (AbstraktSoyle) t;
@@ -30,15 +33,21 @@ class FinnMulig<T> extends Thread{
 		}
 	    }
 	}
+	/*
 	if(t instanceof Rad){
 	    System.out.println ("Rad (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
+	    
+	}*/
+	/*
 	if(t instanceof Kolonne){
 	    System.out.println ("Kolonne (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
+	    AbstraktSoyle as = (AbstraktSoyle) t;
+	    as.utskrift();
+	}*/
+	/*
 	if(t instanceof Boks){
 	    System.out.println ("Boks (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
+	    }*/
 	
 	m.beregn(ikkeMulige);
     }

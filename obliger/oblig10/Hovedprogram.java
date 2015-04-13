@@ -10,11 +10,16 @@ class Hovedprogram {
 	    }
 	    }*/
 
-	for (int i = 0; i < 4; i++){
-	    for (int j = 0; j < 3; j++){
+	/*for (int i = 0; i < 3; i++){
+	    for (int j = 0; j < 4; j++){
 		System.out.println ();
-		b.getBoks(j, i).utskrift();
+		b.getBoks(i, j).utskrift();
 	    }
-	}
+	    }*/
+	/*for (int i = 0; i< 12; i++){
+	    b.getKolonne(i).utskrift();
+	}*/
+	
+	b.los();
     }
 }
