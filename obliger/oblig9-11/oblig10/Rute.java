@@ -12,6 +12,7 @@ class Rute{
     private int maksverdi;
     private Rute neste;
     private int teller = 0;
+    private boolean ikkeEnesteMulige = true;
 
     Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
 	this.r = r;
@@ -39,7 +40,7 @@ class Rute{
 	r.settVerdi(i, this);
 
     }
-
+    
     public int verdi(){
 	return midlertidligVerdi;
     }
@@ -65,16 +66,13 @@ class Rute{
 	    (new FinnMulig<Rad> (m, r)).start();
 	    (new FinnMulig<Kolonne>(m, k)).start();
 	    
-	    muligeVerdier = m.finnMulige();
+	    muligeVerdier =  m.finnMulige();
 	}
 	return muligeVerdier;
     }
 
-    /*
-      Tar ikke aa direkte brute forecer kjorer heller gjennom en gang forst og ser om det er noe som garantert kan settes inn
-    */
     public boolean fyllUtDenneRutenOgResten(){
-	if (teller == 0){
+	if (teller == 0 && ikkeEnesteMulige){
 	    finnAlleMuligeTall();
 	}
 	
@@ -108,8 +106,18 @@ class Rute{
 	return true;
     }
 
-    public void settNeste(){
-	
+    public void finnMuligverdiOgNeste(){
+	finnAlleMuligeTall();
+	try{
+	    neste.finnMuligverdiOgNeste();
+	}
+	catch (NullPointerException e){
+	    //System.out.println ("Siste rute? " + getPosisjon());
+	}
+    }
+
+    
+    public void settNeste(){	
 	//System.out.print ("Rute " + getPosisjon() );
 	
 	if (posisjonV != maksverdi -1){
@@ -130,10 +138,18 @@ class Rute{
 	midlertidligVerdi = i;
     }
     
+    public void enesteMulige(){
+	ikkeEnesteMulige = false;
+    }
+    
     public Rad getRad(){
 	return r;
     }
 
+    public int[] getMuligeVerdier(){
+	return muligeVerdier;
+    }
+    
     public String getPosisjon(){
 	return "" + posisjonV + " " + posisjonL;
     }

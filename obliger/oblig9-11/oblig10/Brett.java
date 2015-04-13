@@ -75,11 +75,21 @@ class Brett extends AbstraktBrett{
     }
 
     public void los(){
-	if(alleRutene[0][0].fyllUtDenneRutenOgResten()){
+	alleRutene[0][0].finnMuligverdiOgNeste();
+
+	for (Rute r: this){
+	    if (r.getMuligeVerdier().length == 1){
+		r.settVerdi(r.getMuligeVerdier()[0]);
+		r.enesteMulige();
+	    }
+	}
+
+	if (alleRutene[0][0].fyllUtDenneRutenOgResten()){
 	    utskrift();
 	}
 	else{
-	    System.out.println("Dette brettet kunne ikke loses");
+	    utskrift();
+	    System.out.println ("Kan ikke loses");
 	}
     }
 }
