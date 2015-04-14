@@ -8,22 +8,27 @@ class Brett extends AbstraktBrett{
     private Boks[][] boksene;
     private int antallLosninger;
 
-    Brett(){
+    Brett(String[] args){
 	super();
 	antallLosninger = 0;
-	lesFil();
+	lesFil(args);
     }
 
-    public void lesFil(){
-	Scanner in = new Scanner(System.in);
+    public void lesFil(String[] args){
 	Scanner filen;
-	System.out.print ("Filnavn: ");
 	try{
-	    filen = new Scanner(new File(in.nextLine()));
+	    filen = new Scanner(new File(args[0]));
 	}
 	catch(FileNotFoundException e){
 	    System.out.println ("Denne filen finnes ikke");
 	    return;
+	}
+	try{
+	    utlesning = args[1];
+	    skrivesTilSkjerm = false;
+	}
+	catch(ArrayOutOfBoundsException e){
+	    skrivesTilSkjerm = true;
 	}
 
 	int l = Integer.parseInt(filen.nextLine()); //vannrett

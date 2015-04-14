@@ -6,11 +6,14 @@ class AbstraktBrett implements Iterable<Rute>{
     protected int lengdeV;
     protected int lengdeL;
     protected static String[] tallVerdi;
+    protected boolean skrivesTilSkjerm;
+    protected String utlesning;
     
     AbstraktBrett(int lengdeV, int lengdeL){
 	this.lengdeV = lengdeV;
 	this.lengdeL = lengdeL;
 	settTallVerdier(lengdeV*lengdeL);
+	skrivesTilSkjerm = true;
     }
     AbstraktBrett(){}
     
@@ -20,17 +23,22 @@ class AbstraktBrett implements Iterable<Rute>{
 
     public void utskrift(){
 	//System.out.println(tallVerdi.length);
-	int teller = 0;
-	for (Rute r: this){
-	    if(teller == lengdeV){
-		System.out.println ();
-		teller = 0;
-	    }
+	if(skrivesTilSkjerm){
+	    int teller = 0;
+	    for (Rute r: this){
+		if(teller == lengdeV){
+		    System.out.println ();
+		    teller = 0;
+		}
 	    
-	    System.out.print (tallVerdi[r.verdi()]);
-	    teller ++;
+		System.out.print (tallVerdi[r.verdi()]);
+		teller ++;
+	    }
+	    System.out.println("\n");
 	}
-	System.out.println("\n");
+	else{
+	    PrintWriter p = new PrintWriter();
+	}
     }
 
     protected void settTallVerdier(int lengde){
