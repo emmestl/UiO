@@ -6,9 +6,11 @@ class Brett extends AbstraktBrett{
     private Kolonne[] kolonnene;
     private Rad[] radene;
     private Boks[][] boksene;
+    private int antallLosninger;
 
     Brett(){
 	super();
+	antallLosninger = 0;
 	lesFil();
     }
 
@@ -38,7 +40,7 @@ class Brett extends AbstraktBrett{
 	while(filen.hasNextLine()){
 	    String linje = filen.nextLine();
 	    for(int i = 0; i < v*l; i++){
-		alleRutene[i][j] = new Rute(radene[j], kolonnene[i], boksene[i/v][j/l], linje.substring(i, i +1), i, j, v, l);
+		alleRutene[i][j] = new Rute(this, radene[j], kolonnene[i], boksene[i/v][j/l], linje.substring(i, i +1), i, j, v, l);
 	    }
 	    j++;
 	}
@@ -75,13 +77,23 @@ class Brett extends AbstraktBrett{
 	return kolonnene[i];
     }
 
+    public void antallLosninger(){
+	System.out.println ("Antall losninger er: " + antallLosninger);
+    }
+
     public void los(){
-	alleRutene[0][0].finnMuligverdiOgNeste();
-	utskrift();
+	alleRutene[0][0].finnMuligverdiOgNeste();	
+	alleRutene[0][0].fyllUtDenneRutenOgResten();
 	
-	if (!alleRutene[0][0].fyllUtDenneRutenOgResten()){
-	    System.out.println ("Kan ikke loses");
+	if (antallLosninger == 0){
+	    System.out.println ("Det finnes ingen losninger");
 	}
-	utskrift();
+    }
+
+    public void muligLosning(){
+	if (antallLosninger% 100== 0){
+	    utskrift();
+	}
+	antallLosninger ++;	
     }
 }

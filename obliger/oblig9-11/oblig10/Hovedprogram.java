@@ -21,5 +21,6 @@ class Hovedprogram {
 	}*/
 	
 	b.los();
+	b.antallLosninger();
     }
 }

@@ -14,11 +14,14 @@ class Rute{
     private Rute neste;
     private int teller = 0;
     private boolean ikkeEnesteMulige = true;
+    private Brett brett;
+    
 
-    Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
+    Rute(Brett brett, Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
 	this.r = r;
 	this.k = k;
 	this.b = b;
+	this.brett = brett;
 	this.maksverdi = v*l;
 	this.l = l;
 	this.v = v;
@@ -64,7 +67,7 @@ class Rute{
 	    (new FinnMulig<Kolonne>(m, k)).start();
 	
 	    muligeVerdier =  m.finnMulige();
-	    System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
+	    //System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
 	}
 	return muligeVerdier;
     }
@@ -75,27 +78,28 @@ class Rute{
 		finnAlleMuligeTall();
 	    }
 	    
-	    System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
+	    //System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
 
 	    try{
 		midlertidligVerdi = muligeVerdier[teller];
 		teller ++;
-		System.out.println ("----------Setter verdi " + midlertidligVerdi);
+		//System.out.println ("----------Setter verdi " + midlertidligVerdi);
 	    }
 	    catch (Exception e){
 		teller = 0;
-		System.out.println ("----------Ingen verdier funnet, gaar tilbake");
+		//System.out.println ("----------Ingen verdier funnet, gaar tilbake");
 		return false;
 	    }
 	}
 	
 	if (neste == null){
-	    System.out.println ("Neste finnes ikke");
-	    return true;
+	    //System.out.println ("En losning funnet");
+	    brett.muligLosning();
+	    return fyllUtDenneRutenOgResten();
 	}
 	else if (!neste.fyllUtDenneRutenOgResten()){
 	    
-	    System.out.println("---------Gaa tilbake prov paa nytt");
+	    //System.out.println("---------Gaa tilbake prov paa nytt");
 	    if (neste.erIkkeEneste()){
 		    neste.settVerdi(0);
 	    }

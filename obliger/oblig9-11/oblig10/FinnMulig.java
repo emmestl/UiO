@@ -29,6 +29,7 @@ class FinnMulig<T> extends Thread{
 		}
 	    }
 	}
+	/*
 	if(t instanceof Rad){
 	    System.out.println ("   Rad (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
 	}
@@ -40,6 +41,7 @@ class FinnMulig<T> extends Thread{
 	if(t instanceof Boks){
 	    System.out.println ("   Boks (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
 	}
+	*/
 	m.beregn(ikkeMulige);
     }
 }
