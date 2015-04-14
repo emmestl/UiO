@@ -1,3 +1,4 @@
+import java.util.*;
 class Rute{
     private String lestVerdi;
     private int midlertidligVerdi;
@@ -29,6 +30,7 @@ class Rute{
 	    muligeVerdier = new int[1];
 	    muligeVerdier[0] = gjorTilInt(verdien);
 	    midlertidligVerdi = muligeVerdier[0];
+	    enesteMulige();
 
 	}
 	int i1 = i - (i/v)*v;
@@ -39,10 +41,6 @@ class Rute{
 	k.settVerdi(j, this);
 	r.settVerdi(i, this);
 
-    }
-    
-    public int verdi(){
-	return midlertidligVerdi;
     }
 
     public int gjorTilInt(String i){
@@ -58,56 +56,65 @@ class Rute{
 
     
     public int[] finnAlleMuligeTall(){
-	settNeste();   
 	if (lestVerdi == null){
 	    Monitor m = new Monitor(maksverdi, 3);
 	    
 	    (new FinnMulig<Boks>(m, b)).start();
 	    (new FinnMulig<Rad> (m, r)).start();
 	    (new FinnMulig<Kolonne>(m, k)).start();
-	    
+	
 	    muligeVerdier =  m.finnMulige();
+	    System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
 	}
 	return muligeVerdier;
     }
 
     public boolean fyllUtDenneRutenOgResten(){
-	if (teller == 0 && ikkeEnesteMulige){
-	    finnAlleMuligeTall();
-	}
-	
-	//System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
-	if (muligeVerdier == null){
-	    teller = 0;
-	    //System.out.println ("------- MuligeVerdier == null");
-	    return false;
-	}
-	try{
-	    midlertidligVerdi = muligeVerdier[teller];
-	    teller ++;
-	    //System.out.println ("----------Setter verdi " + midlertidligVerdi);
-	}
-	catch (Exception e){
-	    teller = 0;
-	    //System.out.println ("----------Ingen verdier funnet, gaar tilbake");
-	    return false;
+	if(ikkeEnesteMulige){
+	    if (teller == 0){
+		finnAlleMuligeTall();
+	    }
+	    
+	    System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
+
+	    try{
+		midlertidligVerdi = muligeVerdier[teller];
+		teller ++;
+		System.out.println ("----------Setter verdi " + midlertidligVerdi);
+	    }
+	    catch (Exception e){
+		teller = 0;
+		System.out.println ("----------Ingen verdier funnet, gaar tilbake");
+		return false;
+	    }
 	}
 	
 	if (neste == null){
-	    //System.out.println ("Neste finnes ikke");
+	    System.out.println ("Neste finnes ikke");
 	    return true;
 	}
 	else if (!neste.fyllUtDenneRutenOgResten()){
 	    
-	    //System.out.println("---------Gaa tilbake prov paa nytt" + teller);
-	    neste.settVerdi(0);
-	    return fyllUtDenneRutenOgResten();
+	    System.out.println("---------Gaa tilbake prov paa nytt");
+	    if (neste.erIkkeEneste()){
+		    neste.settVerdi(0);
+	    }
+	    if(ikkeEnesteMulige){
+		return fyllUtDenneRutenOgResten();
+	    }
+	    else{
+		return false;
+	    }
 	}
 	return true;
     }
 
     public void finnMuligverdiOgNeste(){
-	finnAlleMuligeTall();
+	if (finnAlleMuligeTall().length == 1){
+	    midlertidligVerdi = muligeVerdier[0];
+	    enesteMulige();
+	}
+	
 	try{
 	    neste.finnMuligverdiOgNeste();
 	}
@@ -132,14 +139,25 @@ class Rute{
 	    neste = null;
 	    //System.out.println ("------ Neste finnes ikke");
 	}
+	if(neste != null){
+	    neste.settNeste();
+	}
     }
 
     public void settVerdi(int i){
 	midlertidligVerdi = i;
     }
+        
+    public int verdi(){
+	return midlertidligVerdi;
+    }
     
     public void enesteMulige(){
 	ikkeEnesteMulige = false;
+    }
+
+    public boolean erIkkeEneste(){
+	return ikkeEnesteMulige;
     }
     
     public Rad getRad(){

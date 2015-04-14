@@ -42,6 +42,7 @@ class Brett extends AbstraktBrett{
 	    }
 	    j++;
 	}
+	alleRutene[0][0].settNeste();
     }
 
     public void delInnRuter(int v, int l){
@@ -76,20 +77,11 @@ class Brett extends AbstraktBrett{
 
     public void los(){
 	alleRutene[0][0].finnMuligverdiOgNeste();
-
-	for (Rute r: this){
-	    if (r.getMuligeVerdier().length == 1){
-		r.settVerdi(r.getMuligeVerdier()[0]);
-		r.enesteMulige();
-	    }
-	}
-
-	if (alleRutene[0][0].fyllUtDenneRutenOgResten()){
-	    utskrift();
-	}
-	else{
-	    utskrift();
+	utskrift();
+	
+	if (!alleRutene[0][0].fyllUtDenneRutenOgResten()){
 	    System.out.println ("Kan ikke loses");
 	}
+	utskrift();
     }
 }
