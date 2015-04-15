@@ -1,5 +1,6 @@
 import java.util.*;
 import java.lang.Iterable;
+import java.io.*;
 
 class AbstraktBrett implements Iterable<Rute>{
     protected Rute[][] alleRutene;
@@ -8,6 +9,7 @@ class AbstraktBrett implements Iterable<Rute>{
     protected static String[] tallVerdi;
     protected boolean skrivesTilSkjerm;
     protected String utlesning;
+    private PrintWriter p;
     
     AbstraktBrett(int lengdeV, int lengdeL){
 	this.lengdeV = lengdeV;
@@ -31,13 +33,32 @@ class AbstraktBrett implements Iterable<Rute>{
 		    teller = 0;
 		}
 	    
-		System.out.print (tallVerdi[r.verdi()]);
+		System.out.print (tallVerdi[r.verdi()] + " ");
 		teller ++;
 	    }
 	    System.out.println("\n");
 	}
 	else{
-	    PrintWriter p = new PrintWriter();
+	    try{
+		p = new PrintWriter(new File(utlesning));
+	    }
+	    catch(FileNotFoundException e) {
+		System.out.println ("Filen er ikke en godkjent fil; skriver ut paa skjermen");
+		skrivesTilSkjerm = true;
+		utskrift();
+		return;
+	    }
+	    int teller = 0;
+	    for (Rute r: this){
+		if(teller == lengdeV){
+		    System.out.println ();
+		    teller = 0;
+		}
+	    
+		System.out.print (tallVerdi[r.verdi()]);
+		teller ++;
+	    }
+	    p.close();
 	}
     }
 

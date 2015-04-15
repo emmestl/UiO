@@ -27,7 +27,7 @@ class Brett extends AbstraktBrett{
 	    utlesning = args[1];
 	    skrivesTilSkjerm = false;
 	}
-	catch(ArrayOutOfBoundsException e){
+	catch(IndexOutOfBoundsException e){
 	    skrivesTilSkjerm = true;
 	}
 
