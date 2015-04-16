@@ -19,6 +19,9 @@ class FinnMulig<T> extends Thread{
 		if(r.verdi() != 0){
 		    ikkeMulige.add(r.verdi());
 		}
+		else{
+		    break;
+		}
 	    }
 	}
 	else if (t instanceof AbstraktSoyle){
@@ -26,6 +29,9 @@ class FinnMulig<T> extends Thread{
 	    for(int i = 0; i < as.getRuter().length; i ++){
 		if (as.getRuter()[i].verdi() != 0){
 		    ikkeMulige.add(as.getRuter()[i].verdi());
+		}
+		else{
+		    break;
 		}
 	    }
 	}
@@ -52,8 +58,8 @@ class Monitor{
     private int teller = 0;
     private int totalTraader;
 
-    Monitor(int maksverdi, int totalTraader){
-	alleTallene = new ArrayList<>();
+    Monitor(int maksverdi, int totalTraader, ArrayList<Integer> alleTallene){
+	this.alleTallene = alleTallene
 	this.totalTraader = totalTraader;
 	for (int i = 1; i <= maksverdi; i++){
 	    alleTallene.add(i);
