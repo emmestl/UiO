@@ -5,7 +5,7 @@ class FinnMulig<T> extends Thread{
     private Monitor m;
     private T t;
     private int maksverdi;
-    private ArrayList<Integer> ikkeMulige = new ArrayList<>();
+    private ArrayList<Integer> ikkeMulige;
     
     FinnMulig(Monitor m, T t){
 	this.m = m;
@@ -13,41 +13,24 @@ class FinnMulig<T> extends Thread{
     }
     
     public void run(){
+	ikkeMulige = new ArrayList<>();
+	
 	if (t instanceof AbstraktBrett){
 	    AbstraktBrett ab = (AbstraktBrett) t;
 	    for (Rute r : ab){
 		if(r.verdi() != 0){
 		    ikkeMulige.add(r.verdi());
 		}
-		else{
-		    break;
-		}
 	    }
 	}
 	else if (t instanceof AbstraktSoyle){
 	    AbstraktSoyle as = (AbstraktSoyle) t;
-	    for(int i = 0; i < as.getRuter().length; i ++){
+	    for(int   i = 0; i < as.getRuter().length; i ++){
 		if (as.getRuter()[i].verdi() != 0){
 		    ikkeMulige.add(as.getRuter()[i].verdi());
 		}
-		else{
-		    break;
-		}
 	    }
 	}
-	/*
-	if(t instanceof Rad){
-	    System.out.println ("   Rad (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
-
-	if(t instanceof Kolonne){
-	    System.out.println ("   Kolonne (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
-
-	if(t instanceof Boks){
-	    System.out.println ("   Boks (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	}
-	*/
 	m.beregn(ikkeMulige);
     }
 }
@@ -57,10 +40,12 @@ class Monitor{
     private int[] alleMulige;
     private int teller = 0;
     private int totalTraader;
+    private int maksverdi;
 
-    Monitor(int maksverdi, int totalTraader, ArrayList<Integer> alleTallene){
-	this.alleTallene = alleTallene
+    Monitor(int maksverdi, int totalTraader){
+	this.alleTallene = new ArrayList<>();
 	this.totalTraader = totalTraader;
+	this.maksverdi = maksverdi;
 	for (int i = 1; i <= maksverdi; i++){
 	    alleTallene.add(i);
 	}
@@ -91,7 +76,6 @@ class Monitor{
 	for (int i = 0; i < alleMulige.length; i++){
 	    alleMulige[i] = alleTallene.get(i);
 	}
-
 	return alleMulige;
     }
 }

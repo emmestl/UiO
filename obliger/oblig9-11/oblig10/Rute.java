@@ -15,8 +15,6 @@ class Rute{
     private int teller = 0;
     private boolean ikkeEnesteMulige = true;
     private Brett brett;
-    private ArrayList<Integer> fastsattMulige;
-    
 
     Rute(Brett brett, Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
 	this.r = r;
@@ -28,11 +26,6 @@ class Rute{
 	this.v = v;
 	this.posisjonV = i;
 	this.posisjonL = j;
-	this.fastsattMulige = new ArrayList();
-	
-	for (int i = 1; i<= maksverdi; i++){
-	    fastsattMulige.add(i);
-	}
 
 	if(!verdien.equals(".")){
 	    this.lestVerdi = verdien;
@@ -52,6 +45,33 @@ class Rute{
 
     }
 
+    Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
+	this.r = r;
+	this.k = k;
+	this.b = b;
+	this.maksverdi = v*l;
+	this.l = l;
+	this.v = v;
+	this.posisjonV = i;
+	this.posisjonL = j;
+
+	if(!verdien.equals(".")){
+	    this.lestVerdi = verdien;
+	    muligeVerdier = new int[1];
+	    muligeVerdier[0] = gjorTilInt(verdien);
+	    midlertidligVerdi = muligeVerdier[0];
+	    enesteMulige();
+
+	}
+
+	int i1 = i - (i/v)*v;
+	int j1 = j - (j/l)*l;
+
+	b.settVerdi(i1, j1, this);
+	k.settVerdi(j, this);
+	r.settVerdi(i, this);
+    }
+
     public int gjorTilInt(String i){
 	int p =0;
 	try{
@@ -66,12 +86,13 @@ class Rute{
     
     public int[] finnAlleMuligeTall(){
 	if (lestVerdi == null){
-	    Monitor m = new Monitor(maksverdi, 3, fastsattMulige);
+
+	    Monitor m = new Monitor(maksverdi, 3);;
 	    
-	    (new FinnMulig<Boks>(m, b)).start();
-	    (new FinnMulig<Rad> (m, r)).start();
-	    (new FinnMulig<Kolonne>(m, k)).start();
-	
+	    new FinnMulig<Boks>(m, b).start();
+	    new FinnMulig<Rad>(m, r).start();
+	    new FinnMulig<Kolonne>(m, k).start();
+	    
 	    muligeVerdier =  m.finnMulige();
 	    //System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
 	}
@@ -120,8 +141,8 @@ class Rute{
     }
 
     public void finnMuligverdiOgNeste(){
-	fastsattMulige = new ArrayList<>(Arrays.asList(finnAlleMuligeTall()));
-	if (fastsattMulige.size() == 1){
+
+	if (finnAlleMuligeTall().length == 1){
 	    midlertidligVerdi = muligeVerdier[0];
 	    enesteMulige();
 	}

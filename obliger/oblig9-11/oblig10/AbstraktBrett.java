@@ -10,6 +10,7 @@ class AbstraktBrett implements Iterable<Rute>{
     protected boolean skrivesTilSkjerm;
     protected String utlesning;
     private PrintWriter p;
+    protected SudokuBeholder beholder;
     
     AbstraktBrett(int lengdeV, int lengdeL){
 	this.lengdeV = lengdeV;
@@ -27,41 +28,48 @@ class AbstraktBrett implements Iterable<Rute>{
 	//System.out.println(tallVerdi.length);
 	if(skrivesTilSkjerm){
 	    int teller = 0;
-	    for (Rute r: this){
-		if(teller == lengdeV){
-		    System.out.println ();
-		    teller = 0;
-		}
+	    for (Brett b: beholder){
+		for(Rute r: b){
+		    if(teller == lengdeV){
+			System.out.println ();
+			teller = 0;
+		    }
 	    
-		System.out.print (tallVerdi[r.verdi()] + " ");
-		teller ++;
+		    System.out.print (tallVerdi[r.verdi()] + " ");
+		    teller ++;
+		}
+		System.out.println("\n");
 	    }
-	    System.out.println("\n");
 	}
-	else{
-	    try{
-		p = new PrintWriter(new File(utlesning));
-	    }
-	    catch(FileNotFoundException e) {
-		System.out.println ("Filen er ikke en godkjent fil; skriver ut paa skjermen");
-		skrivesTilSkjerm = true;
-		utskrift();
-		return;
-	    }
-	    int teller = 0;
-	    for (Rute r: this){
-		if(teller == lengdeV){
-		    System.out.println ();
-		    teller = 0;
+	else {
+	    if(p== null){
+		try{
+		    p = new PrintWriter(new File(utlesning));
 		}
-	    
-		System.out.print (tallVerdi[r.verdi()]);
-		teller ++;
+		catch(FileNotFoundException e) {
+		    System.out.println ("Klarer ikke opprettefilen; skriver ut paa skjermen");
+		    skrivesTilSkjerm = true;
+		    utskrift();
+		    return;
+		}
+	    }
+	    for (Brett b: beholder){
+		int teller = 0;
+		for (Rute r: this){
+		    if(teller == lengdeV){
+			p.println ();
+			teller = 0;
+		    }
+		    
+		    p.print (tallVerdi[r.verdi()]);
+		    teller ++;
+		}
+		p.println("\n");
 	    }
 	    p.close();
 	}
     }
-
+    
     protected void settTallVerdier(int lengde){
 	String alfabetet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	alfabetet = alfabetet + alfabetet.toLowerCase();
@@ -87,11 +95,7 @@ class AbstraktBrett implements Iterable<Rute>{
 	private boolean sisteRad = false;
 	
 	public boolean hasNext(){
-	    if (sisteRad){
-		return false;
-	    }
-	    
-	    return true;
+	    return  !sisteRad;
 	}
 
 	public Rute next(){

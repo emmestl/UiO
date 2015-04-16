@@ -6,14 +6,32 @@ class Brett extends AbstraktBrett{
     private Kolonne[] kolonnene;
     private Rad[] radene;
     private Boks[][] boksene;
-    private int antallLosninger;
+    private int v;
+    private int l;
 
     Brett(String[] args){
 	super();
-	antallLosninger = 0;
 	lesFil(args);
+	beholder = new SudokuBeholder();
     }
-
+    
+    Brett(String[] utfylling, int v, int l){
+	super();
+	delInnRuter(v,l);
+	int teller = 0;
+	for(int j = 0; j < v*l; j++){
+	    for(int i = 0; i < v*l; i++){
+		alleRutene[i][j] = new Rute(radene[j], kolonnene[i], boksene[i/v][j/l], utfylling[teller], i, j, v, l);
+		teller++;
+	    }
+	    j++;
+	}
+	lengdeL = v*l;
+	lengdeV = v*l;
+		
+	settTallVerdier(lengdeV*lengdeL);
+    }
+    
     public void lesFil(String[] args){
 	Scanner filen;
 	try{
@@ -31,8 +49,8 @@ class Brett extends AbstraktBrett{
 	    skrivesTilSkjerm = true;
 	}
 
-	int l = Integer.parseInt(filen.nextLine()); //vannrett
-	int v = Integer.parseInt(filen.nextLine()); //loddrett
+	l = Integer.parseInt(filen.nextLine()); //vannrett
+	v = Integer.parseInt(filen.nextLine()); //loddrett
 
 	lengdeL = v*l;
 	lengdeV = v*l;
@@ -83,22 +101,25 @@ class Brett extends AbstraktBrett{
     }
 
     public void antallLosninger(){
-	System.out.println ("Antall losninger er: " + antallLosninger);
+	System.out.println ("Antall losninger er: " + beholder.hentAntallLosninger());
     }
 
     public void los(){
 	alleRutene[0][0].finnMuligverdiOgNeste();	
 	alleRutene[0][0].fyllUtDenneRutenOgResten();
 	
-	if (antallLosninger == 0){
+	if (beholder.hentAntallLosninger() == 0){
 	    System.out.println ("Det finnes ingen losninger");
 	}
+	utskrift();
     }
 
     public void muligLosning(){
-	if (antallLosninger% 100== 0){
-	    utskrift();
+	String[] utfylling = new String[lengdeL*lengdeV];
+	int teller = 0;
+	for (Rute r: this){
+	    utfylling[teller++] = tallVerdi[r.verdi()]; 
 	}
-	antallLosninger ++;	
+	beholder.settInn(new Brett(utfylling, v,l));
     }
 }
