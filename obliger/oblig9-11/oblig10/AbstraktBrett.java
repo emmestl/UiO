@@ -34,7 +34,6 @@ class AbstraktBrett implements Iterable<Rute>{
 			System.out.println ();
 			teller = 0;
 		    }
-	    
 		    System.out.print (tallVerdi[r.verdi()] + " ");
 		    teller ++;
 		}
@@ -110,7 +109,6 @@ class AbstraktBrett implements Iterable<Rute>{
 	    else {
 		i++;
 	    }
-
 	    return r;
 	}
     }
