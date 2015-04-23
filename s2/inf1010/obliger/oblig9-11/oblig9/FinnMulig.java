@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class FinnMulig<T> extends Thread{ 
     private Monitor m;
@@ -18,37 +17,17 @@ class FinnMulig<T> extends Thread{
 	    for (Rute r : ab){
 		if(r.verdi() != 0){
 		    ikkeMulige.add(r.verdi());
-		    //System.out.println (r.verdi());
 		}
 	    }
-	    /*
-	    ab.utskrift();
-	    System.out.println ();*/
 	}
 	else if (t instanceof AbstraktSoyle){
 	    AbstraktSoyle as = (AbstraktSoyle) t;
-	    for(int i = 0; i < as.getVerdier().length; i ++){
-		if (as.getVerdier()[i] != 0){
-		    ikkeMulige.add(as.getVerdier()[i]);
+	    for(int i = 0; i < as.getRuter().length; i ++){
+		if (as.getRuter()[i].verdi() != 0){
+		    ikkeMulige.add(as.getRuter()[i].verdi());
 		}
 	    }
 	}
-	/*
-	if(t instanceof Rad){
-	    System.out.println ("Rad (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	    
-	}*/
-	/*
-	if(t instanceof Kolonne){
-	    System.out.println ("Kolonne (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	    AbstraktSoyle as = (AbstraktSoyle) t;
-	    as.utskrift();
-	}*/
-	/*
-	if(t instanceof Boks){
-	    System.out.println ("Boks (ikke mulig) ----" + Arrays.toString(ikkeMulige.toArray()));
-	    }*/
-	
 	m.beregn(ikkeMulige);
     }
 }
@@ -73,8 +52,6 @@ class Monitor{
 		alleTallene.remove(ikkeMulige.get(i));
 	    }
 	}
-	//System.out.println (Arrays.toString(alleTallene.toArray()));
-	
 	teller ++;
 	if (teller == totalTraader){
 	    notify();
@@ -88,6 +65,7 @@ class Monitor{
 	    }
 	}
 	catch (InterruptedException e){
+	    System.out.println ("Opperasjonen ble avbrutt");
 	    return null;
 	}
 	alleMulige = new int[alleTallene.size()];

@@ -22,11 +22,7 @@ class AbstraktBrett implements Iterable<Rute>{
 	private boolean sisteRad = false;
 	
 	public boolean hasNext(){
-	    if (sisteRad){
-		return false;
-	    }
-	    
-	    return true;
+	    return !sisteRad;
 	}
 
 	public Rute next(){

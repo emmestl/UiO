@@ -1,7 +1,7 @@
 import java.util.Arrays;
 class Hovedprogram {
     public static void main(String[] args) {
-	Brett b = new Brett();
+	Brett b = new Brett(args);
 	b.utskrift();
 	/*
 	for (int i = 0; i < 3; i++){
@@ -21,5 +21,6 @@ class Hovedprogram {
 	}*/
 	
 	b.los();
+	b.antallLosninger();
     }
 }

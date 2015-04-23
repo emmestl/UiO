@@ -14,11 +14,13 @@ class Rute{
     private Rute neste;
     private int teller = 0;
     private boolean ikkeEnesteMulige = true;
+    private Brett brett;
 
-    Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
+    Rute(Brett brett, Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
 	this.r = r;
 	this.k = k;
 	this.b = b;
+	this.brett = brett;
 	this.maksverdi = v*l;
 	this.l = l;
 	this.v = v;
@@ -43,6 +45,33 @@ class Rute{
 
     }
 
+    Rute(Rad r, Kolonne k, Boks b, String verdien, int i, int j, int v, int l){
+	this.r = r;
+	this.k = k;
+	this.b = b;
+	this.maksverdi = v*l;
+	this.l = l;
+	this.v = v;
+	this.posisjonV = i;
+	this.posisjonL = j;
+
+	if(!verdien.equals(".")){
+	    this.lestVerdi = verdien;
+	    muligeVerdier = new int[1];
+	    muligeVerdier[0] = gjorTilInt(verdien);
+	    midlertidligVerdi = muligeVerdier[0];
+	    enesteMulige();
+
+	}
+
+	int i1 = i - (i/v)*v;
+	int j1 = j - (j/l)*l;
+
+	b.settVerdi(i1, j1, this);
+	k.settVerdi(j, this);
+	r.settVerdi(i, this);
+    }
+
     public int gjorTilInt(String i){
 	int p =0;
 	try{
@@ -57,14 +86,15 @@ class Rute{
     
     public int[] finnAlleMuligeTall(){
 	if (lestVerdi == null){
-	    Monitor m = new Monitor(maksverdi, 3);
+
+	    Monitor m = new Monitor(maksverdi, 3);;
 	    
-	    (new FinnMulig<Boks>(m, b)).start();
-	    (new FinnMulig<Rad> (m, r)).start();
-	    (new FinnMulig<Kolonne>(m, k)).start();
-	
+	    new FinnMulig<Boks>(m, b).start();
+	    new FinnMulig<Rad>(m, r).start();
+	    new FinnMulig<Kolonne>(m, k).start();
+	    
 	    muligeVerdier =  m.finnMulige();
-	    System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
+	    //System.out.println ("Mulige verdier; " + getPosisjon() + " ---- " + Arrays.toString(muligeVerdier) + "\n");
 	}
 	return muligeVerdier;
     }
@@ -75,27 +105,28 @@ class Rute{
 		finnAlleMuligeTall();
 	    }
 	    
-	    System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
+	    //System.out.print ("Fyller rute " + posisjonV + " " + posisjonL); 
 
 	    try{
 		midlertidligVerdi = muligeVerdier[teller];
 		teller ++;
-		System.out.println ("----------Setter verdi " + midlertidligVerdi);
+		//System.out.println ("----------Setter verdi " + midlertidligVerdi);
 	    }
 	    catch (Exception e){
 		teller = 0;
-		System.out.println ("----------Ingen verdier funnet, gaar tilbake");
+		//System.out.println ("----------Ingen verdier funnet, gaar tilbake");
 		return false;
 	    }
 	}
 	
 	if (neste == null){
-	    System.out.println ("Neste finnes ikke");
-	    return true;
+	    //System.out.println ("En losning funnet");
+	    brett.muligLosning();
+	    return fyllUtDenneRutenOgResten();
 	}
 	else if (!neste.fyllUtDenneRutenOgResten()){
 	    
-	    System.out.println("---------Gaa tilbake prov paa nytt");
+	    //System.out.println("---------Gaa tilbake prov paa nytt");
 	    if (neste.erIkkeEneste()){
 		    neste.settVerdi(0);
 	    }
@@ -110,6 +141,7 @@ class Rute{
     }
 
     public void finnMuligverdiOgNeste(){
+
 	if (finnAlleMuligeTall().length == 1){
 	    midlertidligVerdi = muligeVerdier[0];
 	    enesteMulige();
