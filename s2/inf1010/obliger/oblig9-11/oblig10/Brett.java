@@ -17,6 +17,10 @@ class Brett extends AbstraktBrett{
     
     Brett(String[] utfylling, int v, int l){
 	super();
+	lengdeL = v*l;
+	lengdeV = v*l;
+	settTallVerdier(lengdeV);
+
 	delInnRuter(v,l);
 	int teller = 0;
 	for(int j = 0; j < v*l; j++){
@@ -24,12 +28,7 @@ class Brett extends AbstraktBrett{
 		alleRutene[i][j] = new Rute(radene[j], kolonnene[i], boksene[i/v][j/l], utfylling[teller], i, j, v, l);
 		teller++;
 	    }
-	    j++;
 	}
-	lengdeL = v*l;
-	lengdeV = v*l;
-		
-	settTallVerdier(lengdeV*lengdeL);
     }
     
     public void lesFil(String[] args){

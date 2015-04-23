@@ -22,9 +22,9 @@ class FinnMulig<T> extends Thread{
 	}
 	else if (t instanceof AbstraktSoyle){
 	    AbstraktSoyle as = (AbstraktSoyle) t;
-	    for(int i = 0; i < as.getVerdier().length; i ++){
-		if (as.getVerdier()[i] != 0){
-		    ikkeMulige.add(as.getVerdier()[i]);
+	    for(int i = 0; i < as.getRuter().length; i ++){
+		if (as.getRuter()[i].verdi() != 0){
+		    ikkeMulige.add(as.getRuter()[i].verdi());
 		}
 	    }
 	}
@@ -60,7 +60,9 @@ class Monitor{
 
     public synchronized int[] finnMulige(){
 	try{
-	    wait();
+	    if(teller != totalTraader){
+		wait();
+	    }
 	}
 	catch (InterruptedException e){
 	    System.out.println ("Opperasjonen ble avbrutt");
