@@ -1,0 +1,279 @@
+okular\documentclass[a4paper, norsk, twoside, 10pt]{article}
+%trennger en pakke med norske symboler
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{float}
+\usepackage{listings}
+%\usepackage[norsk]{babel}
+
+\date{\today} 
+\title{Oblig2 \\ mat1110}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+  \section*{Oppgave 1:}
+
+
+  
+  \subsection*{a)}
+
+  Siden hverken $\vec{v}_{1}$ eller $\vec{v}_{2}$ er $\vec{0}$ holder det å vise at det finnes en $\lambda_{i}$ slik at:
+  \[A\vec{v}_{1}  = \lambda_{i} \vec{v}_{1} , \quad \lambda_{i} \in \mathbb{R}\setminus{0} \]
+  Har at: 
+  %\begin{spilt} %definerer matrisene og vektroene, da slipper jeg å skrive dem opp på nytt
+  \def\matriseA{
+  \begin{pmatrix}
+    4 & 6 \\
+    6 & -1
+  \end{pmatrix}
+  }
+  \def\ven{
+  \begin{pmatrix}
+    3 \\
+    2
+  \end{pmatrix}
+  }
+  \def\vto{
+  \begin{pmatrix}
+    2\\
+    -3
+  \end{pmatrix}
+  }
+  \[A = \matriseA, \quad \vec{v}_{1} = \ven, \quad \vec{v}_{2} = \vto\]
+  \\
+Gir:
+%\begin{split}
+\[\begin{split}
+A\vec{v}_{1} &= \matriseA \ven =
+\begin{pmatrix}
+  12 +12 \\
+  8 - 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+  24 \\
+  16
+\end{pmatrix}
+= 8 \ven = 8 \vec{v}_{1} \\*
+A\vec{v}_{2} &= \matriseA \vto =
+\begin{pmatrix}
+  8 - 18 \\
+  12 +3
+\end{pmatrix}
+=
+\begin{pmatrix}
+  -10 \\
+  15
+\end{pmatrix}
+= -5 \vto = -5 \vec{v}_{2}
+\end{split}
+\]
+
+Altså har vi at $\vec{v}_{1}$ og $\vec{v}_{2}$ er egenvektorer for A og at A henholdsvis har egenverdiene $\lambda_{1} = 8$ og $\lambda_{2} = -5$
+
+
+
+
+\subsection*{b)}
+\begin{proof}
+La \[A\vec{v} = \lambda\vec{v}, \quad c \in \mathbb{R}\setminus{0}\]
+Siden vi har at $c\vec{v}$ og $\vec{v}$ er to paralelle vektorer, hvor $c \ne 0$ Siden en egenvektor er en vektor som kan ganges med en matrise A og få ut en parallelvektor. Og siden en vektor ganget med et tall gir ut en vektor parallel med den orignale kan vi dermed anse at $c\vec{v}$ til å være det samme som $\vec{v}$ bare forskjøvet c i alle retninger. Altså har vi:
+\[A(c\vec{v}) = cA\vec{v} = c\lambda\vec{v} = \lambda(c\vec{v})\]
+\end{proof}
+
+
+
+
+
+\subsection*{c)}
+Antar når det står 'matrisene' fra oppgaven over menes det matrisen A. \\*
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{Opgv1c.m}
+Output:
+\lstinputlisting[language = matlab, frame = single]{Opgv1cOutput}
+
+Siden vi vet at matlab gir ut egenvektorer som har lengde 1 så må vi endre vektorene vi fikk i Oppgave1a) til også å ha lengde 1 for å kunne sammenlikne.
+
+Har at lengden de to forskjellige egenvektorene er:
+\[\begin{split}|\vec{v}_{1}| &= \sqrt{3^{2} + 2^{2}} = \sqrt{13}\\
+|\vec{v}_{2}| &= \sqrt{2^{2} + (-3)^{2}} = \sqrt{13}\end{split}\]
+
+Tar vi så å deler alle komponentene i $\vec{v}_{i}$ med lengden vil vi få ut egenvektoren med lengde 1. (Siden en lengde delt på seg selv er lik 1). Da vi egenvektorverdiene:
+\[\begin{split}
+\vec{v}_{\overline{1}} &= \frac{1}{\sqrt{13}}\ven =
+  \begin{pmatrix}
+    0,83\\
+    0,55
+  \end{pmatrix} \\*
+\vec{v}_{\overline{2}} &= \frac{1}{\sqrt{13}}\vto =
+  \begin{pmatrix}
+    0,55\\
+    -0,83
+  \end{pmatrix}
+\end{split}\]
+Dette ser vi er de samme egenvektorene (søylene i U) som matlab gir, bare at de har latt $\vec{v}_{1}$ ha negative fortegn, men det betyr kun at de sier den går motsatt vei.
+Diagonalen i V gir egenverdien til A gikk en egenvektor, vet fra Oppgave1a) at egenverdien til A når vi bruker egenvetoren $\vec{v}_{1}$ er 8 og -5 når egenvektoren er $\vec{v}_{2}$. Dette stemmer også overens med det matlab gir. \\*
+Legg merke til at -5 er egenveriden i søyle 1 og det samme er $\vec{v}_{2}$.
+
+
+
+
+
+\subsection*{d)}
+\def\matriseAD{
+  \begin{pmatrix}
+    2 & -1 & 3 \\
+    -1 & -2 & 1 \\
+    3 & 1 & -2
+  \end{pmatrix}
+}
+La \[A = \matriseAD\]
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{Opgv1d.m}
+Output:
+\lstinputlisting[language = matlab, frame = single]{Opgv1dOutput}
+
+\begin{proof}
+For at en en mengde vektorer $(\vec{v}_{1}, \vec{v}_{2}, \cdots, \vec{v}_{m})$ skal være en basis for
+$\mathbb{R}^{m}$ så må matrisen med søylene $(\vec{v}_{1}, \vec{v}_{2}, \cdots, \vec{v}_{m})$. Er matisen radekvivalent med identitetsmatrisen utgjør søylene en basis for $\mathbb{R}^{m}$
+\\
+La B være matrisen som består av egenvektorene til A:
+\def\Bmatrise{
+\begin{pmatrix}
+  0.4327 & 0.1706 & -0.8857\\
+  0.4973 & -0.8643 & 0.0759\\
+  -0.7526 & -0.4732 & -0.4579
+\end{pmatrix}
+}
+
+\[B = \Bmatrise\]
+
+Radreduserer vi B får vi:
+\[\begin{split}
+B &= \Bmatrise \sim
+\begin{pmatrix}
+  1 & \frac{1706}{4327} & \frac{-8857}{4327}\\
+  -0.5027 & -0.8643 & 0.0759\\
+  -0.7526 & -0.4732 & -0.4579
+\end{pmatrix} \\
+&\sim 
+\begin{pmatrix}
+  1 & \frac{1706}{4327} & \frac{-8857}{4327}\\
+  0 & -1.060 & 1.094\\
+  0 & -0.1765 & -1.9984
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+  1 & \frac{1706}{4327} & \frac{-8857}{4327}\\
+  0 & 1 & -1.032\\
+  0 & 0 & 1
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+  1 & \frac{1706}{4327} & 0\\
+  0 & 1 & 0\\
+  0 & 0 & 1
+\end{pmatrix}
+\\ &\sim
+\begin{pmatrix}
+  1 & 0 & 0\\
+  0 & 1 & 0\\
+  0 & 0 & 1
+\end{pmatrix}
+\end{split}\]
+Og siden B kan radreduseres til identitesmatrisen vet vi at vektorene som utgjør B, altså egenvektorene til A er en basis for $\mathbb{R}^{3}$
+\end{proof}
+
+\subsection*{e)}
+
+\def\matriseAE{
+  \begin{pmatrix}
+    4 & 0 & 1 \\
+    2 & 3 & 2 \\
+    -1 & 0 & 2
+  \end{pmatrix}
+}
+
+La \[A = \matriseAE\]
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{Opgv1e.m}
+Output:
+\lstinputlisting[language = matlab, frame = single]{Opgv1eOutput}
+
+Har gjor det samme som i Oppgave1d men har lagt til en ekstra komando som radreduserer U til redusert trappeform. Siden U er en matrise av egenvektorene til A ser vi at siden og matlab ikke klarer å radredusere denne til identitesmatrisen så vet vi at egenvektorene til A ikke danner en basis for $\mathbb{R}^{3}$
+
+\newpage
+
+\subsection*{f)}
+\def\matriseAF{
+  \begin{pmatrix}
+    3 & 1 & 0 & 0 \\
+    -1 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 4 \\
+    0 & 0 & 1 & 4 
+  \end{pmatrix}
+}
+La \[A = \matriseAF \]
+\lstinputlisting[language = matlab, frame = single]{Opgv1f.m}
+Output:
+\lstinputlisting[language = matlab, frame = single]{Opgv1fOutput}
+
+Har gjor det samme som over og ser at egenvektorene danner ikke en basis i $\mathbb{R}^{4}$
+
+
+
+\subsection*{g)}
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{Opgv1g.m}
+Output:
+\lstinputlisting[language = matlab, frame = single]{Opgv1gOutput}
+
+Hvis man forkorter de to første søylene på hverandre ser man at allerede de to første radene kanselerer hverandre, altså danner ikke søylene i matrisen til en basis. Men grunne til at matlab tror det er muligens fordi søyle en og søyle to ikke er identiske men har forskjellige fortegn. Alså er de etter matlabs definisjon ikke identiske, selv om de `egentlig' er det kun motsatt rettet.
+
+\newpage
+
+\section*{Oppgave 2:}
+\[\begin{split}
+&f  :  [0, \pi] \rightarrow [0, \pi]\\
+&f(x) = a\sin{x}, \quad  a \in [0, \pi]\\
+&\\
+&\{x_{n}\}_{n=1}^{\infty}, \quad x_{1} \in [0, \pi]\\
+&x_{n+1} = f(x_{n}), \quad n \geq 1
+\end{split}\]
+
+
+\subsection*{a)}
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{opgv2a.m}
+
+\subsection*{b)}
+
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{opgv2b.m}
+Grafen til de tre funksjonene:
+\begin{figure}[H]
+    \centering
+    \includegraphics{opgv2bFig}
+\end{figure} 
+
+Ser at alle tre grafene begynner med å svinge, men at de de etterhvert gjevner seg ut samme punkt, y = 1.8955 (tall matlab gir)
+
+\subsection*{c)}
+Matlabkoden:
+\lstinputlisting[language = matlab, frame = single]{opgv2c.m}
+Grafen til funksjonene:
+\begin{figure}[H]
+    \centering
+    \includegraphics{opgv2cFig}
+\end{figure} 
+
+\subsection*{d)}
+\subsection*{e)}
+\subsection*{f)}
+\end{document}
