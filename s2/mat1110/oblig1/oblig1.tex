@@ -1,0 +1,163 @@
+\documentclass[a4paper, norsk, twoside, 10pt]{article}
+%trennger en pakke med norske symboler
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{float}
+\usepackage{listings}
+%\usepackage[norsk]{babel}
+
+\date{\today} 
+\title{Oblig1 \\ mat1110}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+  \section*{Oppgave 1:}
+
+  Gitt: \[f(x, y) = 4 - x^{2} - y^{2}\]
+
+
+  \subsection*{a)}
+  Har at lineariseringen $T_{\vec{a}}$ er definert ved:\[
+    \begin{split}
+      T_{\vec{a}}(\vec{f} ) &= \vec{f}(\vec{a}) +\vec{f}'(\vec{a})(\vec{x} -\vec{a})\\*
+      \vec{f}'(\vec{x})&=(-2x, -2y)
+    \end{split}
+  \]
+
+  Setter inn for $\vec{a}$. Gir: \[
+    \begin{split}
+      T_{\vec{a}}(\vec{f}) &= (4- 1² -1²) + (-2a_{x}, -2a_{y})\left(\begin{pmatrix}x\\y\end{pmatrix}-\begin{pmatrix}a_{x} \\ a_{y} \end{pmatrix}\right)
+       \\*
+       &= (2) + (-2, -2)\begin{pmatrix}x-1\\ y-1\end{pmatrix} \\*
+          &= (2) + (-2(x-1) + -2(y-1)) \\*
+         &= (2) + (-2x+2-2y+2) = (-2x-2y+6) = -2(x+y-3)
+    \end{split}
+  \]
+
+  Ser vi på $T_{\vec{a}}(f) = z$ ser vi at x,y,z alle er i første grad, altså vil $T_{\vec{a}}(f)$ danne et plan i $\mathbb{R}^{3}$.
+
+  \subsection*{b)}
+  Grafen til f(x,y) og $T_{\vec{a}}$
+    \begin{figure}[H]
+    \begin{center}
+    \includegraphics[width = 100mm]{Oppgave1b.jpg}
+    \end {center}
+    \end{figure}
+    %MATLAB
+    Matlab koden:
+    \lstinputlisting[language = matlab, frame = single]{opgv1b.m}
+    \subsection*{c)}
+        De to grafene har dessverre fått samme fargekode, og jeg kan ikke endre den ene uten å endre den andre (med mindre jeg gjør dem ensfargede, hvor man da ikke lenger får en 3D følelse). Men siden man vanskelig ser forskjellen på dem, skjønner man også at $T_{a} \approx f(x,y)$ i punktet $\vec{a}$. Dette er fordi lineariseringen $T_{\vec{a}}$ i $f(\vec{a})$ er ekvivalente til tangentplanet i $\vec{a}$.
+    \begin{figure}[H]
+    \begin{center}
+    \includegraphics[width = 100mm]{Oppgave1c.jpg}
+    \end{center}
+    \end{figure}
+  %mer MATLAB
+    Matlab koden:
+        \lstinputlisting[language = matlab, frame = single]{opgv1c.m}
+
+  \section*{Oppgave 2:}
+  La $\mathcal{C}$ være en kurve i (x,y)-planet, og la $f: [a,b] \rightarrow \mathbb{R}$ være en kontinuerlig funksjon. Og $\vec{r}=f(\theta)$ er avstanden fra origo til $\mathcal{C}$ hvor $\theta$ er en vinkel som står positivt til x-aksen.
+
+  \subsection*{a)}
+  Forklar at: \[\vec{r}(\theta) = f(\theta)\cos(\theta)\vec{i} + f(\theta)\sin(\theta)\vec{j}, \quad \theta \in [a,b]\]\\*
+
+  \begin{proof}
+    Kan skrive: \[\vec{r}(\theta) = f(\theta)\cos(\theta)\vec{i} + f(\theta)\sin(\theta)\vec{j} = [f(\theta)\cos(\theta), f(\theta)\sin(\theta)]\]
+    
+    La (c,d) være et punkt på $\mathcal{C}$ og anta at $\vec{r}$ går fra origo til (c,d). $\vec{i}$ og $\vec{j}$ er henholdsvis $\vec{e}_{1}$ og $\vec{e}_{2}$. Siden vi tar utgangspunkt i origo kan vi lage en enhetssirkel hvor vi per definisjon vet at $x$ verdien er $\cos(\theta)$ og $y$ verdien er $\sin(\theta)$. Dermed har vi parametriseringen $[\cos(\theta), \sin(\theta)]$ som danner en parametrisering av $\vec{r}$. $\vec{r} * f(\theta)$ vil da gi lengden og dermed har vi at: \[\vec{r}(\theta) = f(\theta)\cos(\theta)\vec{i} + f(\theta)\sin(\theta)\vec{j}\]
+    
+  \end{proof}
+
+  \subsection*{b)}
+  Anta at $f$ er derriverbar. Finn $\vec{v}(\theta)$ og $v(\theta)$.
+
+  \[\begin{split}
+      \text{Har at: } \vec{v}(\theta) &= \vec{r}\,'(\theta) = (f(\theta)\cos(\theta)\vec{i} + f(\theta)\sin(\theta)\vec{j})'\\*
+      &= (f'(\theta)\cos(\theta) - f(\theta)\sin(\theta))\vec{i} + (f'(\theta)\sin(\theta) + f(\theta)\cos(\theta))\vec{j}\\
+&\\
+      v(\theta) = |\vec{v}(\theta)| &= \sqrt{ (f'(\theta)\cos(\theta) - f(\theta)\sin(\theta))^{2} + (f'(\theta)\sin(\theta) + f(\theta)\cos(\theta))^{2}} \\
+      &= \sqrt{(f'(\theta))^{2}\cos^{2}(\theta) - 2f'(\theta)f(\theta)\sin(\theta)\cos(\theta) +(f(\theta))^{2}\sin^{2}(\theta)}\\&\qquad \overline{+ (f'(\theta))^{2}\sin^{2}(\theta) + 2f'(\theta)f(\theta)\sin(\theta)\cos(\theta) + (f(\theta))^{2}\cos^{2}(\theta)}\\
+      &=\sqrt{(f'(\theta))^{2}(\cos^{2}(\theta) + \sin^{2}(\theta)) + (f(\theta))^{2}(\cos^{2}(\theta) + \sin^{2}(\theta))}\\*
+      &=\sqrt{(f'(\theta))^{2} + (f(\theta))^{2}} \\
+    \end{split}\]
+  \\
+
+
+  \subsection*{c)}
+ 
+  Lar $\mathcal{C}$ være en slik kurve at $f(\theta) = 1 + \cos(\theta), \quad \theta \in [0, 2\pi]$
+  Da får $\mathcal{C}$ paramteriseringen:
+  \[\vec{r}(\theta) = [\cos(\theta) + \cos^{2}(\theta),\: \sin(\theta) + \cos(\theta)\sin(\theta)]\]
+  Som gir følgende graf:
+  % Sett inn grafen
+    \begin{figure}[H]
+    \begin{center}
+      \includegraphics[width = 100mm, ]{Oppgave2c.jpg}
+      \caption{{\tiny Benevningen på begge aksene er $\in \mathbb{R}$}}
+    \end {center}
+  \end{figure}
+        %{\tiny Benevningen på begge aksene er $\in \mathbb{R}$}
+        Matlab kode:
+        \lstinputlisting[language = matlab, frame = single]{opgv2c.m}
+  \subsection*{d)}
+  Har at: \[f'(\theta) = -\sin(\theta)\]\\
+  Bruker formelen vist i Oppgave 2b og setter inn for $\theta$ \\* Gir:
+  \[
+    \begin{split}
+      \vec{v}(\theta) &= (-\sin(\theta)\cos(\theta) - (1 + \cos(\theta))\sin(\theta))\vec{i} + (-\sin^{2}(\theta) + (1 + \cos(\theta))\cos(\theta))\vec{j}\\*
+      &= (-2\sin(\theta)\cos(\theta)-\sin(\theta))\vec{i} + (-\sin^{2}(\theta) + \cos(\theta) + \cos^{2}(\theta))\vec{j} \\*
+      &= (-\sin(\theta) -\sin(2\theta))\vec{i} + (\cos(2\theta) +\cos(\theta))\vec{j}\\
+      \\
+      v(\theta) &= \sqrt{(-\sin(\theta))^{2} + (1+ \cos(\theta))^{2}}\\*
+      &= \sqrt{\sin^{2}(\theta) + 1 + 2\cos(\theta) + \cos^{2}(\theta)} \\*
+      &= \sqrt{1 + 1 + 2\cos(\theta)} = \sqrt{2(1 + \cos(\theta))}
+    \end{split}
+  \]
+
+  \subsection*{e)}
+      \begin{figure}[H]
+    \begin{center}
+    \includegraphics[width = 100mm]{Oppgave2e.jpg}
+    \end {center}
+    \end{figure}
+      %MATHLAB
+
+   \lstinputlisting[language = matlab, frame = single]{opgv2e.m}
+  \subsection*{f)}
+  Vis at: \[\mathcal{L}(0, 2\pi) = 2\sqrt{2} \int_0^{\pi}\!\frac{\sin(\theta)}{\sqrt{1-\cos(\theta)}} \,\mathrm{d}\theta \]
+  \begin{proof}
+    Har: \[\begin{split}
+        \mathcal{L}(0, 2\pi) &= \int_0^{2\pi}\!\sqrt{(r_{1}'(\theta))^{2} + (r_{2}'(\theta))^{2}}\,\mathrm{d}\theta \\
+        &= \int_0^{2\pi}\!v(\theta)\,\mathrm{d}\theta \\
+        &= \int_0^{2\pi}\!\sqrt{2(1+ \cos(\theta))}\,\mathrm{d}\theta\\
+        &= \sqrt{2} \int_0^{2\pi}\!\sqrt{1+ \cos(\theta)}\,\mathrm{d}\theta \\
+        &= \sqrt{2} \int_0^{2\pi}\!\sqrt{1+ \cos(\theta) * \frac{1-\cos(\theta)}{1-\cos(\theta)}}\,\mathrm{d}\theta \\
+        &= \sqrt{2} \int_0^{2\pi}\!\sqrt{\frac{1 - \cos^{2}(\theta)}{1- \cos(\theta)}}\,\mathrm{d}\theta\\
+        &= \sqrt{2} \int_0^{2\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta\\
+          &=\sqrt{2} \left( \int_0^{\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta + \int_\pi^{2\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta \right)\\
+      \end{split}\]
+    Har at: $\sin(\theta) \leq 0$, når $\theta \in [0, \pi]$ og $\sin(\theta) \geq 0$, når $\theta \in [\pi, 2\pi]$. Og har at $\cos(\theta)$ går fra [1, -1] og [-1, 1] i de respektive intervallene har vi at fortegnet til $\cos(\theta)$ ikke vil spille en rolle, siden [1, -1] $\equiv$ [-1, 1]. Dermed har vi at kun fortegnet til $\sin(\theta)$ vil intre, men siden vi har $|\sin(\theta)|$ får vi:\\*
+    \[sin(\theta) \in [0, \pi] \equiv \sin(\theta) \in [\pi, 2\pi],\quad \sin(\theta)\in[0, \pi] = |\sin(\theta)|\]\\
+    Altså har vi: \[ \begin{split} \mathcal{L}(0, 2\pi) &= \sqrt{2} \left( \int_0^{\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta + \int_\pi^{2\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta \right) \\
+      &= 2\sqrt{2}\int_0^{\pi}\!\sqrt{\frac{|\sin^{2}(\theta)|}{1- \cos(\theta)}}\,\mathrm{d}\theta \\*
+      &= 2\sqrt{2}\int_0^{\pi}\!\frac{\sin(\theta)}{\sqrt{1- \cos(\theta)}}\,\mathrm{d}\theta
+\end{split}\]
+  \end{proof}
+
+\subsection*{g)}
+\[\mathcal{L}(0, 2\pi) = 2\sqrt{2}\int_0^{\pi}\!\frac{\sin(\theta)}{\sqrt{1- \cos(\theta)}}\,\mathrm{d}\theta\]
+Substitusjon: \[\begin{split} u &= 1 -\cos(\theta) \quad \: u = 1-\cos(0) = 0\\* u' &= \sin(\theta) \quad \qquad \, u = 1- \cos(\pi) = 2
+\end {split}\]
+Gir: \[2\sqrt{2}\int_0^{\pi}\!\frac{\sin(\theta)}{\sqrt{u}\,\sin(\theta)}\,\mathrm{d}\theta
+= 2\sqrt{2}\int_0^{2}\!\frac{1}{\sqrt{u}}\,\mathrm{d}u
+= 2\sqrt{2}\big[2\sqrt{u}\big]_{0}^{2} = 4\sqrt{2}\left(\sqrt{2} -\sqrt{0}\right) = 8\]
+Altså \[\mathcal{L}(0,2\pi) = 8\]
+\end{document}
