@@ -1,0 +1,162 @@
+\documentclass[a4paper, norsk, twoside, 10pt]{article}
+%trennger en pakke med norske symboler
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{float}
+\usepackage{listings}
+%\usepackage[norsk]{babel}
+
+\date{\today} 
+\title{Lab 6 \\ eksamen 2014}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\section*{Oppgave 1:}
+\subsection*{a)}
+Har at R3 og R2 står i parralell og at denne samlede motstanden står i serie med R1. Gir at:
+\begin{align*}
+  R_{total} &= R_{1} + \frac{1}{\frac{1}{R_{2}} + \frac{1}{R_{3}}}\\
+  &= 5 \cdot 10^{3} \Omega + \frac{1}{\frac{1}{15 \cdot 10^{3}  \Omega} + \frac{1}{10 \cdot 10^{3}  \Omega}}\\
+  &= 5 \cdot 10^{3} \Omega +\frac{1}{\frac{1}{6000 \Omega}} \\
+  & = 5 \cdot 10^{3} \Omega + 6 \cdot 10^{3} \Omega = 11k \Omega
+\end{align*}
+R1, R2 og R3 kan altså byttes ut med en $11k\Omega$ motstand
+
+
+\subsection*{b)}
+Ser at spenningen $V_{in}$ er en AC spenning gitt ved $V_{in} = 1+ 2\sin{t}$. Det tilsvarer altså en AC spenning med DC-offset = 1V og en peak-peak amplitude på 4V.
+
+Dette gjør at $I_{tot-DCoffset}$ vil har en DC offset på
+\[I_{DC-offset} = \frac{V_{in-DCoffset}}{R_{total}} = \frac{1}{11 \cdot 10^{3}}A\]
+Og en peak-to-peak verdi på
+\[I_{pp} = \frac{V_{in-pp}}{R_{total}} = \frac{4}{11 \cdot 10^{3}}A\]
+
+Har at siden $I_{R1}$ er seriekoblet til hele kretsen er $I_{R1} =I_{tot}$ som git en $I_{R1}$ på:
+
+\[I_{R1} = \frac{1}{11 \cdot 10^{3}}\ + \frac{4}{22 \cdot 10^{3}} \sin{t} = \frac{1}{11\cdot 10^3}(1 + 2\sin{t})A\]
+
+
+\subsection*{c)}
+Maks offsetet til $V_{out}$ er når $V_{in}$ er på maks peak, vil si $V_{in-maks} = 1 +2 = 3$ og tilsvarende for min peak $V_{in-min} = 1 -2 = -1$
+$V_{out}$ er $V_{in}$ minus spenningsfallet over begge motstandene koblet i paralell. Dette tilsvarer
+
+\[R_{parallell} = \frac{1}{\frac{1}{R_{2}} + \frac{1}{R_{3}}}\]
+\[V_{out} = V_{in} - V_{R_{parallell}} = V_{R1} = I_{R1}\cdot R_{1} =  \frac{1}{11\cdot 10^3}(1 + 2\sin{t}) \cdot 5 \cdot 10^{3} \]
+Gir:
+\begin{align*}
+  V_{out-maks} &=  \frac{5}{11}(3) = 1.36 V \\
+  V_{out-min} &= \frac{5}{11}(-1) = -0.45 V
+\end{align*}
+
+
+\subsection*{d)}
+Antar skrivefeil, der det står at A skal skrives som en funksjon av $R_{1}, R_{2}$ og $X_{C}$ antar de mener R3 og ikke R1\\
+La:
+\[Z_{total} = \sqrt{X_{C}^{2} + R_{parallell}^{2}} \Omega\]
+ 
+Har at: \[A = \frac{V_{out}}{V_{in}} = \frac{V_{C}}{1+ 2\sin{t}} = \frac{I_{C} \cdot X_{C}}{I_{tot} \cdot Z_{total}}
+= \frac{I_{total} \cdot X_{C}}{I_{tot} \cdot Z_{total}}= \frac{X_{C}}{Z_{totalt}}\]
+
+
+\subsection*{e)}
+Har at: \[X_{C} = \frac{1}{2\pi f \mathrm{C}} = \frac{1}{100\pi f 10^{-6}} \Omega\]
+Ser at når $\lim_{f \to \infty}$ så er $X_{C} \approx 0$ altså vil $Z_{total}$ gå mot $R_{prarallell}$ Men telleren i A vil gå mot 0, og dermed har vi at A vil gå mot 0. Når $\lim_{f \to 0}$ blir  $X_{C} \approx \infty$ som gjør at $R_{parallell}$ ikke spiller noe rolle, for altså $\frac{X_{C}}{X_{C}}$ som gir 1.\\*
+Har altså at:
+\[A \in <0,1>\]
+
+
+\newpage
+\section*{Oppgave 2}
+\subsection*{a)}
+
+Finner R ved å lese av strøm-verdien ved de gitte spenningene og deretter bruker Ohms-lov:
+
+\begin{align*}R &= \frac{V}{I}\\
+  \\
+  R &= \frac{-60 V}{5nA} = 12 G \Omega\\
+  R &= \frac{0.5}{0.8mA} = 625 \Omega \\
+  R &= \frac{0.8}{6.5mA} = 123.1 \Omega \\
+\end{align*}
+
+
+
+\subsection*{b)}
+Ser at dette er samme kretsen som i Oppgave1 men hvor $R_{parallell}$ er byttet ut med en diode og $R_{1}$ har økt til $10k \Omega$ \\
+Har altså samme bregninger som i oppgaven over:
+\begin{align*}
+  V_{toal-maks} &= 3\\
+  V_{toal-min} &= -1\\
+  \\
+  I_{R} &= I_{total} = \frac{V_{total}}{R_{total}}
+\end{align*}
+Siden $R_{total}$ er summen av motstanden R og motstanden til dioden som varierer med spenningen over den. Siden vi kan regne dioden som en ideel diode kan vi si at strømmen gjennom den er 0 frem til V= 0.7V Dette gjør at:
+\[I_{total-min} = 0 \]
+Når $V \geq 0.7$ så er grafen lineær. Altså er I lineært avhengig av V over dioden. Når $V_{total} = 3V$ så er strømmen gjennom R gitt ved $V_{total-maks}$:
+\[V_{R} = V_{total} - 0.7 = 3-0.7 = 2.3V\]
+Gir
+\[I_{total-maks} =  \frac{V_{total-maks}}{R_{total}} = \frac{2.3}{10k} = 2.3mA\]
+
+
+
+
+
+\subsection*{c)}
+
+MÅ GJØRE DENNE!
+
+
+
+
+\newpage
+
+\section*{Oppgave 3}
+\subsection*{a)}
+\subsubsection*{1.}
+Kretsen er en forsterker med negativ tilbakekobling. Det er en sumerende forsterker; som gir ut og forsterker summen av innspenningene. 
+
+
+
+\subsubsection*{2.}
+Har at:
+\[V_{out} = \frac{-R_{f}}{R_{prallell}} (V_{1} + V_{2} + V_{3})\]
+Hvis kretsen ikke hadde vært en forsterker ville $V_{out} = V_{1} + V_{2} + V_{3}$. Forstrekningen beholder frekvens altså det eneste som endres er amplituden. Altså må den forsterkete faktoren være:
+
+
+\begin{align*}
+  A &= \frac{-R_{f}}{R_{prallell}} \\
+  &= \frac{-14.1k\Omega}{\frac{4.7k\Omega}{3}}  = \frac{-3*14.1}{4.7}  = -9
+\end{align*}
+
+Det negative fortegnet forteller at forsterkning er 180\degree faseforskøvet
+
+
+
+\subsubsection*{3.}
+\begin{align*}
+  V_{1} &= 1V \\
+  V_{2} &= -2V\\
+  \\
+  V_{out} &= -8V
+\end{align*}
+Siden:
+\[V_{out} = \frac{-R_{f}}{R_{prallell}} (V_{1} + V_{2} + V_{3})\]
+Og vi har at forsterkningen er -9 har vi:
+\begin{align*}
+  V_{3} &= \frac{V_{out}}{-9}- V_{1} - V_{2} \\
+  &= \frac{-8}{-9}- 1 + 2 = 1.89 V
+\end{align*}
+
+
+\subsection*{b)}
+\subsubsection*{1.}
+
+
+
+\end{document}
