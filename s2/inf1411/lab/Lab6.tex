@@ -10,6 +10,8 @@
 \usepackage[a4]{}
 \usepackage{float}
 \usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{pgffor}
 %\usepackage[norsk]{babel}
 
 \date{\today} 
@@ -156,7 +158,157 @@ Og vi har at forsterkningen er -9 har vi:
 
 \subsection*{b)}
 \subsubsection*{1.}
+Et passivt filter består kun av passive deler (R, C, L) mens et aktivt filter består av et passivtfilter og en forsterker. \\
+Hovedforskjellen mellom aktive og passivefiltere er at et passivt filter har maks en forstrekning på A=1 i tillegg har passive filtere en mye slakere rolloff. Dette kommer av at en forsterker kun forsterker et signalt, og det lineært, dvs forskjellen mellom topp og bånn er mye større i et aktivt filter enn et passivt ett men tiden det tar å komme fra A til B er lik, derfor har vi at rolloffen til aktive filtere er brattere.
 
 
 
+KOMMENTER FORSKJELL PÅ AKTIVE OG PASSIVE KOMPONENTER
+
+
+\subsubsection*{2.}
+SJEKK RIKTIG FILTER
+
+Kretsen er et lavpass filter, dvs det er hovedsaklig spenningen ved lave frekvenser som slipper gjennom. Så ved å sende inn et DC-signal eller et signal med lav frekvens. \\
+Siden vi har at første delen er et lavpassfilter så vil de signalene vi sender gjennom bare gå rett gjennom. Forsterkeren har en forstrekningsgrad på 1 for lave frekvenser (siden lavpassfilter) og ingen faseforsyvning siden signalet er koblet til den possitive inngangen til opampen. Kretsen er derfor en spenningsfølger også kalt en buffer. Det den gjør er at man kan sette på en ekstra load på $V_{out}$ uten at det vil endre på $V_{in}$.
+
+
+
+\subsubsection*{3.}
+Hovedsakelig svart på i oppgaven over, men i passområdet er A = 1. \\
+Grunnen til at den ikke er større er fordi det ikke er koblet til noen komponenter i tilbakekoblingen, derfor vil spenningen som blir sendt tilbake være lik den spenningen som blir sendt inn. Altså vil det ikke være noen forsterkning av inngangssignalet, altså A = 1.
+
+
+
+
+\subsection*{c)}
+Siden kretsen er en integrator vet vi at utsagnssignalet er intergralet av inngangssignalet. For en ideel krets får vi følgende resultat:\\
+\begin{tikzpicture}
+  \begin{axis}[
+      width=10cm ,
+      height=4cm,
+      x axis line style={-stealth},
+      y axis line style={-stealth},
+      title={Inn signalet},
+      xticklabels={},
+      yticklabels = {},
+      ymax = 1.5,xmax=15.5, xmin = 0,
+      axis lines*=center,
+      xlabel={Tid},
+      ylabel={Amplitude},
+      ylabel near ticks
+    ]
+    \addplot+[thick,mark=none,const plot]
+    coordinates
+    {(0,1) (1,-1) (2,1) (3,-1) (4,1) (5,-1) (6,1) (7,-1) (8,1) (9,-1) (10,1) (11,-1) (12,1) (13,-1) (14,1) (15,-1) (15.5, -1)};
+    enlarge x limits=true
+  \end{axis}z
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      width=10cm ,
+      height=4cm,
+      x axis line style={-stealth},
+      y axis line style={-stealth},
+      title={Ut signalet},
+      xticklabels={},
+      yticklabels = {},
+      ymax = 1.5,xmax=15.5, xmin = 0,
+      axis lines*=center,
+      xlabel={Tid},
+      ylabel={Amplitude},
+      ylabel near ticks
+    ]
+    \addplot+[thick,mark=none]
+    coordinates
+    {
+     (0,0) (1,-1) (2,0) (3,-1) (4,0) (5,-1) (6,0) (7,-1) (8,0) (9,-1) (10,0) (11,-1) (12,0) (13,-1) (14,0) (15,-1)};
+    enlarge x limits=true
+  \end{axis}z
+\end{tikzpicture}
+
+
+
+\subsection*{d)}
+Antar det menes at ingangssignalet fremdeles ansees som ideelt altså er det kun opampen som er ikke ideel, og vi er gitt følgende forutsetninger: \[V_{out} > 0, \quad V_{in} = 0\]
+Det betyr at utgangssignalet er større enn ing
+
+
+FINN UT AV DENNE!
+
+
+
+\section*{Oppgave 4}
+\subsection*{a)}
+Målte verdier
+\begin{align*}
+V_{B} &= 3V\\
+V_{C} &= 9V\\
+\\
+V_{TH} &= 0.7V
+\end{align*}
+
+Finn feilen.\\
+Siden $V_{CC} = V_{C}$ har vi at det ikke går noe strøm i transistoren (men det var også til å forstå av oppgaveteksten). Har også at siden emitoren er koblet til jord så er $V_{E} =0$. Dette gjør at $V_{BE} > V_{TH}$ og transistoren burde derfor lede strøm. Det tyder derfor på at feilen ligger i basen.
+
+
+\subsection*{b)}
+Poenget med $R_{C}$ er at spenningen inn til kolektoren blir mindre, og etterhvert som tranistoren leder mer og mer strøm så vil spenningstilføreslen til $V_{C}$ øke, som igjen fører til at den leder mer strøm.
+\\
+Ved å ha en motstand etter emitteren hever man også spenningen til emitteren til alltid å måtte være på samme nivå som jord. M.a.o. ved å koble inn de to mitstandene kan man sende inn et større signal enn mann ellers kunne uten å ødelegge kretsen.
+\\
+Kretsen er en `Voltage-divider bias'
+
+
+
+
+\subsection*{c)}
+\begin{align*}
+  I_{E} &= 4mA\\
+  I_{B} &= 10\mu A
+\end{align*}
+
+Finn $I_{C}$ og $\beta$:\\
+\begin{align*}
+  &I_{C} = \beta \cdot I_{B} \\
+  &I_{E} = I_{C} + I_{B} \\
+  \\
+  &I_{C} = I_{E} - I_{B} = 4\cdot 10^{-3} - 10\cdot 10^{-6} = 3.99mA \\
+  &\beta = \frac{I_{C}}{I_{B}} = 399
+\end{align*}
+
+
+\subsection*{d)}
+Ved å minske $R_{2}$ vil det meste av spenningsfallet skje over $R_{1}$ og dermed vil $V_{B}$ minke. \\
+Har at: \[V_{TH} = 0.7V \]
+Den minste verdien for $R_{2}$ må altså være slik at $V_{BE} \geq 0.7$ og siden emitteren ikke er koblet direkte til ground så må altså:
+\[V_{B} = V_{BE} +V_{E} = 0.7 + V_{E}\]
+Og siden transistoren ikke leder noe strøm før $V_{BE} > 0.7$ og dermed er $V_E = 0V$ før dette skjer. Altså må $V_B = 0.7$. Da har vi en vanlig spenningsdeler og vi har følgende formel.
+\begin{align*}
+  V_{CC} &= R_{total}I \\
+  I &= \frac{25}{44k\Omega + R_2}\\
+  \\
+  V_{R2} &= 0.7V = R_2I = \frac{25R_2}{44k\Omega + R_2} \\
+  0.7(44k\Omega + R_2) &= 25R_2 \\
+  25R_2 -0.7R_2 &= 24.3R_2 = 30.8k\Omega \\
+  R_2 &= 1.3k\Omega
+\end{align*}
+
+
+\subsection*{e)}
+
+I den første kretsen er faseforskyvningene mellom $V_{in}$ og $V_{out}$ $180\degree$ dette er fordi når $V_{in}$ øker så vil transistoren lede mer strøm, det vil si motstanden over transistoren minker. Og etter oms-lov vil da spenningen over $V_E$ øke og da må den minke over $V_C$. Dette gjelder også andre veien.
+\\
+Den samme logikken gjelder for den andre kretsen, men har er outputen på $V_E$ og derfor vil ingang og utgangssignalet ligge i samme fase. 
+
+
+
+\section*{Oppgave 5}
+\subsection*{a)}
+4. Det er det som er poenget med en `algebraisk sum', retningen har ingenting å si
+\subsection*{a)}
+\subsection*{a)}
+\subsection*{a)}
+\subsection*{a)}
 \end{document}
