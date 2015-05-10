@@ -4,15 +4,12 @@ import javax.swing.filechooser.*;
 import java.awt.event.*;
 
 class SudokuGUI{
-    //Variabler brukt for innlesning
-    private Brett hovedprogramet;
-    
+    private Brett brett;
+
     private JFrame ramme;
-    private JTextField filNavn;
     private JButton filNavnKnapp;
     private JButton skrivEgen;
 
-    //Variabler brukt ved innlesning og losning
     private JPanel lag1;
     private JPanel lag2;
     private JPanel lag3;
@@ -21,63 +18,64 @@ class SudokuGUI{
     private JPanel[][] boksene;
     private JButton nesteLosning;
 
-   
+
     private int vBoks;
     private int lBoks;
     private int boksTeller = 0;
-    private int boksRad = 0; //tilsvarer nivået til boksen 
+    private int boksRad = 0; //tilsvarer nivået til boksen
 
-    
-    SudokuGUI(){
-	
-	JFileChooser filFinner = new JFileChooser();
-	FileNameExtensionFilter filer = new FileNameExtensionFilter("Enten en .txt eller .text fil", "txt", "text");
-	filFinner.setFileFilter(filer);
-
+    SudokuGUI(Brett brett){
+	this.brett = brett;
 	
 	this.ramme= new JFrame("Sudoku: ");
-       	ramme.setSize(500, 300);
+	ramme.setSize(500, 300);
 	ramme.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	// legg til ekstra close opperation
 
 	lag1 = new JPanel(new BorderLayout());
-	filNavn = new JTextField("Filnavn");
-	filNavnKnapp = new JButton("Sok");
+	filNavnKnapp = new JButton("Finn lagret fil");
 	skrivEgen = new JButton("Skriv inn egen Sudoku");
 
-	lag1.add(filNavn, BorderLayout.WEST);
-	lag1.add(filNavnKnapp, BorderLayout.EAST);
+
+	lag1.add(filNavnKnapp, BorderLayout.NORTH);
 	lag1.add(skrivEgen, BorderLayout.SOUTH);
 	ramme.add(lag1);
 	ramme.setVisible(true);
+	innLesning();
+    }
 
-	
+    public void innLesning(){
 	filNavnKnapp.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-		    String tempTekst = filNavn.getText();
-		    lag1.remove(filNavnKnapp);
-		    lag1.remove(filNavn);
-		    lag1.remove(skrivEgen);
+		    JFileChooser filFinner = new JFileChooser();
+		    FileNameExtensionFilter filer = new FileNameExtensionFilter("Enten en .txt eller .text fil", "txt", "text");
+		    filFinner.setFileFilter(filer);
+		    if(filFinner.showOpenDialog(ramme) == JFileChooser.APPROVE_OPTION) {
+			 lag1.remove(filNavnKnapp);
+			 lag1.remove(skrivEgen);
 		    
-		    ramme.setSize(500, 500);
-		    hovedprogramet.lesFil(tempTekst);
-		}
+			 ramme.setSize(500, 500);
+			 
+			 brett.lesFil(filFinner.getSelectedFile().getName());
+		    }
 
+		}
+		
 	    });
     }
-}
-/*	skrivEgen.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-		    new SkrivSudoku({
-			    //LAG EN INDRE KLASSE
-		    });
-		}
-	    });
-		    
-	
-	
-    }
 
+/*skrivEgen.addActionListener(new ActionListener(){
+	public void actionPerformed(ActionEvent e){
+	new SkrivSudoku({
+	//LAG EN INDRE KLASSE
+	});
+	}
+	});
+
+
+
+	}
+*/
     public void visBrett(){
 	ramme.setVisible(true);
     }
@@ -90,33 +88,42 @@ class SudokuGUI{
 	}
     }
 
-    public void settStorelse(int v, int l){
-	this.lBoks = lBoks;
-	this.vBoks = vBoks;
-
+    public void settStorelse(int v, int l){ 
+	this.lBoks = l;
+	this.vBoks = v;
     }
 
     public void lagOppsettet(){
+	int farget = 0; //farges ved partall
+	
 	nesteLosning = new JButton("Vis en ny losning");
 
-	
 	brettet = new JPanel(new GridLayout(vBoks, lBoks));
 	boksene = new JPanel[vBoks][lBoks];
 	
 	for (int i = 0; i < vBoks; i++){
 	    for (int j = 0; j < lBoks; j++){
 		boksene[i][j] = new JPanel(new GridLayout(lBoks, vBoks));
+
+		if(farget %2 == 0){
+		    boksene[i][j].setBackground(Color.LIGHT_GRAY);
+		}
+		
 		brettet.add(boksene[i][j]);
+		farget++;
+	    }
+	    if((vBoks*lBoks)%2 == 0){
+		farget = farget %2;
 	    }
 	}
-
-	//Ber om aa skrive inn filnavn; naar dette er funnet saa endres layouten
-	ramme.add(filNavn, BorderLayout.PAGE_END);
-	ramme.remove(filNavn);
-
 	
-	ramme.add(brettet, BorderLayout.CENTER);
-	ramme.add(nesteLosning, BorderLayout.PAGE_END);
+	// bare for aa faa litt penere kanter
+	lag1.add(new JPanel(), BorderLayout.NORTH); 
+	lag1.add(new JPanel(), BorderLayout.WEST);
+	lag1.add(new JPanel(), BorderLayout.EAST);
+		
+	lag1.add(brettet, BorderLayout.CENTER);
+	lag1.add(nesteLosning, BorderLayout.SOUTH);
     }
 }
-*/
+

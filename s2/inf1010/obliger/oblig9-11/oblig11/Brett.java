@@ -18,8 +18,7 @@ class Brett extends AbstraktBrett{
     Brett(){
 	super();
 	beholder = new SudokuBeholder();
-	gui = new SudokuGUI();
-	lesFil(gui.lagBrett());
+	gui = new SudokuGUI(this);
     }
     
     Brett(String[] utfylling, int v, int l, SudokuGUI gui){
@@ -39,27 +38,20 @@ class Brett extends AbstraktBrett{
 	}
     }
     
-    public void lesFil(String[] args){ /*daarlig navn, men det det het for*/
+    public void lesFil(String filNavn){ 
 	Scanner filen;
 	try{
-	    filen = new Scanner(new File(args[0]));
+	    filen = new Scanner(new File(filNavn));
 	}
 	catch(FileNotFoundException e){
 	    System.out.println ("Denne filen finnes ikke");
 	    return;
 	}
-	try{
-	    utlesning = args[1];
-	    skrivesTilSkjerm = false;
-	}
-	catch(IndexOutOfBoundsException e){
-	    skrivesTilSkjerm = true;
-	}
 
 	l = Integer.parseInt(filen.nextLine()); //lodrett
 	v = Integer.parseInt(filen.nextLine()); //vannrett
 
-	gui = settStorelse(l, v);
+	gui.settStorelse(l, v);
 	
 	lengdeL = v*l;
 	lengdeV = v*l;
@@ -97,6 +89,7 @@ class Brett extends AbstraktBrett{
 		boksene[i][j] = new Boks(v, l);
 	    }
 	}
+	gui.lagOppsettet();
     }
 
     public Rute getRute(int v, int l){
