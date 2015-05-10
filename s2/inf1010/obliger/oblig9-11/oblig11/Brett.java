@@ -15,10 +15,11 @@ class Brett extends AbstraktBrett{
     private SudokuBeholder beholder;
     private SudokuGUI gui;
 
-    Brett(String[] args){
+    Brett(){
 	super();
 	beholder = new SudokuBeholder();
-	lesFil(args);
+	gui = new SudokuGUI();
+	lesFil(gui.lagBrett());
     }
     
     Brett(String[] utfylling, int v, int l, SudokuGUI gui){
@@ -38,7 +39,7 @@ class Brett extends AbstraktBrett{
 	}
     }
     
-    public void lesFil(String[] args){
+    public void lesFil(String[] args){ /*daarlig navn, men det det het for*/
 	Scanner filen;
 	try{
 	    filen = new Scanner(new File(args[0]));
@@ -58,7 +59,7 @@ class Brett extends AbstraktBrett{
 	l = Integer.parseInt(filen.nextLine()); //lodrett
 	v = Integer.parseInt(filen.nextLine()); //vannrett
 
-	gui = new SudokuGUI(l, v);
+	gui = settStorelse(l, v);
 	
 	lengdeL = v*l;
 	lengdeV = v*l;
