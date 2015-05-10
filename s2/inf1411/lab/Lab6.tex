@@ -1,5 +1,5 @@
 \documentclass[a4paper, norsk, twoside, 10pt]{article}
-%trennger en pakke med norske symboler
+
 \usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage{gensymb}
@@ -12,7 +12,6 @@
 \usepackage{listings}
 \usepackage{pgfplots}
 \usepackage{pgffor}
-%\usepackage[norsk]{babel}
 
 \date{\today} 
 \title{Lab 6 \\ eksamen 2014}
@@ -111,8 +110,21 @@ Gir
 
 \subsection*{c)}
 
-MÅ GJØRE DENNE!
+Kretsen er en NAND-implementasjon. Det ser vi ved at hvis både $V_A$ og $V_B$ er høye (altså 5V hver seg) så vil diodene være stengt og all spenningen pluss det litt dioden utgir siden de er reversebiased gå til basen på transistoren. Dette vil føre til at den er åpen, altså leder strøm, og dermed ser vi at all spenningsfallet må skje over $R_2$ og $V_{out}$ vil altså være på 0V som tilsvarer logisk lav (0).\\
+Ellers hvis $V_A$ eller $V_B$ er lave vil all strømmen bli trukket ut via denne dioden, for nå vil den kunne lede. Dermed vil spenningen ved basen være for lav til at transistoren vil åpne seg, altså vil all spenningen fra $V_{CC}$ måtte gå ut via $V_{out}$ som impliserer 5V som tilsvarer logisk høy (1). \\
+Alså vi får følgende sannhetsverditabell, tabellen for en NAND port:
 
+\begin{tabular}{|l|c||r}
+  \hline
+  V_A & V_B & V_{out} \\
+  \hline
+  0 & 0 & 1 \\
+  0 & 1 & 1 \\
+  1 & 0 & 1 \\
+  1 & 1 & 0 \\
+  \hline
+\end{tabular}
+  
 
 
 
@@ -161,14 +173,7 @@ Og vi har at forsterkningen er -9 har vi:
 Et passivt filter består kun av passive deler (R, C, L) mens et aktivt filter består av et passivtfilter og en forsterker. \\
 Hovedforskjellen mellom aktive og passivefiltere er at et passivt filter har maks en forstrekning på A=1 i tillegg har passive filtere en mye slakere rolloff. Dette kommer av at en forsterker kun forsterker et signalt, og det lineært, dvs forskjellen mellom topp og bånn er mye større i et aktivt filter enn et passivt ett men tiden det tar å komme fra A til B er lik, derfor har vi at rolloffen til aktive filtere er brattere.
 
-
-
-KOMMENTER FORSKJELL PÅ AKTIVE OG PASSIVE KOMPONENTER
-
-
 \subsubsection*{2.}
-SJEKK RIKTIG FILTER
-
 Kretsen er et lavpass filter, dvs det er hovedsaklig spenningen ved lave frekvenser som slipper gjennom. Så ved å sende inn et DC-signal eller et signal med lav frekvens. \\
 Siden vi har at første delen er et lavpassfilter så vil de signalene vi sender gjennom bare gå rett gjennom. Forsterkeren har en forstrekningsgrad på 1 for lave frekvenser (siden lavpassfilter) og ingen faseforsyvning siden signalet er koblet til den possitive inngangen til opampen. Kretsen er derfor en spenningsfølger også kalt en buffer. Det den gjør er at man kan sette på en ekstra load på $V_{out}$ uten at det vil endre på $V_{in}$.
 
@@ -306,9 +311,13 @@ Den samme logikken gjelder for den andre kretsen, men har er outputen på $V_E$ 
 
 \section*{Oppgave 5}
 \subsection*{a)}
-4. Det er det som er poenget med en `algebraisk sum', retningen har ingenting å si
-\subsection*{a)}
-\subsection*{a)}
-\subsection*{a)}
-\subsection*{a)}
+4. Det er det som er poenget med en `algebraisk sum', retningen har ingenting å si.
+\subsection*{b)}
+5. Det inverse til reaktans er impendans og reaktiv er inverse til kapasativ. SJEKK DENNE!
+\subsection*{c)}
+
+\subsection*{d)}
+
+\subsection*{e)}
+
 \end{document}
