@@ -9,16 +9,16 @@ class Brett extends AbstraktBrett{
     private int v;
     private int l;
     private static String[] tallVerdi;
-    private boolean skrivesTilSkjerm;
+    private boolean skrivesTilSkjerm = true;
     private String utlesning;
     private PrintWriter p;
     private SudokuBeholder beholder;
     private SudokuGUI gui;
 
-    Brett(){
+    Brett(SudokuGUI gui){
 	super();
 	beholder = new SudokuBeholder();
-	gui = new SudokuGUI(this);
+	this.gui = gui;
     }
     
     Brett(String[] utfylling, int v, int l, SudokuGUI gui){
@@ -58,6 +58,8 @@ class Brett extends AbstraktBrett{
 
 
 	delInnRuter(v, l);
+	gui.lagOppsettet();
+	
 	settTallVerdier(lengdeL);
 
 	int j = 0;
@@ -89,7 +91,6 @@ class Brett extends AbstraktBrett{
 		boksene[i][j] = new Boks(v, l);
 	    }
 	}
-	gui.lagOppsettet();
     }
 
     public Rute getRute(int v, int l){
@@ -105,18 +106,21 @@ class Brett extends AbstraktBrett{
 	return kolonnene[i];
     }
 
+    public String[] getTallVerdi(){
+	return tallVerdi;
+    }
     public void antallLosninger(){
 	System.out.println ("Antall losninger er: " + beholder.hentAntallLosninger());
     }
 
-    public void los(){
+    public boolean los(){
 	alleRutene[0][0].finnMuligverdiOgNeste();	
 	alleRutene[0][0].fyllUtDenneRutenOgResten();
 	
 	if (beholder.hentAntallLosninger() == 0){
-	    System.out.println ("Det finnes ingen losninger");
+	    return false;
 	}
-	utskrift();
+	return true;
     }
 
     public void muligLosning(){
@@ -130,11 +134,11 @@ class Brett extends AbstraktBrett{
     
     public void utskrift(){
 	//System.out.println(tallVerdi.length);
-	if(skrivesTilSkjerm){
-	    gui.visBrett();
-	    /*int teller = 0;
-	    for (Brett b: beholder){
-		for(Rute r: b){
+	//if(skrivesTilSkjerm){
+	    //int teller = 0;
+	for (Brett b: beholder){
+	    gui.visBrett(b);
+		/*	for(Rute r: b){
 		    if(teller == lengdeV){
 			System.out.println ();
 			teller = 0;
@@ -143,7 +147,7 @@ class Brett extends AbstraktBrett{
 		    teller ++;
 		}
 		System.out.println("\n");
-		}*/
+	    }
 	}
 	else {
 	    if(p== null){
@@ -170,7 +174,7 @@ class Brett extends AbstraktBrett{
 		}
 		p.println("\n");
 	    }
-	    p.close();
+	    p.close(); */
 	}
     }
     

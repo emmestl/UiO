@@ -2,6 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.awt.event.*;
+import java.util.*;
+import java.io.*;
 
 class SudokuGUI{
     private Brett brett;
@@ -24,8 +26,17 @@ class SudokuGUI{
     private int boksTeller = 0;
     private int boksRad = 0; //tilsvarer nivået til boksen
 
-    SudokuGUI(Brett brett){
-	this.brett = brett;
+
+    SudokuGUI(){}
+
+    public static void main(String[] args){
+	SudokuGUI sg  = new SudokuGUI();
+	sg.lagBrett();
+    }
+
+    
+    public void lagBrett(){
+	this.brett = new Brett(this);
 	
 	this.ramme= new JFrame("Sudoku: ");
 	ramme.setSize(500, 300);
@@ -44,10 +55,11 @@ class SudokuGUI{
 	innLesning();
     }
 
+    
     public void innLesning(){
 	filNavnKnapp.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-		    JFileChooser filFinner = new JFileChooser();
+		    JFileChooser filFinner = new JFileChooser(new File(System.getProperty("user.dir")));
 		    FileNameExtensionFilter filer = new FileNameExtensionFilter("Enten en .txt eller .text fil", "txt", "text");
 		    filFinner.setFileFilter(filer);
 		    if(filFinner.showOpenDialog(ramme) == JFileChooser.APPROVE_OPTION) {
@@ -57,6 +69,8 @@ class SudokuGUI{
 			 ramme.setSize(500, 500);
 			 
 			 brett.lesFil(filFinner.getSelectedFile().getName());
+			 lagOppsettet();
+			 visLosning();
 		    }
 
 		}
@@ -76,13 +90,15 @@ class SudokuGUI{
 
 	}
 */
-    public void visBrett(){
-	ramme.setVisible(true);
+    public void visBrett(Brett b){
+	for(Rute r: b){
+	    leggInnRuter(r.stringVerdi(b.getTallVerdi()));
+	}
     }
 
     public void leggInnRuter(String verdi){
-	boksene[boksRad/lBoks][boksTeller/vBoks].add(new JLabel(verdi));
-	if((++boksTeller)/lBoks >= vBoks){
+	boksene[boksRad/vBoks][boksTeller/lBoks].add(new JLabel(verdi));
+	if((++boksTeller)/vBoks >= lBoks){
 	    boksTeller = 0;
 	    boksRad++;
 	}
@@ -98,12 +114,12 @@ class SudokuGUI{
 	
 	nesteLosning = new JButton("Vis en ny losning");
 
-	brettet = new JPanel(new GridLayout(vBoks, lBoks));
-	boksene = new JPanel[vBoks][lBoks];
+	brettet = new JPanel(new GridLayout(lBoks, vBoks));
+	boksene = new JPanel[lBoks][vBoks];
 	
-	for (int i = 0; i < vBoks; i++){
-	    for (int j = 0; j < lBoks; j++){
-		boksene[i][j] = new JPanel(new GridLayout(lBoks, vBoks));
+	for (int i = 0; i < lBoks; i++){
+	    for (int j = 0; j < vBoks; j++){
+		boksene[i][j] = new JPanel(new GridLayout(vBoks, lBoks));
 
 		if(farget %2 == 0){
 		    boksene[i][j].setBackground(Color.LIGHT_GRAY);
@@ -112,8 +128,9 @@ class SudokuGUI{
 		brettet.add(boksene[i][j]);
 		farget++;
 	    }
-	    if((vBoks*lBoks)%2 == 0){
-		farget = farget %2;
+	    
+	    if((vBoks)%2 == 0){
+		farget = farget %2 +1;
 	    }
 	}
 	
@@ -124,6 +141,20 @@ class SudokuGUI{
 		
 	lag1.add(brettet, BorderLayout.CENTER);
 	lag1.add(nesteLosning, BorderLayout.SOUTH);
+    }
+    
+    public void visLosning(){
+	if(!brett.los()){
+	    lag1.add(new TextField("Brettet har ingen losninger"), BorderLayout.CENTER);
+	}
+	else{
+	    nesteLosning.addActionListener(new ActionListener(){
+		    public void actionPerformed(ActionEvent e){
+			brett.utskrift();
+		    }
+		}
+	    );
+	}
     }
 }
 

@@ -183,6 +183,10 @@ class Rute{
     public int verdi(){
 	return midlertidligVerdi;
     }
+
+    public String stringVerdi(String[] tallVerdi){
+	return tallVerdi[midlertidligVerdi];
+    }
     
     public void enesteMulige(){
 	ikkeEnesteMulige = false;
