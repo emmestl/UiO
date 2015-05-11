@@ -89,20 +89,20 @@ Finner R ved å lese av strøm-verdien ved de gitte spenningene og deretter bruk
 
 
 \subsection*{b)}
-Ser at dette er samme kretsen som i Oppgave1 men hvor $R_{parallell}$ er byttet ut med en diode og $R_{1}$ har økt til $10k \Omega$ \\
+Ser at dette er nesten samme kretsen som i Oppgave1 men hvor $R_{parallell}$ er byttet ut med en diode og $R_{1}$ har økt til $10k \Omega$\\
 Har altså samme bregninger som i oppgaven over:
 \begin{align*}
-  V_{toal-maks} &= 3\\
-  V_{toal-min} &= -1\\
+  V_{toal-maks} &= 2\\
+  V_{toal-min} &= 0\\
   \\
   I_{R} &= I_{total} = \frac{V_{total}}{R_{total}}
 \end{align*}
 Siden $R_{total}$ er summen av motstanden R og motstanden til dioden som varierer med spenningen over den. Siden vi kan regne dioden som en ideel diode kan vi si at strømmen gjennom den er 0 frem til V= 0.7V Dette gjør at:
-\[I_{total-min} = 0 \]
-Når $V \geq 0.7$ så er grafen lineær. Altså er I lineært avhengig av V over dioden. Når $V_{total} = 3V$ så er strømmen gjennom R gitt ved $V_{total-maks}$:
-\[V_{R} = V_{total} - 0.7 = 3-0.7 = 2.3V\]
+\[I_{total-min} = 0A \]
+Når $V \geq 0.7$ så er grafen lineær. Altså er I lineært avhengig av V over dioden. Når $V_{total} = 2V$ så er strømmen gjennom R gitt ved $V_{total-maks}$:
+\[V_{R} = V_{total} - 0.7 = 2-0.7 = 1.3V\]
 Gir
-\[I_{total-maks} =  \frac{V_{total-maks}}{R_{total}} = \frac{2.3}{10k} = 2.3mA\]
+\[I_{total-maks} =  \frac{V_{total-maks}}{R_{total}} = \frac{1.3 V}{10k \Omega} = 0.13mA\]
 
 
 
@@ -113,10 +113,11 @@ Gir
 Kretsen er en NAND-implementasjon. Det ser vi ved at hvis både $V_A$ og $V_B$ er høye (altså 5V hver seg) så vil diodene være stengt og all spenningen pluss det litt dioden utgir siden de er reversebiased gå til basen på transistoren. Dette vil føre til at den er åpen, altså leder strøm, og dermed ser vi at all spenningsfallet må skje over $R_2$ og $V_{out}$ vil altså være på 0V som tilsvarer logisk lav (0).\\
 Ellers hvis $V_A$ eller $V_B$ er lave vil all strømmen bli trukket ut via denne dioden, for nå vil den kunne lede. Dermed vil spenningen ved basen være for lav til at transistoren vil åpne seg, altså vil all spenningen fra $V_{CC}$ måtte gå ut via $V_{out}$ som impliserer 5V som tilsvarer logisk høy (1). \\
 Alså vi får følgende sannhetsverditabell, tabellen for en NAND port:
-
-\begin{tabular}{|l|c||r}
+\\
+\\
+\begin{tabular}{|l|c||r|}
   \hline
-  V_A & V_B & V_{out} \\
+  $V_A$ & $V_B$ & $V_{out}$ \\
   \hline
   0 & 0 & 1 \\
   0 & 1 & 1 \\
@@ -125,10 +126,6 @@ Alså vi får følgende sannhetsverditabell, tabellen for en NAND port:
   \hline
 \end{tabular}
   
-
-
-
-\newpage
 
 \section*{Oppgave 3}
 \subsection*{a)}
@@ -174,7 +171,7 @@ Et passivt filter består kun av passive deler (R, C, L) mens et aktivt filter b
 Hovedforskjellen mellom aktive og passivefiltere er at et passivt filter har maks en forstrekning på A=1 i tillegg har passive filtere en mye slakere rolloff. Dette kommer av at en forsterker kun forsterker et signalt, og det lineært, dvs forskjellen mellom topp og bånn er mye større i et aktivt filter enn et passivt ett men tiden det tar å komme fra A til B er lik, derfor har vi at rolloffen til aktive filtere er brattere.
 
 \subsubsection*{2.}
-Kretsen er et lavpass filter, dvs det er hovedsaklig spenningen ved lave frekvenser som slipper gjennom. Så ved å sende inn et DC-signal eller et signal med lav frekvens. \\
+Kretsen er et lavpass filter, dvs det er hovedsaklig spenningen ved lave frekvenser som slipper gjennom. \\
 Siden vi har at første delen er et lavpassfilter så vil de signalene vi sender gjennom bare gå rett gjennom. Forsterkeren har en forstrekningsgrad på 1 for lave frekvenser (siden lavpassfilter) og ingen faseforsyvning siden signalet er koblet til den possitive inngangen til opampen. Kretsen er derfor en spenningsfølger også kalt en buffer. Det den gjør er at man kan sette på en ekstra load på $V_{out}$ uten at det vil endre på $V_{in}$.
 
 
@@ -207,9 +204,9 @@ Siden kretsen er en integrator vet vi at utsagnssignalet er intergralet av innga
     coordinates
     {(0,1) (1,-1) (2,1) (3,-1) (4,1) (5,-1) (6,1) (7,-1) (8,1) (9,-1) (10,1) (11,-1) (12,1) (13,-1) (14,1) (15,-1) (15.5, -1)};
     enlarge x limits=true
-  \end{axis}z
+  \end{axis}
 \end{tikzpicture}
-
+\\
 \begin{tikzpicture}
   \begin{axis}[
       width=10cm ,
@@ -237,10 +234,7 @@ Siden kretsen er en integrator vet vi at utsagnssignalet er intergralet av innga
 
 \subsection*{d)}
 Antar det menes at ingangssignalet fremdeles ansees som ideelt altså er det kun opampen som er ikke ideel, og vi er gitt følgende forutsetninger: \[V_{out} > 0, \quad V_{in} = 0\]
-Det betyr at utgangssignalet er større enn ing
-
-
-FINN UT AV DENNE!
+Det betyr at utgangssignalet er større enn ingangssignalet. Det betyr at kretsen vil begynne å oselere, alstå outputten vil øke mer enn den synker. Så signalet vil etterhvert gå til cutoff. Kretsen vil ikke fungere. 
 
 
 
@@ -255,13 +249,15 @@ V_{TH} &= 0.7V
 \end{align*}
 
 Finn feilen.\\
-Siden $V_{CC} = V_{C}$ har vi at det ikke går noe strøm i transistoren (men det var også til å forstå av oppgaveteksten). Har også at siden emitoren er koblet til jord så er $V_{E} =0$. Dette gjør at $V_{BE} > V_{TH}$ og transistoren burde derfor lede strøm. Det tyder derfor på at feilen ligger i basen.
+Siden $V_{CC} = V_{C}$ har vi at det ikke går noe strøm i transistoren (men det var også til å forstå av oppgaveteksten). Har også at siden emitoren er koblet til jord så er $V_{E} =0$. Dette gjør at $V_{BE} > V_{TH}$ og transistoren burde derfor lede strøm, noe den ikke gjør. Det tyder derfor på at feilen ligger i basen, hadde den ligget noe annet sted så ville vi sett en kortsluttning.
 
 
 \subsection*{b)}
 Poenget med $R_{C}$ er at spenningen inn til kolektoren blir mindre, og etterhvert som tranistoren leder mer og mer strøm så vil spenningstilføreslen til $V_{C}$ øke, som igjen fører til at den leder mer strøm.
 \\
 Ved å ha en motstand etter emitteren hever man også spenningen til emitteren til alltid å måtte være på samme nivå som jord. M.a.o. ved å koble inn de to mitstandene kan man sende inn et større signal enn mann ellers kunne uten å ødelegge kretsen.
+\\
+Ved å fjerne begge vil kretsen kortslutten når transistoren er åpen, for det vil tilsvare å koble $V_{CC}$ direkte til jord.
 \\
 Kretsen er en `Voltage-divider bias'
 
@@ -313,11 +309,11 @@ Den samme logikken gjelder for den andre kretsen, men har er outputen på $V_E$ 
 \subsection*{a)}
 4. Det er det som er poenget med en `algebraisk sum', retningen har ingenting å si.
 \subsection*{b)}
-5. Det inverse til reaktans er impendans og reaktiv er inverse til kapasativ. SJEKK DENNE!
+2. Det er denne ladningen som lagres som gjør at den fungerer slik den gjør
 \subsection*{c)}
-
+2. Ellers ville du bare fått ut en stor smørje
 \subsection*{d)}
-
+3. Det konverterer et analogt signal ikke så farlig hvaslags...
 \subsection*{e)}
-
+4. $V_{B}$ er styringsspenningen og avhenig av hva den er så fortserkes outputten.
 \end{document}
