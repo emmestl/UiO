@@ -14,11 +14,14 @@ class Brett extends AbstraktBrett{
     private PrintWriter p;
     private SudokuBeholder beholder;
     private SudokuGUI gui;
-
+    private Brett neste;
+    private Brett utskriftIterator;
+    
     Brett(SudokuGUI gui){
 	super();
 	beholder = new SudokuBeholder();
 	this.gui = gui;
+	this.utskriftIterator = this;
     }
     
     Brett(String[] utfylling, int v, int l, SudokuGUI gui){
@@ -44,7 +47,8 @@ class Brett extends AbstraktBrett{
 	    filen = new Scanner(new File(filNavn));
 	}
 	catch(FileNotFoundException e){
-	    System.out.println ("Denne filen finnes ikke");
+	    System.out.println ("Denne filen er ikke tilgjengelig, sjekk at du er i riktig mappe.");
+	    System.exit(0);
 	    return;
 	}
 
@@ -61,7 +65,7 @@ class Brett extends AbstraktBrett{
 	gui.lagOppsettet();
 	
 	settTallVerdier(lengdeL);
-
+	
 	int j = 0;
 	while(filen.hasNextLine()){
 	    String linje = filen.nextLine();
@@ -117,10 +121,7 @@ class Brett extends AbstraktBrett{
 	alleRutene[0][0].finnMuligverdiOgNeste();	
 	alleRutene[0][0].fyllUtDenneRutenOgResten();
 	
-	if (beholder.hentAntallLosninger() == 0){
-	    return false;
-	}
-	return true;
+	return beholder.hentAntallLosninger() != 0;
     }
 
     public void muligLosning(){
@@ -132,49 +133,13 @@ class Brett extends AbstraktBrett{
 	beholder.settInn(new Brett(utfylling, v,l, gui));
     }
     
-    public void utskrift(){
-	//System.out.println(tallVerdi.length);
-	//if(skrivesTilSkjerm){
-	    //int teller = 0;
-	for (Brett b: beholder){
-	    gui.visBrett(b);
-		/*	for(Rute r: b){
-		    if(teller == lengdeV){
-			System.out.println ();
-			teller = 0;
-		    }
-		    System.out.print (tallVerdi[r.verdi()] + " ");
-		    teller ++;
-		}
-		System.out.println("\n");
-	    }
+    public void utskrift() {
+	if(utskriftIterator.neste != null){
+	    gui.visBrett(utskriftIterator.neste);
+	    utskriftIterator = utskriftIterator.neste;
 	}
-	else {
-	    if(p== null){
-		try{
-		    p = new PrintWriter(new File(utlesning));
-		}
-		catch(FileNotFoundException e) {
-		    System.out.println ("Klarer ikke opprettefilen; skriver ut paa skjermen");
-		    skrivesTilSkjerm = true;
-		    utskrift();
-		    return;
-		}
-	    }
-	    for (Brett b: beholder){
-		int teller = 0;
-		for (Rute r: this){
-		    if(teller == lengdeV){
-			p.println ();
-			teller = 0;
-		    }
-		    
-		    p.print (tallVerdi[r.verdi()]);
-		    teller ++;
-		}
-		p.println("\n");
-	    }
-	    p.close(); */
+	else{
+	    gui.ingenFlererLosninger();
 	}
     }
     
@@ -196,5 +161,16 @@ class Brett extends AbstraktBrett{
 		}
 	    }
 	}
+    }
+
+    public void settNeste(){
+	Brett temp = this;
+	for(Brett b: beholder){
+	    temp.neste = b;
+	    temp = b;
+	}
+    }
+    public int antLosninger(){
+	return beholder.hentAntallLosninger();
     }
 }
