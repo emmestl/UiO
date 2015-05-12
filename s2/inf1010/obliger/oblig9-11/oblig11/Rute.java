@@ -99,7 +99,36 @@ class Rute{
 	return muligeVerdier;
     }
 
-    public boolean fyllUtDenneRutenOgResten(){
+    public void fyllUtDenneRutenOgResten(){
+	if (neste != null){
+	    if(ikkeEnesteMulige){
+		finnAlleMuligeTall();
+		for (int teller = 0; teller < muligeVerdier.length; teller ++){
+		    midlertidligVerdi = muligeVerdier[teller];
+		    neste.fyllUtDenneRutenOgResten();
+		}
+		
+		midlertidligVerdi  = 0;
+		return;
+	    }
+	    else{
+		neste.fyllUtDenneRutenOgResten();
+		return;
+	    }
+	}
+	else{
+	    if(ikkeEnesteMulige){
+		finnAlleMuligeTall();
+	    }
+	    midlertidligVerdi = muligeVerdier[0];
+	    brett.muligLosning();
+	    if (ikkeEnesteMulige){
+		midlertidligVerdi = 0;
+	    }
+	    return;
+	}
+	//Gjor alt på nytt
+	/*
 	if(ikkeEnesteMulige){
 	    if (teller == 0){
 		finnAlleMuligeTall();
@@ -138,6 +167,7 @@ class Rute{
 	    }
 	}
 	return true;
+	*/
     }
 
     public void finnMuligverdiOgNeste(){

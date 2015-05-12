@@ -118,7 +118,7 @@ class Brett extends AbstraktBrett{
     }
 
     public boolean los(){
-	alleRutene[0][0].finnMuligverdiOgNeste();	
+	alleRutene[0][0].finnMuligverdiOgNeste();
 	alleRutene[0][0].fyllUtDenneRutenOgResten();
 	
 	return beholder.hentAntallLosninger() != 0;
@@ -145,10 +145,9 @@ class Brett extends AbstraktBrett{
     
     protected void settTallVerdier(int lengde){
 	String alfabetet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	alfabetet = alfabetet + alfabetet.toLowerCase();
 	tallVerdi = new String[lengde +1];
 	tallVerdi[0] = ".";
-	for (int i = 1; i <= lengde; i ++){
+	for (int i = 1; i < tallVerdi.length; i ++){
 	    if (i < 10){
 		tallVerdi[i] = i +"";
 	    }
