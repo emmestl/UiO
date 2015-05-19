@@ -1,0 +1,1 @@
+I tillstandstabellen har jeg skrevet feil på tilstandene, tabellen er utfylt riktig men i spalten lengst til venstre har jeg blandet tilstand 11 og 10. Det har ikke hatt noen invrikning på resten av oppgaven for det er bare en skrivefeil. 

@@ -1,0 +1,17 @@
+Oppgave 2.4)
+
+a)
+
+	En kompileringsfeil er en feil i slik at datamaskinen ikke klarer å kompilere filen fra teksteditoren til et språk som PCen skjønner. Kompileringsfeil skyldes feil i syntaksen som vil si man har ikke skrevet en gyldig komando eller man har glemt noe slik at PCen ikke skjønner hva som står det. Et eksempel på en en kompileringsfeil er at man glemmer  ";".
+  	 En kjøretidsfeil er feil som oppstår under Java prosessen. Da stemmer kompileringen så det er ingen feil i syntaksen men det kan være feil som at man ber maskinen dele på 0. Det er ingen direkte feil i programmet så det vil kompilere helt fint, men når du prøver å kjøre det i java vil du få en feilmelding. Kjøretidsfeil er mye skjeldnere enn kompileringsfeil.
+
+b)
+1.	Jeg ville fokusert hovedsaklig på den først feilmeldingen, og der ser vi at "Class" er skrevet med stor forbokstav. Java er kapital-sensitiv så den skjønner ikke ordet. Når dette var fikset ville jeg kompilert programmet på nytt, for sannsynligheten er at den andre feilen skyldes den første. 
+
+2.	Grunnen til at du får to feilmelinger selv om det bare er en er at Java-kompilatoren prøver å fortsette kompileringen til tross for den første feilen.  Men det er ikke alltid den får til det, når den treffer på den første feilen kommer den av avveie så resten av programmet kommer også på avveie.
+
+3. 	Feilmeldingen sier at det er glemt et ";" i linje 3. Løsningen på den feilmeldingen er å sette inne et ";" på slutten av linjen, lagre og kompilerer på nytt.
+4.	Det er fremdeles en feil i linje 3. Denne gangen er det i System.out.println. Som vi ser er "System" her skrevet med liten bokstav hvor det egentlig skal skrives med stor. Retter man opp denne feilen og kompilerer på nytt burde programmet funke en gang for alle. 
+
+
+	
