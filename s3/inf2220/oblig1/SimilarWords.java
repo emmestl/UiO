@@ -85,7 +85,10 @@ class SimilarWords {
 	if (nr == 0){
 	    return letter + word;
 	}
-
+	else if (nr == word.length()){
+	    return word + letter;
+	}
+	
 	return (word.substring(0, nr) + letter + word.substring(nr, word.length()));
     }
 
