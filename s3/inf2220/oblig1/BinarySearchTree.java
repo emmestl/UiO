@@ -1,4 +1,7 @@
-class BinarySearchTree<String>{
+import java.util.*;
+import java.lang.Comparable;
+
+class BinarySearchTree{
 
     BinaryNode root;
 
@@ -20,11 +23,11 @@ class BinarySearchTree<String>{
 	}
 	else{
 	    System.out.println ("The word does not exist, did you mean:");
-	    //findSimilar(word);
+	    return false;
 	}
     }
 
-    public void statics(){}
+    public void statistics(){}
 
 
 
@@ -54,7 +57,7 @@ class BinarySearchTree<String>{
 
 	//removes the smalest child of the right noe
 
-	int compare = word.compareTo(t.word);
+	int compare = word.compareToIgnoreCase(t.word);
 
 	if(compare < 0){
 	    t.left =  remove(word, t.left);
@@ -67,10 +70,13 @@ class BinarySearchTree<String>{
 	}
 
 	else if (t.left != null){
-	    t.word = removeMin(t);
+	    return t.left; //moves the pointer one down the tree, deletes the current node
 	}
 	else{
-	    
+	    return null;
+	}
+
+	return t;
 
     }
 	
@@ -79,7 +85,7 @@ class BinarySearchTree<String>{
 	    return false;
 	}
 
-	int compare = word.compareTo(t.word);
+	int compare = word.compareToIgnoreCase(t.word);
 
 	if (compare < 0){
 	    return search(word, t.left);
@@ -120,7 +126,7 @@ class BinarySearchTree<String>{
     }
 
 
-    private static class BinaryNode {
+    private static class BinaryNode{
 
 	String word;
 	BinaryNode left;
@@ -133,7 +139,7 @@ class BinarySearchTree<String>{
 	BinaryNode(String word, BinaryNode left, BinaryNode rigth){
 	    this.word = word;
 	    this.left = left;
-	    this.rigth = right;
+	    this.right = right;
 	}
     }
 }

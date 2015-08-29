@@ -1,61 +1,54 @@
 class SimilarWords {
 
-    char[] alphabeth = "abcdefghijklmnopqestuvwxyz".toCharArray();
+    private BinarySearchTree posibleWords;
+    private char[] alphabeth = "abcdefghijklmnopqestuvwxyz".toCharArray();
+    
     //swaps two letters in a word
-    public String[] similarOne(String word){
+    public void similarOne(String word){
         char[] word_array = word.toCharArray();
         char[] tmp;
-        String[] words = new String[word_array.length-1];
+        
         for(int i = 0; i < word_array.length - 1; i++){
             tmp = word_array.clone();
-            words[i] = swap(i, i+1, tmp);
-        }
-        return words;
+	    posibleWords.insert(swap(i, i+1, tmp));
+	}
     }
 
     //replaces one letter in the word with another
-    public String[][] similarTwo(String word){
+    public void similarTwo(String word){
         char[] word_array = word.toCharArray();
-        String[][] words = new String[word_array.length][alphabeth.length];
-        char[] temp;
+	char[] temp;
 
         for (int i = 0; i< word_array.length; i++){
             for (int j = 0; j< alphabeth.length; j++){
                 temp = word_array.clone();
                 temp[i] = alphabeth[j];
-                words[i][j] = temp.toString();
+                posibleWords.insert(temp.toString());
             }
         }
-        return words;
     }
 
     //removes one letter in the word
-    public String[] similarThree(String word){
+    public void similarThree(String word){
         char[] word_array = word. toCharArray();
-        String[] words = new String[word_array.length];
         char[] temp;
 
         for (int i = 0; i< word_array.length -1;  i++){
             temp = word_array.clone();
-            words[i] = removeLetter(temp, i);
+            posibleWords.insert(removeLetter(temp, i));
         }
-
-        return words;
-
     }
 
     //adds one letter
-    public String[][] similarFour(String word){
-        String[][] words = new String[word.length() + 1][alphabeth.length];
+    public void similarFour(String word){
         String temp;
 
         for (int i = 0; i< word.length() +1; i++){
             for (int j = 0; j< alphabeth.length; j++){
                 temp = word +"" ;
-                words[i][j] = addLetter(temp, i, alphabeth[j]);
+                posibleWords.insert(addLetter(temp, i, alphabeth[j]));
             }
         }
-        return words;
     }
 
 
@@ -92,4 +85,19 @@ class SimilarWords {
 	return (word.substring(0, nr) + letter + word.substring(nr, word.length()));
     }
 
+
+    public BinarySearchTree findSimilar(String word){
+	word = word.toLowerCase();
+
+	//can be optimalized, threads?
+	//as not to get duplicates, and fastert to search
+	BinarySearchTree posibleWords  = new BinarySearchTree(word);
+
+	similarOne(word);
+	similarTwo(word);
+	similarThree(word);
+	similarFour(word);
+
+	return posibleWords;
+    }
 }
