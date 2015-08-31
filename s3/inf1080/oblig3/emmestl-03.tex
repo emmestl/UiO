@@ -1,0 +1,77 @@
+\documentclass[a4paper, norsk, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{amsmath}
+
+\date{\today}
+\title{Oblig 2 \\ inf1080}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+\section*{Oppgave 4.8:}
+En tautologi er et utrykk som allid er sann uavhengig av hva inputen er. \\
+En kontradiksjon er et utrykk som alltid er usannt uavhengig av input
+
+\subsection*{d}
+\begin{table}[h!]
+\begin{tabular}{c c || c c c }
+$P$ & $Q$ & $P \rightarrow Q$ & $(P \rightarrow Q) \land \neg Q$ & $((P \rightarrow Q) \land \neg Q) \rightarrow \neg P$ \\
+\hline
+T & T & T & F & T \\
+T & F & F & F & T \\
+F & T & T & F & T \\
+F & F & T & T & T 
+\end{tabular}
+\end{table}
+Ser at hele kolonnen til høyre alltid er sann, har dermed at utrykket er en tautologi.
+
+\subsection*{e}
+\begin{align*}
+\neg (P  \lor Q) \land (\neg Q \lor R ) \land (\neg R \lor P) &= \neg P \land \neg Q \land  Q \land \neg R \land R \land \neg P \\
+\end{align*}
+
+Utrykket er en kontradiksjon da Q kan ikke være både sann og usann samtidig
+
+\subsection*{f}
+\begin{align*}
+(\neg (F \lor Q)) \land P = \neg F \land \neg Q \land P 
+\end{align*}
+
+Hverken en tautologi eller en kontradiksjon da utrykket er sann er når F og Q er usanne og P er sann, men usant ellers.
+
+\section*{Oppgave 5.5:}
+Bevis:
+\[(P \rightarrow Q) \land (Q \rightarrow R) \rightarrow (P \rightarrow R)\]
+\subsection*{a}
+Direktebevis:
+
+Setter dermed inn i en sannhetsverditabell og ser at:
+
+\begin{table}[h!]
+\begin{tabular}{c c c || c c c c c}
+$P$ & $Q$ & $R$ & $A= P \rightarrow Q$ & $ B = Q \rightarrow R$ & $A \land B $ & $ P \rightarrow R$ & $A \land B \rightarrow (P \rightarrow R)$\\
+\hline
+T & T & T & T & T & T & T & T\\
+T & T & F & T & F & F & F & T\\
+T & F & T & F & T & F & T & T\\
+T & F & F & F & T & F & F & T\\
+F & T & T & T & T & T & T & T\\
+F & T & F & T & F & F & T & T\\
+F & F & T & T & T & T & T & T\\
+F & F & F & T & T & T & T & T
+
+\end{tabular}
+\end{table}
+
+Siden den siste kollonnen allitd er sann har vi at utsagnet vårt alltid vil stemme
+
+
+\subsection*{c}
+Motsigelsesbevis:
+
+Anta at utrykket er usant. 
+\end{flushleft}
+\end{document}
