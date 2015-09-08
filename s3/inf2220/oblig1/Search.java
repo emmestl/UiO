@@ -76,7 +76,7 @@ class Search{
     }
 
     public void welcomemessage(){
-	System.out.println ("Welcome to Elsie's homemade spellcheck \n \npress 'q' to quit");
+	System.out.println ("Welcome to Elsie's homemade spellcheck, complete with typos \n \npress 'q' to quit");
     }
 
 
