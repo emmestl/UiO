@@ -5,7 +5,7 @@ k = [3 4 40 80];
 
 for n = 1 : 4;
     start = [0; 0; 0; 1; 0]; %only s4 = 1, this is the state of intrest   
-    for a = 1 : k(n); %antar vi sier k begynner paa 1
+    for a = 1 : k(n); %start a = 1
         
         Pn = P * Pn;
     end    
