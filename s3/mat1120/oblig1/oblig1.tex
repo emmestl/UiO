@@ -1,0 +1,105 @@
+\documentclass[a4paper, norsk, twoside, 10pt]{article}
+%trennger en pakke med norske symboler
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[norsk]{babel}
+\usepackage{color}
+
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\date{\today}
+\title{Oblig1 \\ mat1120}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+
+  \def\matrixP{
+    \begin{bmatrix}
+      1 & 0.7 & 0 & 0 & 0 \\
+      0 & 0   & 0.5 & 0 & 0 \\
+      0 & 0.3 & 0 & 0.65 & 0 \\
+      0 & 0   & 0.5 & 0 & 0 \\
+      0 & 0 & 0 & 0.35 & 1 \\
+    \end{bmatrix}
+  }
+
+  \lstdefinestyle{custommat}{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    frame = L,
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+  }
+
+  \section*{Oppgave 1:}
+  Matlabkoden:
+  \lstinputlisting[style = custommat]{opgv1.m}
+  \ \\
+  Gir følgende output:
+  \lstinputlisting[language = matlab, frame = L]{opgv1.out}
+  \ \\
+  \ \\
+  Der hvor det i matlab-outputen viser P = ``matrise'' tilsvarer det $P^{n}$, n gitt linjen før. Vektroen som vises
+  under tilsvarer sansylighetsfordelingen etter n kjøringer. Så sansynligheten for å gå fra $s_{4}$ til $s_{2}$ er posisjon 2 i vektoren
+  og presisert i teksten under.
+
+
+  \section*{Oppgave 2:}
+
+  En matriser er A regulær hvis alle elementene i $A^{n}$ for alle n, er strengt større enn 0.
+  \ \\
+  Har
+  \def\PI{
+    \begin{bmatrix}
+      0 & 0.7 & 0 & 0 & 0 \\
+      0 & -1   & 0.5 & 0 & 0 \\
+      0 & 0.3 & -1 & 0.65 & 0 \\
+      0 & 0   & 0.5 & -1 & 0 \\
+      0 & 0 & 0 & 0.35 & 0 \\
+    \end{bmatrix}
+  }
+
+
+  \begin{align*}
+    P -I &= \PI
+  \end{align*}
+  For å finne $Nul(P - I_{5})$ løser vi likingssettet:
+  \[(P-I_{5}) \vec{x} = \vec{0} \]
+
+  Som gir den utvidede matrisen:
+  \[  \begin{bmatrix}
+    0 & 0.7 & 0 & 0 & 0 & 0\\
+    0 & -1   & 0.5 & 0 & 0 & 0\\
+    0 & 0.3 & -1 & 0.65 & 0 & 0\\
+    0 & 0   & 0.5 & -1 & 0 & 0\\
+    0 & 0 & 0 & 0.35 & 0 & 0\\
+  \end{bmatrix}\]
+
+  Radreduserer denne, via matlab, og får:
+  %\lstinputlisting[style = custommat]{opgv2.m}
+  \ \\
+  %\lstinputlisting[language = matlab, frame = L]{opgv2.out}
+
+  Som oppført betyr følgende:
+
+  Ser at ... er fri variabler, kan dermed velge disse fritt, noe som gir følgende vectorer. Disse er lineært uavhengige, og tilsvarer dermed en basis for $Nul(P -I_{5})$
+
+\end{flushleft}
+\end{document}
