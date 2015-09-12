@@ -93,13 +93,55 @@
   \end{bmatrix}\]
 
   Radreduserer denne, via matlab, og får:
-  %\lstinputlisting[style = custommat]{opgv2.m}
+  \lstinputlisting[style = custommat]{opgv2.m}
   \ \\
-  %\lstinputlisting[language = matlab, frame = L]{opgv2.out}
+  \lstinputlisting[language = matlab, frame = L]{opgv2.out}
 
-  Som oppført betyr følgende:
+  Tar hensyn til de fri variablene og får følgende likningssytemer:
+  \begin{align*}
+    x_{2} = 0 \\
+    x_{3} = 0 \\
+    x_{4} = 0 \\
+  \end{align*}
 
-  Ser at ... er fri variabler, kan dermed velge disse fritt, noe som gir følgende vectorer. Disse er lineært uavhengige, og tilsvarer dermed en basis for $Nul(P -I_{5})$
+  Som kan skrives som:
+
+  \[ \begin{bmatrix}
+    x_{1} \\
+    x_{2} \\
+    x_{3} \\
+    x_{4} \\
+    x_{5} \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    x_{1} \\
+    0 \\
+    0 \\
+    0 \\
+    x_{5}\\
+  \end{bmatrix}
+    = x_{1}
+  \begin{bmatrix}
+    1 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+  \end{bmatrix}
+  + x_{5}
+  \begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    1 \\
+  \end{bmatrix}
+  = x_{1}\vec{c} + x_{5}\vec{v}
+  \]
+
+
+Hvor $x_{1}$ og $x_{5}$ er fri variabler. Ser dermed at $\vec{c}$ og $\vec{v}$ spenner $Nul(P-I)$. De er også lineært uavhengige og dermed danner de også en basis for $Nul(P-I)$.
 
 \end{flushleft}
 \end{document}
