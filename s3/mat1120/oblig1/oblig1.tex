@@ -157,7 +157,7 @@
   \ \\ \ \\
   Ja, ser at $P^{n}$ ikke bare inneholder strengt positive, men også, null elementer, og kan dermed ikke være regulær.
 \newpage
-  \subsection*{Oppgave 3:}
+  \section*{Oppgave 3:}
 
   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
       thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
@@ -180,7 +180,7 @@
   \end{tikzpicture}
 
 
-  \subsubsection*{a)}
+  \subsection*{a)}
   Har at klassene som utgjør S er:
   \begin{align*}
     K_{1} &= \{s_{1}\} \\
@@ -192,31 +192,34 @@
   \ \\
   Siden $K_{1}$ og $K_{3}$ er lukkede og inneholder kun et element vil ethvert ``signal'' som kommer inn i disse klassene aldri komme ut. Ser dermed at $s_{1}$ og $s_{5}$ er absorberende.
 
-  \subsubsection*{b)}
+  \subsection*{b)}
 
   Velger å se veldig generelt på denne oppgaven. \\
   La P være en regulær $n \times n$ matrise. Har at $P^{k}$ er strengt støre enn 0 for alle $k \in \mathbb{N}$. Elementene i P, $p_{ij}$, utgjør i hvilken grad tilstadene $s_{j} \leadsto s_{i}$ og siden  $p_{ij} \neq 0$ for alle $i,j$ har vi at tilstandene leder hverandre. Kan dermed si at alle elementene kommuniserer med hverandre. Og ugjør dermed en klasse.
 
-  \subsection*{Oppgave 4:}
+  \section*{Oppgave 4:}
 
-  Gjør samme regneoperasjon som i Oppgave 1. Men hvor startvektoren vår sitendenfor er:
-  $\begin{bmatrix}
+  Gjør samme regneoperasjon som i Oppgave 1. Men hvor startvektoren vår istedenfor er: \\
+  \[\begin{bmatrix}
     0 \\
     1 \\
     0 \\
     0 \\
     0 \\
-  \end{bmatrix}$
-  og
-    $\begin{bmatrix}
+  \end{bmatrix}
+  \textrm{og}
+    \begin{bmatrix}
     0 \\
     0 \\
     1 \\
     0 \\
     0 \\
-    \end{bmatrix}$.
-  Som tilsvarer hendoldsvis $\vec{x_{2}}$ og $\vec{x_{3}}$\\
-  $x_{2}^{K_{1}}$ tilsvarer da det 1. elementet fra vektoren som matrise-vektor multiplikasjonen utgjør: $P^{n}\cdot \vec{x_{2}}$ \\$x_{2}^{K_{3}}$ utgjør det 5 elementet i den samme vektoren. \\ \ \\
+    \end{bmatrix}\]
+  som tilsvarer hendoldsvis $\vec{x_{2}}$ og $\vec{x_{3}}$\\
+  $x_{2}^{K_{1}}$ tilsvarer da det 1. elementet fra vektoren som matrise-vektor multiplikasjonen utgjør: $P^{n}\cdot \vec{x_{2}}$ \\$x_{2}^{K_{3}}$ utgjør det 5 elementet i den samme vektoren.
+
+  \newpage
+  
   Det tilsvarende stemmer også for $x_{3}^{K_{1}}$ og $x_{3}^{K_{3}}$ men hvor starttilstanden istedenfor er $\vec{x_{3}}$
 
   Får:
@@ -241,7 +244,7 @@
   \end{align*}
 
 
-  \subsection*{Oppgave 5:}
+  \section*{Oppgave 5:}
 
   \def\matrixPgen{
     \begin{bmatrix}
@@ -253,13 +256,13 @@
    \end{bmatrix}
   }
    \[P = \matrixPgen \]
-   \subsubsection*{a)}
+   \subsection*{a)}
    Tilstanden $s_{1}$ tilsvarer kolonne 1 i $P$. Og ser at det kun er det første elementet som har en verdi, verdien 1. Altså vil alt som kommer inn i $s_{1}$ loope tilbake til seg selv. Tilstanden kommuniserer heller ikke med noen andre tilstander så $\{s_{1}\}$ utgjør en lukket klasse, og $s_{1}$ er dermed absorberende.\\
    \ \\
    Det samme ser vi for tilstand $s_{5}$, kommuniserer bare med seg selv. Og leder ingen andre tilstander. Altså er også $s_{5}$ absorberende.
 
 
-   \subsubsection*{b)}
+   \subsection*{b)}
    $x_{1} = 1$ fordi $s_{1}$ er absorberende og $x_{1}$ er et element i $s_{1}$ \\
    $x_{5} = 0$ fordi $s_{5}$ er absorberende og $x_{5}$ er et element i denne tilstande. Kan dermed ikke ``unslippe'' og gå over til en annen tilstand. \\
    \ \\
@@ -311,6 +314,17 @@
    Legger til $p_{4}$Rad$\RN{2}$ til Rad$\RN{3}$. Det fjerner det tredje elementet som ligger i kolonne 2.
    \\
    Altså er A radredusert til en øvre diagonal matrise.
-   
+
+
+
+   \subsection*{d}
+
+   Walk.m:
+  \lstinputlisting[style = custommat]{Walk.m}
+ 
+  Gir følgende output:
+  \lstinputlisting[language = matlab, frame = L]{Walk.out}
+
+  Som tilsvarer verdien til $\vec{y}$
   \end{flushleft}
 \end{document}
