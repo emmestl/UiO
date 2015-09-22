@@ -14,6 +14,11 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 
+\newcommand{\RN}[1]{
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 
@@ -221,8 +226,8 @@
     0 \\
     0 \\
     0.1 \\
-  \end{bmatrix} \]
-  \[P^{100}\cdot \vec{x_{3}} = \begin{bmatrix}
+  \end{bmatrix}, \quad
+  P^{100}\cdot \vec{x_{3}} = \begin{bmatrix}
     \frac{2}{3} \\
     0 \\
     0 \\
@@ -237,19 +242,75 @@
 
 
   \subsection*{Oppgave 5:}
-  
-   \[P = \begin{bmatrix}
+
+  \def\matrixPgen{
+    \begin{bmatrix}
       1 & p_{2} & 0 & 0 & 0 \\
       0 & 0   & p_{3} & 0 & 0 \\
       0 & q_{2} & 0 & p_{4} & 0 \\
       0 & 0   & q_{3} & 0 & 0 \\
       0 & 0 & 0 & q_{4} & 1 \\
    \end{bmatrix}
-   \]
+  }
+   \[P = \matrixPgen \]
    \subsubsection*{a)}
    Tilstanden $s_{1}$ tilsvarer kolonne 1 i $P$. Og ser at det kun er det første elementet som har en verdi, verdien 1. Altså vil alt som kommer inn i $s_{1}$ loope tilbake til seg selv. Tilstanden kommuniserer heller ikke med noen andre tilstander så $\{s_{1}\}$ utgjør en lukket klasse, og $s_{1}$ er dermed absorberende.\\
    \ \\
    Det samme ser vi for tilstand $s_{5}$, kommuniserer bare med seg selv. Og leder ingen andre tilstander. Altså er også $s_{5}$ absorberende.
-  
+
+
+   \subsubsection*{b)}
+   $x_{1} = 1$ fordi $s_{1}$ er absorberende og $x_{1}$ er et element i $s_{1}$ \\
+   $x_{5} = 0$ fordi $s_{5}$ er absorberende og $x_{5}$ er et element i denne tilstande. Kan dermed ikke ``unslippe'' og gå over til en annen tilstand. \\
+   \ \\
+   Har gitt at:
+   \[x_{j}^{K} = \sum_{i = 1}^{n} p_{ij}x_{i}^{K}\]\\
+
+   Skriver vi ut  likningssettet for n = 1 til n = 5 vha likningen og det beskrevet over får vi:
+   \begin{align*}
+     x_{1}^{2} &= 1 \\
+     x_{2}^{2} &= p_{12}x_{1}^{2} + p_{22}x_{2}^{2} + p_{32}x_{3}^{2} + p_{42}x_{4}^{2} + p_{52}x_{5}^{2} \\
+     x_{3}^{2} &= p_{13}x_{1}^{2} + p_{23}x_{2}^{2} + p_{33}x_{3}^{2} + p_{43}x_{4}^{2} + p_{53}x_{5}^{2} \\
+     x_{4}^{2} &= p_{14}x_{1}^{2} + p_{24}x_{2}^{2} + p_{34}x_{3}^{2} + p_{44}x_{4}^{2} + p_{54}x_{5}^{2}\\
+     x_{5}^{2} &= 0 \\
+   \end{align*}
+   Som vi leser ut av matrisen $P$ og ser at blir:
+
+   \begin{align*}
+     x_{1}^{2} &= 1 \\
+     x_{2}^{2} &= p_{2} + q_{2}x_{3}^{2} \\
+     x_{3}^{2} &= p_{3}x_{2}^{2} + q_{3}x_{4}^{2}\\
+     x_{4}^{2} &= p_{4}x_{3}^{2}\\
+     x_{5}^{2} &= 0 \\
+   \end{align*}   
+
+   Flytter vi $x$ene over på en side får vi likningene:
+   \begin{align*}
+     x_{2}^{2}  - q_{2}x_{3}^{2} &= p_{2}\\
+     x_{3}^{2} - p_{3}x_{2}^{2} - q_{3}x_{4}^{2}&= 0\\
+     x_{4}^{2} - p_{4}x_{3}^{2} &= 0\\
+   \end{align*}   
+   
+   Setter inn i en matrise får vi følgende:
+
+   \[\begin{bmatrix}
+   1 & - q_{2} & 0 & p_{2}\\
+   -p_{3} & 1 & -q_{3} & 0 \\
+   0 & -p_{4} & 1 & 0 \\
+   \end{bmatrix}\]
+
+   Ser at dette er matrise A, og har at for $\vec{y} = (x_{2}, x_{3}, x_{4})$ vil svaret $\vec{b}$ tilsvare høyre kolonne, altså $(p_{2}, 0, 0)$
+
+
+
+   \subsection*{c}
+   En matrise er definert som øvre trianguler dersom alle elementene under diagonalen er 0. \\
+
+   Utfører operasjonene som ville blitt brukt for å lage pivot søyler av de to første søylene i A, altså: \\ \ \\
+   Legger til $p_{3}$Rad$\RN{1}$ til Rad$\RN{2}$. Da er de to elementene under diagonalen i kolonne en 0.\\
+   Legger til $p_{4}$Rad$\RN{2}$ til Rad$\RN{3}$. Det fjerner det tredje elementet som ligger i kolonne 2.
+   \\
+   Altså er A radredusert til en øvre diagonal matrise.
+   
   \end{flushleft}
 \end{document}
