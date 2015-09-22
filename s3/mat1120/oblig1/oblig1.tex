@@ -263,46 +263,72 @@
 
 
    \subsection*{b)}
-   $x_{1} = 1$ fordi $s_{1}$ er absorberende og $x_{1}$ er et element i $s_{1}$ \\
-   $x_{5} = 0$ fordi $s_{5}$ er absorberende og $x_{5}$ er et element i denne tilstande. Kan dermed ikke ``unslippe'' og gå over til en annen tilstand. \\
+   $x_{1} = 1$ eller $x_{1} = 0$ fordi $s_{1}$ er absorberende og $x_{1}$ er et element i $s_{1}$ \\
+   $x_{5} = 0$ eller $x_{5} = 1$ fordi $s_{5}$ er absorberende og $x_{5}$ er et element i denne tilstande. Kan dermed ikke ``unslippe'' og gå over til en annen tilstand. \\
    \ \\
    Har gitt at:
    \[x_{j}^{K} = \sum_{i = 1}^{n} p_{ij}x_{i}^{K}\]\\
 
    Skriver vi ut  likningssettet for n = 1 til n = 5 vha likningen og det beskrevet over får vi:
    \begin{align*}
-     x_{1}^{2} &= 1 \\
-     x_{2}^{2} &= p_{12}x_{1}^{2} + p_{22}x_{2}^{2} + p_{32}x_{3}^{2} + p_{42}x_{4}^{2} + p_{52}x_{5}^{2} \\
-     x_{3}^{2} &= p_{13}x_{1}^{2} + p_{23}x_{2}^{2} + p_{33}x_{3}^{2} + p_{43}x_{4}^{2} + p_{53}x_{5}^{2} \\
-     x_{4}^{2} &= p_{14}x_{1}^{2} + p_{24}x_{2}^{2} + p_{34}x_{3}^{2} + p_{44}x_{4}^{2} + p_{54}x_{5}^{2}\\
-     x_{5}^{2} &= 0 \\
+     x_{1}^{1} &= 1 \\
+     x_{2}^{1} &= p_{12}x_{1}^{1} + p_{22}x_{2}^{1} + p_{32}x_{3}^{1} + p_{42}x_{4}^{1} + p_{52}x_{5}^{1} \\
+     x_{3}^{1} &= p_{13}x_{1}^{1} + p_{23}x_{2}^{1} + p_{33}x_{3}^{1} + p_{43}x_{4}^{1} + p_{53}x_{5}^{1} \\
+     x_{4}^{1} &= p_{14}x_{1}^{1} + p_{24}x_{2}^{1} + p_{34}x_{3}^{1} + p_{44}x_{4}^{1} + p_{54}x_{5}^{1}\\
+     x_{5}^{1} &= 0 \\
    \end{align*}
+   og
+   \begin{align*}
+     x_{1}^{3} &= 0 \\
+     x_{2}^{3} &= p_{12}x_{1}^{3} + p_{22}x_{2}^{3} + p_{32}x_{3}^{3} + p_{42}x_{4}^{3} + p_{52}x_{5}^{3} \\
+     x_{3}^{3} &= p_{13}x_{1}^{3} + p_{23}x_{2}^{3} + p_{33}x_{3}^{3} + p_{43}x_{4}^{3} + p_{53}x_{5}^{3} \\
+     x_{4}^{3} &= p_{14}x_{1}^{3} + p_{24}x_{2}^{3} + p_{34}x_{3}^{3} + p_{44}x_{4}^{3} + p_{54}x_{5}^{3}\\
+     x_{5}^{3} &= 1 \\
+   \end{align*}
+   
    Som vi leser ut av matrisen $P$ og ser at blir:
 
    \begin{align*}
-     x_{1}^{2} &= 1 \\
-     x_{2}^{2} &= p_{2} + q_{2}x_{3}^{2} \\
-     x_{3}^{2} &= p_{3}x_{2}^{2} + q_{3}x_{4}^{2}\\
-     x_{4}^{2} &= p_{4}x_{3}^{2}\\
-     x_{5}^{2} &= 0 \\
+     x_{2}^{K} &= p_{2} + q_{2}x_{3}^{K} \\
+     x_{3}^{K} &= p_{3}x_{2}^{K} + q_{3}x_{4}^{K}\\
+     x_{4}^{K} &= p_{4}x_{3}^{K} + q_{4}x_{5}\\
    \end{align*}   
 
    Flytter vi $x$ene over på en side får vi likningene:
+   \\
+   For $K_{1}$
    \begin{align*}
-     x_{2}^{2}  - q_{2}x_{3}^{2} &= p_{2}\\
-     x_{3}^{2} - p_{3}x_{2}^{2} - q_{3}x_{4}^{2}&= 0\\
-     x_{4}^{2} - p_{4}x_{3}^{2} &= 0\\
+     x_{2}^{1}  - q_{2}x_{3}^{1} &= p_{2}\\
+     x_{3}^{1} - p_{3}x_{2}^{1} - q_{3}x_{4}^{1}&= 0\\
+     x_{4}^{1} - p_{4}x_{3}^{1} &= 0\\
    \end{align*}   
+   \\ \ \\
    
-   Setter inn i en matrise får vi følgende:
+   For $K_{3}$
+   \begin{align*}
+     x_{2}^{3}  - q_{2}x_{3}^{1} &= 0\\
+     x_{3}^{3} - p_{3}x_{2}^{1} - q_{3}x_{4}^{1}&= 0\\
+     x_{4}^{3} - p_{4}x_{3}^{1} &= q_{4}\\
+   \end{align*}   
 
+   
+   Setter inn i en matrise får vi følgende:\\
+   For $K_{1}$:
    \[\begin{bmatrix}
    1 & - q_{2} & 0 & p_{2}\\
    -p_{3} & 1 & -q_{3} & 0 \\
    0 & -p_{4} & 1 & 0 \\
    \end{bmatrix}\]
 
-   Ser at dette er matrise A, og har at for $\vec{y} = (x_{2}, x_{3}, x_{4})$ vil svaret $\vec{b}$ tilsvare høyre kolonne, altså $(p_{2}, 0, 0)$
+
+   For $K_{3}$
+   \[\begin{bmatrix}
+   1 & - q_{2} & 0 & 0\\
+   -p_{3} & 1 & -q_{3} & 0 \\
+   0 & -p_{4} & 1 & q_{4} \\
+   \end{bmatrix}\]
+   
+   Ser at dette er matrise A, og har at for $\vec{y} = (x_{2}, x_{3}, x_{4})$ vil svaret $\vec{b}$ tilsvare høyre kolonne, altså $(p_{2}, 0, 0)$ for $K_{1}$ og $(0, 0, q_{4})$ for $K_{3}$
 
 
 
@@ -311,7 +337,7 @@
 
    Utfører operasjonene som ville blitt brukt for å lage pivot søyler av de to første søylene i A, altså: \\ \ \\
    Legger til $p_{3}$Rad$\RN{1}$ til Rad$\RN{2}$. Da er de to elementene under diagonalen i kolonne en 0.\\
-   Legger til $p_{4}$Rad$\RN{2}$ til Rad$\RN{3}$. Det fjerner det tredje elementet som ligger i kolonne 2.
+   Legger til $\frac{p_{4}}{1 - q_{2}p_{3}}$Rad$\RN{2}$ til Rad$\RN{3}$. Det fjerner det tredje elementet som ligger i kolonne 2.
    \\
    Altså er A radredusert til en øvre diagonal matrise.
 
