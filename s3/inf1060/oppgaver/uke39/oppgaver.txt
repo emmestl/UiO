@@ -1,0 +1,133 @@
+1. Hvorfor har vi operativsystemer:
+
+- For å kunne få et grenesnitt som er lettere å bruke. Så slipper å ta hensyn til detalforskjeller i hardwaren.
+- Sikkerhet. Ikke ødlegge maskinen.
+  - Nivåer, programmet ikke ødelegger for andre, til hackere, til hardware utsliting.
+
+
+- Ved å vite hvordan et oppreativsystem fungere, kan kode optimaliseres. Vite hva et opperativsystem ikke kan gjøre.
+- Skjønne hvordan programmene støtter å kjøre flere programmer smatidig
+- Hvordan programmene sammarbeider
+- Vite om det er feil i egene kode eller faktisk maskinbegrensning
+
+
+
+2. Hva er hovedoppgavene til BIOS og bootstrap?
+
+- BIOS = basic input/output system
+- Bootstrap -> starte opp seg selv på egenhånd:
+
+- BIOS ligger på en egen chip på hovedkortet.
+
+- Fårhåndsbestemt oppstartsadresse
+- POST -> Power On Self-Test
+- Bootloaderen laster inn oppreativsystemert og starter opperativsystemet
+- Operativsysteet kjører initialiseringskode
+  - Bootloaderen er på 512MB så bootloaderen laster ofte inn en ny og større bootloader.
+
+
+3. Hva er bruker- og kernelnivå? Hvorfor kan ikke alt kjøre på kernelnivå?
+
+- Kernel-nivå: Koden til operativsystemet.
+  -Tilgang til ressurser og instruksjoner
+  -Tilgang til IO-devices på kernel-nivå.
+
+- Bruker-nivå: Begrensede instruksjoner
+  - Tilgang til ressurser gjennom systemkall.
+
+- Grunne til det er slik er:
+  - Sikkerhet, unlate at alt har tilgang til alt
+  - Også for å hindre kaos, hva skal kjøre når
+  - Brukervennlig for programmerere. Slipper å ta hensyn til nøyaktig hvor i minnet ting ligger. Og hva som kan brukes.
+
+
+
+4. Hva skjer når vi gjør et systemkal?
+
+- Kaller en funksjon i et bibliotek for systemkall.
+  - Kjenner igjen et systemkall 
+- Argumenter pushes på stacken.
+
+
+
+5a. Hva skjer n vi gjør et systemkall fra brukernivå?
+- Gå inn i systemkall bibliotek (EAX)
+- Pushes på stacken
+- Det blir gjort en interupt kall
+- Sendes ned til kernel
+- Kjører Kernel systemkall
+
+Ferdig, men må gå til bake til originalt. Gjøres nesten baklengs.
+- Laster inn iterupt kallet på nytt. (CPU kan ha blitt brukt til noe annet i mellomtiden)
+
+
+5b. Hva er fordeler/uleper med monolitiske kjerner vs micro-kjerner.
+
+- Monolittisk: Hele operativsystemet kjører i kernel mode
+    - Går ting galt, går ALT galt	
+  - Et stort operativsystem.objekt som kompileres og lastes inn av bootloaderen
+  - Kan akseserer programmene direkte. Kommuniserer direkte
+  
+  - Fordeler:
+    - Rakse
+    - Enklere å konstruere
+
+  - Ulemper:
+    - Kan fort gå VELDIG galt
+    - Store
+      - Trege å starte opp
+    - Lite fleksible under kjøring.
+    - Rekompilering krever omstart
+
+- Micor-kjerne: Kun livsviktige delere kjører i kernelmode
+  - Resten kjører i bruker-mode
+  - Kommunikasjon vi a IPC
+
+  - Fordeler:
+    - Minimale i størelsen
+      - Raske å starte opp
+    - Ekelt å protere til en annen platform
+    - Noe sikrere
+    
+  - Ulemper:
+    - Vannskelig å gjøre effektiv
+      - Fort veldig treg
+      - Fordi de er avhengige av kommunikasjon mellom forskjellige moduler
+
+
+6a. Hva bruker de største OSene?
+
+- Windows: Monolittisk
+- OS X: Monolittisk
+- Linux: Monolittisk
+
+Alle er i bunn og grunn monolittiske, men henter ideer fra micro-kjerner.
+
+6b. Hva er interupt?
+- Et signal til prossessoren som krever operativsystemets oppmerksomhet
+
+  Kilder tilinterupt
+  - Hardware (IQR)
+    - eks. IO
+  - Exceptions/Traps. Effekt av en instruksjon
+    - eks skrive over minne man ikke har tilgang til.
+  - Prossessoren kaller en Interrupt Service Routime som OSet har satt opp
+  - En ISR lagrer state, håndterer interrupten og gjenoppretter state
+
+7. Hvordan funksjonene fork() og execve() fungerer
+
+   - Fork:
+     - Oppretter en ny prosess
+     - Kopierer programkoden, stacken, heapren, context og prosses-related datastruktur i kjernen
+     - Returnerer 0 i den nye prosessen
+     - Returnerer PID til barneprosessen i foreldreprosessen
+
+   - Execve:
+     - Erstarter en prossess med annen kode
+     - Går bar, så kommer man aldri tilbake
+     - Setter opp stacken og heapen på nytt
+
+8. Forklar hva som skjer i en cotext switch
+   - State (registrer) lagres i PCB
+   - State til neste prosess astes fra PCB
+   - OSet iverksetter neste prosess

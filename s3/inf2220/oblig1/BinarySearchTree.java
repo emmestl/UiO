@@ -194,29 +194,6 @@ class BinarySearchTree{
         return findMin(t.left);
     }
 
-    //returns the String of the node it removes
-    /*private String removeMin(BinaryNode t){
-      if (t.left.left == null){
-      String replacement = t.left.word;
-      t.left = null;
-
-      return replacement;
-      }
-      return removeMin(t.left);
-      }
-
-
-      private String removeMax(BinaryNode t){
-      if (t.right.right == null){
-      String replacement = t.right.word;
-      t.right = null;
-
-      return replacement;
-      }
-
-      return removeMax(t.right);
-      }
-    */
     private static class BinaryNode{
 
         String word;

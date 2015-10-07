@@ -32,11 +32,12 @@ class Search{
 	while (!userInput.equals("q")){
 
 	    if(!dictionary.search(userInput)){
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		System.out.println ("The word does not exist, did you mean:");
 		compare(similar.findSimilar(userInput));
-		long stop = System.currentTimeMillis();
-		System.out.println ("\nTime it took to find and produce results: " + (stop- start)+ "ms");
+		long stop = System.nanoTime();
+		double diff = (stop- start)/1E6;
+		System.out.printf ("\nTime it took to find and produce results: %2.2f ms\n", diff);
 		System.out.println (posibleWords.size() + " sugestions found");
 		for(String s : posibleWords){
 		    System.out.print(s + ", ");
