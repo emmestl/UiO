@@ -1,1 +1,0 @@
-1. Den begynte som veldig vanskelig. For det å tenke på viretuelle objekter ble en liten omsetning. Men med en gang man fikk tanken bak objekter inn under huden var ikke det et problem lenger. Tror jeg brukte ca 6 timer på denne. Det var først ved Oppgave 5.4 at problemet bak oop begynte å løsne. Fikk til alle oppgavene. 

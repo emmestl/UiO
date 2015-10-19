@@ -1,8 +1,0 @@
-Oppgave 5.2
-
-a) Innkapsling er at vi putter alt i sin egen "boks" denne boksen er classen. Det er nyttig fordi de forskjellige klassene kan ha samme variabelnavn, noe som minsker forvirringen av mange navn, for forskjellige ting. Man kan også kalle på objektene (inkapslingene) som det passer en selv og dermed forenkle den overordnede strukturen i programmet. 
-
-b) Grensesnittet til en klasse er forholdet mellom data som kommer inn og data som går ut. Det er den overordnede fuskjsonen som forteller hva et program skal  gjøre. Implementasjonen av en klasse derimot går ut på at klassen faktisk skal funke. Man implimeserer klassen basert på grensesnittet. 
-
-c) En instansmetode står det ikke "Static" i metodenavnet. Det vil si det vi lager i slike metoder er objekter. Og avhengig av hva vi sender med endrer de seg. De er til forskjell til "static" metodene ikke faste og gjør dermed større programmer mer annvennelige for de kan kalles på og endres slik som det passer brukeren. 
-

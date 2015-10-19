@@ -1,0 +1,64 @@
+\documentclass[a4paper, norsk, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\date{\today}
+\title{Oblig 7 \\ inf1080}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+
+  \section*{Oppgave 12.1:}
+
+  \begin{align*}
+    &f(0) = 1 \text{ og } f(1) = 0 \\
+    &f(b0) = f(b)1, \quad \text{$b$ er en bitstring} \\
+    &f(b1) = f(b)0, \quad \text{$b$ er en bitstring} \\
+  \end{align*}
+
+  \subsection*{a)}
+  Funksjonen inverterer det binære utrykket inni $f$. $f$ er en inverter.
+
+  \subsection*{b)}
+  \[f(100) = f(10)1 = f(1)11 = 011 \]
+
+  \subsection*{c)}
+  Skriver kun opp det som skal stå i boksen. I nummerert rekkefølge: \\ \ \\
+  \begin{enumerate}
+  \item påstanden
+  \item Induksjons
+  \item induksjonshypotesen
+  \item hypotesen
+  \item $bx$
+  \item punkt (2)
+  \item $f(f(b)0)$
+  \item punkt (3)
+  \item strukturell induksjon
+  \item påstanden holder
+  \end{enumerate}
+
+
+  \section*{Oppgave 13.1:}
+  
+  \subsection*{a)}
+  $Far(Ola, Kari)$
+  \subsection*{b)}
+  $\exists x(Mor(Kari, x))$
+  \subsection*{c)}
+  $\forall x(Mor(\neg x, Ola))$
+  \subsection*{d)}
+  $\forall x \exists y, z(Mor(y, x) \land Far(z, x))$
+  \subsection*{e)}
+  $\forall x \exists y, z (Mor(z, Mor(y, x)))$ 
+  \subsection*{f)}
+  $\nexists x \exists y (Mor(y, x) \land Far(y, x))$
+  
+
+\end{flushleft}
+\end{document}

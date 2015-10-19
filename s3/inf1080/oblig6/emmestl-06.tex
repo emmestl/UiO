@@ -1,0 +1,45 @@
+\documentclass[a4paper, norsk, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\date{\today}
+\title{Oblig 6 \\ inf1080}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+
+
+\section*{Oppgave 10.7:}
+
+\[s: \, \{T, F\} \rightarrow \mathbb{N}\]
+
+  $s$ er slik at \[s(P) = |\{P\}|, \quad \text{hvor } |\{P\}| \text{ er antall symboler i P}\]
+
+La basismengden være gitt ved $X$, hvor $X$ kun har et symbol, et utsagnsvariabel. Altså: \[s(X) = 1 \]
+Da er den rekursive funksjonen gitt ved:
+\[s(P) = s(P') + 1 \quad \text{hvor $P'$ er $P$ med et symbol mindre.} \]
+  
+
+
+\section*{Oppgave 11.8:}
+ 
+Vis at: \[6^{n} -1 \quad \text{er delelig på 5 for alle $n \in \mathbb{N}_{0}$}\]
+\begin{proof} \ \\
+
+For $n = 0$ ser vi at \[6^{0} - 1 = 1 - 1 = 0\] og \[0/5  = 0, \quad 0 \in \mathbb{N}_{0}\]
+
+Anta sant for $n = k$.
+
+Vis sant for $n = k+1$
+\[6^{k+1} - 1= 6^{k} \cdot 6 - 1 = 6^{k}\cdot 6 -6 +5 = 6(6^{k}  -1 ) + 5\]
+Siden vi etter induksjonsantagelsen har at $6^{k} -1$ er delelig på 5. Videre har vi at produktet mellom noe delelig på 5 og noe annet er delelig på 5. Og siden summen at to ledd som er delelig med 5 er selv delelig med 5. Må $6^{k+1} -1  = 6( 6^{k} -1 ) +5$ er delelig på 5. Altså er har vi at
+\[6^{n} -1 \quad \text{er delelig på 5 for alle $n \in \mathbb{N}_{0}$}\]
+\end{proof}
+\end{flushleft}
+\end{document}

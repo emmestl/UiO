@@ -1,0 +1,12 @@
+O(N)
+
+Relizability: O(V+E) = O(N)
+	Hvis det ikke er noen startnoder gå først O(V) ganger for å sette startnodene.	Derretter går den gjennom alle startnodene på jakt etter en loop. Vi starter altså startnoedene og besøker hvert hjørne og kant en gang. (Flere ganger og vi har en cycle, programmet termineres).
+
+
+Optimal time schedule: O(S(E+V)) = O(N)
+	Starter i alle startnodene besøker alle de resterende nodene i grafen (samt kanter). En node kan maks besøkes Start antal ganger. La S = ant startnoder Da er kompleksiteten O(S(V + E)). Men siden S er ganske liten vil dette tilsvare en konstant og kompleksiteten kan forenkles til O(N)
+
+
+Latest start, slack: O(S(E+V)) = O(N)
+       Rekursiv metode som fungerer noe som et dybde først søk, ved at den går hele veien ned først før den utfører operasjonene på veien oppover. Kompleksiteten tilsvarer da O(S(V+E))       
