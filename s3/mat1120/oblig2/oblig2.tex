@@ -32,7 +32,7 @@
   \subsubsection*{i)}
 
   Har at:
-\[
+  \[
   p(t) = a_{0} + a_{1}t +  t^{2} \qquad
   C = \begin{bmatrix}
     0 & 1 \\
@@ -42,19 +42,19 @@
   \\
   \ \\
 
- 
-  Regner ut det karektaristiske polynomet til C 
+
+  Regner ut det karektaristiske polynomet til C
   \begin{align*}
-  P(\lambda_{C}) &= \text{det}(C)\\
-  &= (-\lambda)(-a_{1} - \lambda) + a_{0} \\
-  &= a_{0} + \lambda a_{1} + \lambda^{2}
+    P(\lambda_{C}) &= \text{det}(C)\\
+    &= (-\lambda)(-a_{1} - \lambda) + a_{0} \\
+    &= a_{0} + \lambda a_{1} + \lambda^{2}
   \end{align*}
 
   Ser at \[P(\lambda_{C}) = p(t), \quad t = \lambda\]
 
 
 
-  
+
   \subsubsection*{ii)}
 
   \[
@@ -65,12 +65,12 @@
     -a_{0} & -a_{1} & -a_{2} \\
   \end{bmatrix} \] \\
   \ \\
-  Regner ut det karektaristiske polynomet til C 
+  Regner ut det karektaristiske polynomet til C
   \begin{align*}
-  P(\lambda_{C}) &= \text{det}(C)\\
-  &= -\lambda(-\lambda(-a_{2} - \lambda) + a_{1}) -a_{0}(1 - ( -\lambda \cdot 0))\\
-  &= \lambda^{2}(-a_{2} - \lambda) - \lambda a_{1} - a_{0} \\
-  &= -\lambda^{3} - \lambda^{2}a_{2} -\lambda a_{1} - a_{0}
+    P(\lambda_{C}) &= \text{det}(C)\\
+    &= -\lambda(-\lambda(-a_{2} - \lambda) + a_{1}) -a_{0}(1 - ( -\lambda \cdot 0))\\
+    &= \lambda^{2}(-a_{2} - \lambda) - \lambda a_{1} - a_{0} \\
+    &= -\lambda^{3} - \lambda^{2}a_{2} -\lambda a_{1} - a_{0}
   \end{align*}
 
   Ser at \[P(\lambda_{C}) = -p(t), \quad t = \lambda\]
@@ -81,16 +81,156 @@
   \section*{Oppgave 2}
 
   \subsection*{i)}
+  Har at\[f'''(t) = 4f(t) + 4f'(t)- f''(t)\]
+  Vis at $\mathbf{x}(t) = (f(t), f'(t), f''(t))$ er en løsning.
+  
+  \begin{align*}
+    \mathbf{x}'(t) &= \mathcal{C}\mathbf{x}(t) \\
+    &= \begin{bmatrix}
+      0 & 1 & 0 \\
+      0 & 0 & 1 \\
+      4 & 4 & -1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+      f(t) \\
+      f'(t) \\
+      f''(t) \\
+    \end{bmatrix}
+    \\
+    &= \begin{bmatrix}
+      0 + f'(t) + 0 \\
+      0 + 0 + f''(t) \\
+      4f(t) + 4f'(t) -f''(t) \\
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+      f'(t) \\
+      f''(t) \\
+      f'''(t)\\
+    \end{bmatrix} \\
+  \end{align*}
 
-  Vis at: \[\mathbf{x}'(t)  = \mathcal{C}\mathbf{x}(t)\]
+  \subsection*{ii)}
 
-  Har at:
-  \[\mathbf{x}(t) = (f(t), f'(t), f''(t))\]
+  Vis at $f(t) = x_{1}(t)$ er en løsning for (*) når $\mathbf{x}(t) = (x_{1}(t), x_{2}(t) , x_{3}(t))$ er en løsning for (**) \\
 
-  Hvor $\mathbf{x}(t)$ er en løsning
+  Finner egenverdien og egenvektorene til C. Vha matlab, og får at C har egenvektorene:
+
+  \begin{align*}
+    \mathbf{v}_{1} =
+    \begin{bmatrix}
+      0.25 \\
+      0.5 \\
+      1\\
+    \end{bmatrix}
+    \quad
+    \mathbf{v}_{2} =
+    \begin{bmatrix}
+      0.25 \\
+      -0.5 \\
+      1\\
+    \end{bmatrix}
+    \quad
+    \mathbf{v}_{3} =
+    \begin{bmatrix}
+      1 \\
+      -1 \\
+      1\\
+    \end{bmatrix} \\
+    \intertext{med respektive egenverdier:} \\
+    \lambda_{1} = 2 \quad \lambda_{2} = -2 \quad \lambda_{3} = -1 \quad
+  \end{align*}
+
+  Har videre at:
+
+  \begin{align*}
+    \mathbf{x}(t) &= c_{1}\mathbf{v}_{1}e^{2t} + c_{2}\mathbf{v}_{2}e^{-2t} + c_{3}\mathbf{v}_{3}e^{-t} \\
+    &= c_{1}\begin{bmatrix}
+      0.25 \\
+      0.5 \\
+      1\\
+    \end{bmatrix}e^{2t} +
+    c_{2}\begin{bmatrix}
+      0.25 \\
+      -0.5 \\
+      1\\
+    \end{bmatrix}e^{-2t} +
+    c_{3}\begin{bmatrix}
+      1 \\
+      -1 \\
+      1\\
+    \end{bmatrix}e^{-t} \\*
+    &=
+    \begin{bmatrix}
+      0.25c_{1}e^{2t} + 0.25c_{2}e^{-2t} + c_{3}e^{-t} \\
+      0.5c_{1}e^{2t} - 0.5c_{2}e^{-2t} - c_{3}e^{-t} \\
+      c_{1}e^{2t} + c_{2}e^{-2t} + c_{3}e^{-t} \\
+    \end{bmatrix}
+    \intertext{Siden:}
+    \mathbf{x}(t) &= (x_{1}(t), x_{2}(t) , x_{3}(t))
+  \end{align*}
+
+  Har vi:
+
+  \begin{align*}
+    x_{1}(t) &= 0.25c_{1}e^{2t} + 0.25c_{2}e^{-2t} + c_{3}e^{-t} \\
+    x_{2}(t) &= 0.5c_{1}e^{2t} - 0.5c_{2}e^{-2t} - c_{3}e^{-t} \\
+    x_{3}(t) &=c_{1}e^{2t} + c_{2}e^{-2t} + c_{3}e^{-t} \\
+  \end{align*}
+
+  Siden \[f(t) = x_{1}(t)  =0.25c_{1}e^{2t} + 0.25c_{2}e^{-2t} + c_{3}e^{-t}  \]
+  Setter vi inn for $f(t)$ i (*) ser vi at:
+
+  \begin{align*}
+    f'''(t) +f''(t) &-4f'(t) -4f(t) \\&= -4(0.25c_{1}e^{2t} + 0.25c_{2}e^{-2t} + c_{3}e^{-t}) -4(0.5c_{1}e^{2t} - 0.5c_{2}e^{-2t} - c_{3}e^{-t} )\\ &\quad+ c_{1}e^{2t} + c_{2}e^{-2t} + c_{3}e^{-t} + 2c_{1}e^{2t}  -2c_{2}e^{-2t} - c_{3}e^{-t} \\
+    &= 0 \quad \text{ved enkel algebra}
+  \end{align*}
+
+  Dermed har vi at $f(t) = x_{1}(t)$ er en løsning for (*)
+
+
+  \subsection*{iii)}
+
+  Regnet ut i oppgave 2ii)\\ Den generelle løsningen er:
+  
+\[\mathbf{x}(t) = c_{1}\mathbf{v}_{1}e^{2t} + c_{2}\mathbf{v}_{2}e^{-2t} + c_{3}\mathbf{v}_{3}e^{-t} \]
   
 
+Har at \[\mathbf{x}(0) = (1 , 0 , -2)\]
 
-  
+Setter inn verdien for $t = 0$ og $\mathbf{x}(0)$ inn i den generelle formelen og får:
+
+    \begin{align*}
+    1 &= 0.25c_{1}e^{0} + 0.25c_{2}e^{0} + c_{3}e^{0} = 0.25c_{1} + 0.25c_{2} +c_{3} &\text{(1)}\\
+    0 &= 0.5c_{1}e^{0} - 0.5c_{2}e^{0} - c_{3}e^{0} = 0.5c_{1} -0.5c_{2} - c_{3} & \text{(2)}\\
+    -2 &=c_{1}e^{0} + c_{2}e^{0} + c_{3}e^{0} = c_{1} + c_{2} + c_{3} & \text{(3)}\\
+    \ \\
+    c_{3} &= 0.5(c_{1} - c_{2})  &\text{(2)}\\
+    \ \\
+    1 &= 0.25(c_{1} + c_{2}) + 0.5(c_{1} - c_{2}) = 0.75c_{1} -0.25c_{2} & \text{(1+2)}\\
+    -2 &= c_{1} + c_{2} + 0.5(c_{1} - c_{2}) = 1.5 c_{1} + 0.5c_{2} & \text{(2+3)} \\
+    \ \\
+    c_{2} &= -4 -3c_{1} & \text{(2+3)} \\
+    \ \\
+    1 &= 0.75 c_{1} - 0.25(-4 -3c_{1}) = 0.75c_{1} + 1 + 0.75c_{1} = 1.5 c_{1} & \text{(1+2+3)}\\
+    \ \\
+    c_{1} &= \frac{2}{3} &\\
+    c_{2} &= -6 &\\
+    c_{3} &= \frac{10}{3} &\\
+    \ \\
+    \intertext{Altså er:} \\
+    \mathbf{x}(t) &= \frac{2}{3}\mathbf{v}_{1}e^{2t} -6\mathbf{v}_{2}e^{-2t} + \frac{10}{3}\mathbf{v}_{3}e^{-t} \\
+    &=
+    \begin{bmatrix}
+      \frac{1}{6}e^{2t} - \frac{3}{2}e^{-2t} + \frac{10}{3}e^{-t} \\
+      \frac{1}{3}e^{2t} + 3e^{-2t} - \frac{10}{3}e^{-t} \\
+      \frac{2}{3}e^{2t} - 6e^{-2t} + \frac{10}{3}e^{-t} \\
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+      \frac{1}{6}e^{2t} - \frac{3}{2}e^{-2t} + \frac{10}{3}e^{-t} \\
+      \frac{1}{3}e^{2t} + 3e^{-2t} - \frac{10}{3}e^{-t} \\
+      \frac{2}{3}e^{2t} - 6e^{-2t} + \frac{10}{3}e^{-t} \\
+    \end{bmatrix} \\
+    \end{align*}
 \end{flushleft}
 \end{document}
