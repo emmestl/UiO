@@ -1,0 +1,648 @@
+buildhouse1.txt
+---------------------------------------
+
+Time 0:
+	Starting: 5
+	Current Staff: 2
+Time 4:
+	Finished: 5
+	Starting: 1
+	Starting: 6
+	Current Staff: 4
+Time 6:
+	Finished: 6
+	Current Staff: 2
+Time 8:
+	Finished: 1
+	Starting: 2
+	Current Staff: 4
+Time 14:
+	Finished: 2
+	Starting: 3
+	Starting: 4
+	Starting: 7
+	Current Staff: 7
+Time 15:
+	Finished: 3
+	Finished: 4
+	Current Staff: 2
+Time 18:
+	Finished: 7
+	Starting: 8
+	Current Staff: 4
+Time 22:
+	Finished: 8
+	Current Staff: 0
+
+**** Shortest possible project execution is 22 ****
+-----------------------------
+TaskID: 1
+
+Name: Build-walls
+Manpower: 2
+Duration time: 4
+
+Earliest start time: 4
+Latest start time: 4
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 2
+
+Name: Build-roofs
+Manpower: 4
+Duration time: 6
+
+Earliest start time: 8
+Latest start time: 8
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 3
+
+Name: Put-on-wallpapers
+Manpower: 2
+Duration time: 1
+
+Earliest start time: 14
+Latest start time: 17
+Slack: 3
+-----------------------------
+
+-----------------------------
+TaskID: 4
+
+Name: Put-on-tiles
+Manpower: 3
+Duration time: 1
+
+Earliest start time: 14
+Latest start time: 21
+Slack: 7
+-----------------------------
+
+-----------------------------
+TaskID: 5
+
+Name: Build-foundation
+Manpower: 2
+Duration time: 4
+
+Earliest start time: 0
+Latest start time: 0
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 6
+
+Name: Make-floor
+Manpower: 2
+Duration time: 2
+
+Earliest start time: 4
+Latest start time: 12
+Slack: 8
+-----------------------------
+
+-----------------------------
+TaskID: 7
+
+Name: Put-carpet-floor
+Manpower: 2
+Duration time: 4
+
+Earliest start time: 14
+Latest start time: 14
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 8
+
+Name: Move-in
+Manpower: 4
+Duration time: 4
+
+Earliest start time: 18
+Latest start time: 18
+Slack: 0
+-----------------------------
+
+
+
+
+buildhouse2.txt
+---------------------------------------
+
+---Loop found---
+Node: 1
+Node: 2
+Node: 3
+Node: 6
+Node: 1
+
+
+
+
+
+buildrail.txt
+---------------------------------------
+
+
+Time 0:
+	Starting: 9
+	Current Staff: 10
+Time 3:
+	Finished: 9
+	Starting: 10
+	Starting: 11
+	Starting: 12
+	Starting: 14
+	Starting: 16
+	Starting: 17
+	Current Staff: 56
+Time 4:
+	Finished: 11
+	Starting: 18
+	Starting: 19
+	Starting: 20
+	Current Staff: 64
+Time 5:
+	Finished: 10
+	Starting: 2
+	Current Staff: 70
+Time 12:
+	Finished: 2
+	Current Staff: 60
+Time 16:
+	Finished: 20
+	Starting: 23
+	Current Staff: 61
+Time 28:
+	Finished: 14
+	Starting: 15
+	Current Staff: 61
+Time 29:
+	Finished: 19
+	Current Staff: 57
+Time 33:
+	Finished: 12
+	Starting: 13
+	Current Staff: 57
+Time 38:
+	Finished: 16
+	Current Staff: 45
+Time 44:
+	Finished: 18
+	Starting: 21
+	Current Staff: 46
+Time 46:
+	Finished: 23
+	Starting: 26
+	Current Staff: 48
+Time 48:
+	Finished: 17
+	Finished: 15
+	Starting: 22
+	Current Staff: 29
+Time 51:
+	Finished: 13
+	Starting: 8
+	Current Staff: 24
+Time 59:
+	Finished: 21
+	Starting: 24
+	Current Staff: 26
+Time 63:
+	Finished: 8
+	Starting: 3
+	Current Staff: 29
+Time 64:
+	Finished: 22
+	Finished: 3
+	Starting: 25
+	Current Staff: 21
+Time 66:
+	Finished: 26
+	Current Staff: 14
+Time 119:
+	Finished: 24
+	Starting: 4
+	Current Staff: 13
+Time 124:
+	Finished: 25
+	Starting: 5
+	Starting: 27
+	Current Staff: 22
+Time 134:
+	Finished: 4
+	Current Staff: 16
+Time 136:
+	Finished: 5
+	Current Staff: 10
+Time 149:
+	Finished: 27
+	Starting: 28
+	Starting: 29
+	Current Staff: 20
+Time 179:
+	Finished: 28
+	Current Staff: 10
+Time 186:
+	Finished: 29
+	Starting: 1
+	Starting: 6
+	Starting: 7
+	Starting: 30
+	Current Staff: 29
+Time 204:
+	Finished: 7
+	Current Staff: 23
+Time 206:
+	Finished: 1
+	Finished: 30
+	Starting: 31
+	Current Staff: 13
+Time 213:
+	Finished: 6
+	Current Staff: 7
+Time 218:
+	Finished: 31
+	Current Staff: 0
+
+**** Shortest possible project execution is 218 ****
+-----------------------------
+TaskID: 1
+
+Name: Install-pavement
+Manpower: 10
+Duration time: 20
+
+Earliest start time: 186
+Latest start time: 198
+Slack: 12
+-----------------------------
+
+-----------------------------
+TaskID: 2
+
+Name: Install-railing
+Manpower: 10
+Duration time: 7
+
+Earliest start time: 5
+Latest start time: 211
+Slack: 206
+-----------------------------
+
+-----------------------------
+TaskID: 3
+
+Name: Install-ticketmachine
+Manpower: 10
+Duration time: 1
+
+Earliest start time: 63
+Latest start time: 217
+Slack: 154
+-----------------------------
+
+-----------------------------
+TaskID: 4
+
+Name: Paint-tower-1-with-arch
+Manpower: 6
+Duration time: 15
+
+Earliest start time: 119
+Latest start time: 203
+Slack: 84
+-----------------------------
+
+-----------------------------
+TaskID: 5
+
+Name: Paint-tower-2
+Manpower: 6
+Duration time: 12
+
+Earliest start time: 124
+Latest start time: 206
+Slack: 82
+-----------------------------
+
+-----------------------------
+TaskID: 6
+
+Name: Paint-trusses
+Manpower: 6
+Duration time: 27
+
+Earliest start time: 186
+Latest start time: 191
+Slack: 5
+-----------------------------
+
+-----------------------------
+TaskID: 7
+
+Name: Paint-cables-and-rods
+Manpower: 6
+Duration time: 18
+
+Earliest start time: 186
+Latest start time: 200
+Slack: 14
+-----------------------------
+
+-----------------------------
+TaskID: 8
+
+Name: Put-lane-tunnel-and-intersection
+Manpower: 7
+Duration time: 12
+
+Earliest start time: 51
+Latest start time: 194
+Slack: 143
+-----------------------------
+
+-----------------------------
+TaskID: 9
+
+Name: Setup-barrack
+Manpower: 10
+Duration time: 3
+
+Earliest start time: 0
+Latest start time: 0
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 10
+
+Name: Prepare-storage
+Manpower: 4
+Duration time: 2
+
+Earliest start time: 3
+Latest start time: 209
+Slack: 206
+-----------------------------
+
+-----------------------------
+TaskID: 11
+
+Name: Rig-ramspace-reinforcing
+Manpower: 4
+Duration time: 1
+
+Earliest start time: 3
+Latest start time: 8
+Slack: 5
+-----------------------------
+
+-----------------------------
+TaskID: 12
+
+Name: Build-tunnel
+Manpower: 12
+Duration time: 30
+
+Earliest start time: 3
+Latest start time: 146
+Slack: 143
+-----------------------------
+
+-----------------------------
+TaskID: 13
+
+Name: Clean-tunnel
+Manpower: 12
+Duration time: 18
+
+Earliest start time: 33
+Latest start time: 176
+Slack: 143
+-----------------------------
+
+-----------------------------
+TaskID: 14
+
+Name: Build-intersection
+Manpower: 12
+Duration time: 25
+
+Earliest start time: 3
+Latest start time: 149
+Slack: 146
+-----------------------------
+
+-----------------------------
+TaskID: 15
+
+Name: Clean-intersection
+Manpower: 12
+Duration time: 20
+
+Earliest start time: 28
+Latest start time: 174
+Slack: 146
+-----------------------------
+
+-----------------------------
+TaskID: 16
+
+Name: Build-towerfoundation-1
+Manpower: 12
+Duration time: 35
+
+Earliest start time: 3
+Latest start time: 14
+Slack: 11
+-----------------------------
+
+-----------------------------
+TaskID: 17
+
+Name: Build-towerfoundation-2
+Manpower: 12
+Duration time: 45
+
+Earliest start time: 3
+Latest start time: 3
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 18
+
+Name: Make-armouring-tower-1
+Manpower: 4
+Duration time: 40
+
+Earliest start time: 4
+Latest start time: 9
+Slack: 5
+-----------------------------
+
+-----------------------------
+TaskID: 19
+
+Name: Make-armouring-tower-2
+Manpower: 4
+Duration time: 25
+
+Earliest start time: 4
+Latest start time: 23
+Slack: 19
+-----------------------------
+
+-----------------------------
+TaskID: 20
+
+Name: Make-armouring-arch
+Manpower: 4
+Duration time: 12
+
+Earliest start time: 4
+Latest start time: 144
+Slack: 140
+-----------------------------
+
+-----------------------------
+TaskID: 21
+
+Name: Encase-and-armour-tower-1
+Manpower: 5
+Duration time: 15
+
+Earliest start time: 44
+Latest start time: 49
+Slack: 5
+-----------------------------
+
+-----------------------------
+TaskID: 22
+
+Name: Encase-and-armour-tower-2
+Manpower: 5
+Duration time: 16
+
+Earliest start time: 48
+Latest start time: 48
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 23
+
+Name: Encase-and-armour-arch
+Manpower: 5
+Duration time: 30
+
+Earliest start time: 16
+Latest start time: 156
+Slack: 140
+-----------------------------
+
+-----------------------------
+TaskID: 24
+
+Name: Cast-tower-1
+Manpower: 7
+Duration time: 60
+
+Earliest start time: 59
+Latest start time: 64
+Slack: 5
+-----------------------------
+
+-----------------------------
+TaskID: 25
+
+Name: Cast-tower-2
+Manpower: 7
+Duration time: 60
+
+Earliest start time: 64
+Latest start time: 64
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 26
+
+Name: Cast-arch
+Manpower: 7
+Duration time: 20
+
+Earliest start time: 46
+Latest start time: 186
+Slack: 140
+-----------------------------
+
+-----------------------------
+TaskID: 27
+
+Name: Stretch-two-maincables
+Manpower: 10
+Duration time: 25
+
+Earliest start time: 124
+Latest start time: 124
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 28
+
+Name: Build-truss-1-with-rods
+Manpower: 10
+Duration time: 30
+
+Earliest start time: 149
+Latest start time: 156
+Slack: 7
+-----------------------------
+
+-----------------------------
+TaskID: 29
+
+Name: Build-truss-2-with-rods
+Manpower: 10
+Duration time: 37
+
+Earliest start time: 149
+Latest start time: 149
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 30
+
+Name: Cast-lane-on-truss
+Manpower: 7
+Duration time: 20
+
+Earliest start time: 186
+Latest start time: 186
+Slack: 0
+-----------------------------
+
+-----------------------------
+TaskID: 31
+
+Name: Polish-lane-on-arch
+Manpower: 7
+Duration time: 12
+
+Earliest start time: 206
+Latest start time: 206
+Slack: 0
+-----------------------------
+

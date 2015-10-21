@@ -1,0 +1,64 @@
+\documentclass[a4paper, norsk, 10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\date{\today}
+\title{Oblig 5 \\ inf1080}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+\section*{Oppgave 8.12:}
+\subsection*{a}
+
+La $S= \mathbb{N}_{0}$ og $T = \mathbb{N}$ da er $S$ og $T$ uenderlige, tellbare mengder hvor $S \setminus T = {0}$ er endelig \\
+
+\subsection*{b}
+La $S= \mathbb{Z}$ og $T= \mathbb{N}$ da er $S$ og $T$ uenderlige, tellbare mengder hvor $S \setminus T$ ikke er endelig. Men mengden av alle negative heltall og 0 \\
+
+\subsection*{c}
+La $S = \mathbb{N}_{0}$ og la $T = \mathbb{N}\setminus \{1,2,3,4,5,6,7\}$ da er $S$ og $T$ uenderlige, tellbare mengder hvor $S \setminus T = \mathbb{N}_{0} \setminus (\mathbb{N}\setminus\{1,2,3,4,5,6,7\}) = \{0, 1, 2, 3, 4, 5, 6, 7\}$ hvor vi ser at $|S \setminus T| = |\{0, 1, 2, 3, 4, 5, 6, 7\}| = 8$
+
+
+\section*{Oppgave 9.2:}
+Antar at $U = \{1,2,3,a,b\}$ og la relasjonen $R$ på $U$ være gitt ved:
+\[R = \{\left<2,3\right>, \left<3,2\right>, \left<1,a\right>\}\]
+
+\subsection*{a}
+Refleksiv tilsluting av R: \quad $R \cup \{\left<1,1\right>, \left<2,2\right>, \left<3,3\right>, \left<a,a\right>, \left<b,b\right> \}$
+
+
+\subsection*{b}
+Symetrisk tilslutning av R: \quad $R \cup \{\left<a,1\right>\}$
+
+\subsection*{c}
+Tranisitive tilslutning av R: \quad $R \cup \{\left<2,2\right>, \left<3,3\right> \}$
+
+
+
+\section*{Oppgave 9.11:}
+\subsection*{a}
+\[\{a^{n}, b^{n} \, | \,n = 0,1,2,...\} = \{\Lambda, a, b, aa, bb, aaa, bbb, ... \}\]
+\\
+Basis: $\Lambda =  a^{0}, b^{0}$ \\
+Induksjonssteg: Hvis $a^{,}$ er et multipel av $a$, og $a^{,}$ er et element i mengden. Så er også $aa^{,}$ et element i mengden. Det samme gjelder for $b$.
+Tillukking: Vil her mengden oppgitt i oppgaven.
+
+
+\subsection*{b}
+Basis: $\Lambda = a^{0}b^{0}, \quad \Lambda \in A$ \\
+Induksjonssteg: Hvis $x \in A$ så er $axb \in A$ \\
+Tillukning: $\{a^{n}b^{n} \, | \, n = 0, 1, 2, ....\}$
+
+\subsection*{c}
+Basis: $\Lambda = (ab)^{0}, \quad \Lambda \in A$ \\
+Induksjonssteg: Hvis $x \in A$ så er $abx \in A$ \\
+Tillukning: $\{(ab)^{n} \, | \, n = 0, 1, 2, ....\}$
+
+\end{flushleft}
+\end{document}

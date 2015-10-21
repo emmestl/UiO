@@ -1,0 +1,59 @@
+Welcome to Elsie's homemade spellcheck, complete with typos 
+ 
+press 'q' to quit
+Search: achiev
+The word does not exist, did you mean:
+
+Time it took to find and produce results: 5.10 ms
+3 sugestions found
+achier, achive, achieve, 
+
+Search: achiese
+The word does not exist, did you mean:
+
+Time it took to find and produce results: 1.06 ms
+3 sugestions found
+achinese, achieve, achiest, 
+
+Search: achievee
+The word does not exist, did you mean:
+
+Time it took to find and produce results: 0.78 ms
+4 sugestions found
+achieve, achieved, achiever, achieves, 
+
+Search: ahcieve
+The word does not exist, did you mean:
+
+Time it took to find and produce results: 0.58 ms
+1 sugestions found
+achieve, 
+
+Search: q
+Statistics:
+The longest path has the leght: 36 
+
+Amount of nodes in each depth:
+d 0:     1 	d 1:     2 
+d 2:     4 	d 3:     8 
+d 4:    16 	d 5:    32 
+d 6:    64 	d 7:   121 
+d 8:   218 	d 9:   383 
+d10:   628 	d11:   990 
+d12:  1513 	d13:  2208 
+d14:  2949 	d15:  3889 
+d16:  4772 	d17:  5671 
+d18:  6251 	d19:  6689 
+d20:  6692 	d21:  6450 
+d22:  5884 	d23:  5101 
+d24:  4244 	d25:  3254 
+d26:  2395 	d27:  1789 
+d28:  1177 	d29:   705 
+d30:   429 	d31:   236 
+d32:   138 	d33:    60 
+d34:    25 	d35:     9 
+d36:     3 	
+
+Average deph is: 19.65
+First word is: abactinally
+Last word is: darndests

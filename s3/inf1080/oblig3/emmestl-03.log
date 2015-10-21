@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.7)  31 AUG 2015 19:38
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.8.21)  1 SEP 2015 13:01
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **emmestl-03.tex
 (./emmestl-03.tex
 LaTeX2e <2014/05/01>
+<<<<<<< HEAD
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/size10.clo
+=======
+Babel <3.9l> and hyphenation patterns for 2 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,19 +34,31 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/inputenc.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/utf8.def
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/t1enc.dfu
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -185,7 +208,11 @@ File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/ot1enc.dfu
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -216,7 +243,11 @@ File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/base/omsenc.dfu
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -240,24 +271,43 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/amsmath/amsmath.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/amsmath/amsgen.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen103
 ))
+<<<<<<< HEAD
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
 (/opt/texlive/uio-texmf/texmf-dist/tex/latex/amsmath/amsopn.sty
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -298,6 +348,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
+<<<<<<< HEAD
+=======
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks26
+)
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 
 LaTeX Warning: Unused global option(s):
     [norsk].
@@ -305,6 +370,7 @@ LaTeX Warning: Unused global option(s):
 (./emmestl-03.aux)
 \openout1 = `emmestl-03.aux'.
 
+<<<<<<< HEAD
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
@@ -320,10 +386,26 @@ LaTeX Font Info:    ... okay on input line 11.
  [1
 
 {/opt/texlive/uio-texmf/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+=======
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
 Overfull \hbox (19.83733pt too wide) in paragraph at lines 54--67
 [][] 
  []
 
+<<<<<<< HEAD
 [2] (./emmestl-03.aux) ) 
 Here is how much of TeX's memory you used:
  1045 strings out of 493109
@@ -344,6 +426,31 @@ Output written on emmestl-03.pdf (2 pages, 65480 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
+=======
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./emmestl-03.aux) ) 
+Here is how much of TeX's memory you used:
+ 1115 strings out of 495020
+ 12059 string characters out of 6181324
+ 68984 words of memory out of 5000000
+ 4367 multiletter control sequences out of 15000+600000
+ 9061 words of font info for 33 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 27i,8n,20p,535b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+</
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb>
+Output written on emmestl-03.pdf (2 pages, 76510 bytes).
+PDF statistics:
+ 39 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
+>>>>>>> f9602b07f21330ef62cf68999287ccf747c5049f
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

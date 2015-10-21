@@ -3,9 +3,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[a4]{}
 \usepackage{amsmath}
+\usepackage{amsthm}
 
 \date{\today}
-\title{Oblig 2 \\ inf1080}
+\title{Oblig 3 \\ inf1080}
 \author{Elsie Mestl}
 
 \begin{document}
@@ -30,24 +31,23 @@ Ser at hele kolonnen til høyre alltid er sann, har dermed at utrykket er en tau
 
 \subsection*{e}
 \begin{align*}
-\neg (P  \lor Q) \land (\neg Q \lor R ) \land (\neg R \lor P) &= \neg P \land \neg Q \land  Q \land \neg R \land R \land \neg P \\
+\neg (P  \lor Q) \land (\neg Q \lor R ) \land (\neg R \lor P) &= \neg P \land \neg Q \land (\neg Q \lor R) \land ( \neg R \lor  P) \\
 \end{align*}
 
-Utrykket er en kontradiksjon da Q kan ikke være både sann og usann samtidig
+Utrykket er hverken en kontradiksjon eller en tautologi da avhengig av hva P og R er så er utrykket enten sant eller usant 
 
 \subsection*{f}
 \begin{align*}
-(\neg (F \lor Q)) \land P = \neg F \land \neg Q \land P 
+(\neg (P \lor Q)) \land P = \neg P \land \neg Q \land P 
 \end{align*}
 
-Hverken en tautologi eller en kontradiksjon da utrykket er sann er når F og Q er usanne og P er sann, men usant ellers.
+En kontradiksjon siden P kan ikke være både sann og usann til samme tid
 
 \section*{Oppgave 5.5:}
 Bevis:
 \[(P \rightarrow Q) \land (Q \rightarrow R) \rightarrow (P \rightarrow R)\]
-\subsection*{a}
-Direktebevis:
-
+\subsection*{a \quad Direktebevis:}
+\begin{proof}
 Setter dermed inn i en sannhetsverditabell og ser at:
 
 \begin{table}[h!]
@@ -67,11 +67,11 @@ F & F & F & T & T & T & T & T
 \end{table}
 
 Siden den siste kollonnen allitd er sann har vi at utsagnet vårt alltid vil stemme
+\end{proof}
 
-
-\subsection*{c}
-Motsigelsesbevis:
-
-Anta at utrykket er usant. 
+\subsection*{c \quad Motsigelsesbevis:}
+\begin{proof}
+Anta at utrykket $(P \rightarrow Q) \land (Q \rightarrow R) $ er usant. Da har vi at både $P \rightarrow Q$ og $Q \rightarrow R$ er usanne. $P \rightarrow Q$ er kun usann når P er sann og Q er usann. Mens $Q \rightarrow R$ er kun usann når Q er sann og R er usann. Får her en motsigelse, for vi ser at for at begge utrykkene skal være usanne samtidig må Q både være sann og usann. Dette går ikke og vi har en motsigelse. Altså må antagelsen vår i begynnelsen være feil og utrykket stemmer.
+\end{proof}
 \end{flushleft}
 \end{document}
