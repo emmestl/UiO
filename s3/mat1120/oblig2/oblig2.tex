@@ -1,0 +1,96 @@
+\documentclass[a4paper, norsk, twoside, 10pt]{article}
+%trennger en pakke med norske symboler
+\usepackage[utf8]{inputenc}
+\usepackage[a4]{}
+\usepackage[norsk]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage{float}
+%\usepackage{listings}
+%\usepackage{color}
+%\usepackage{tikz}
+%\usetikzlibrary{arrows}
+
+
+
+
+\date{\today}
+\title{Oblig2 \\ mat1120}
+\author{Elsie Mestl}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+
+
+  \section*{Oppgave 1}
+  \subsubsection*{i)}
+
+  Har at:
+\[
+  p(t) = a_{0} + a_{1}t +  t^{2} \qquad
+  C = \begin{bmatrix}
+    0 & 1 \\
+    -a_{0} & -a_{1} \\
+  \end{bmatrix}
+  \]
+  \\
+  \ \\
+
+ 
+  Regner ut det karektaristiske polynomet til C 
+  \begin{align*}
+  P(\lambda_{C}) &= \text{det}(C)\\
+  &= (-\lambda)(-a_{1} - \lambda) + a_{0} \\
+  &= a_{0} + \lambda a_{1} + \lambda^{2}
+  \end{align*}
+
+  Ser at \[P(\lambda_{C}) = p(t), \quad t = \lambda\]
+
+
+
+  
+  \subsubsection*{ii)}
+
+  \[
+  p(t) = a_{0} + a_{1}t +  a_{3}t^{2} + t^{3} \qquad
+  C = \begin{bmatrix}
+    0 & 1 & 0\\
+    0 & 0 & 1 \\
+    -a_{0} & -a_{1} & -a_{2} \\
+  \end{bmatrix} \] \\
+  \ \\
+  Regner ut det karektaristiske polynomet til C 
+  \begin{align*}
+  P(\lambda_{C}) &= \text{det}(C)\\
+  &= -\lambda(-\lambda(-a_{2} - \lambda) + a_{1}) -a_{0}(1 - ( -\lambda \cdot 0))\\
+  &= \lambda^{2}(-a_{2} - \lambda) - \lambda a_{1} - a_{0} \\
+  &= -\lambda^{3} - \lambda^{2}a_{2} -\lambda a_{1} - a_{0}
+  \end{align*}
+
+  Ser at \[P(\lambda_{C}) = -p(t), \quad t = \lambda\]
+
+
+  \newpage
+
+  \section*{Oppgave 2}
+
+  \subsection*{i)}
+
+  Vis at: \[\mathbf{x}'(t)  = \mathcal{C}\mathbf{x}(t)\]
+
+  Har at:
+  \[\mathbf{x}(t) = (f(t), f'(t), f''(t))\]
+
+  Hvor $\mathbf{x}(t)$ er en løsning
+  
+
+
+  
+\end{flushleft}
+\end{document}
