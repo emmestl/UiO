@@ -6,16 +6,35 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-
+\usepackage{color}
+\usepackage{listings}
 
 %\usepackage{epsfig}
 %\usepackage{graphicx}
 %\usepackage{float}
-%\usepackage{listings}
-%\usepackage{color}
+
+
 %\usepackage{tikz}
 %\usetikzlibrary{arrows}
 
+
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstdefinestyle{custommat}{language=Matlab,
+  %basicstyle=\color{red},
+  breaklines=true,%
+  morekeywords={matlab2tikz},
+  keywordstyle=\color{blue},%
+  morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+  identifierstyle=\color{black},%
+  stringstyle=\color{mylilas},
+  commentstyle=\color{mygreen},%
+  showstringspaces=false,%without this there will be a symbol in the places where there is a space
+  frame = L,
+  emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+  %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
 
 
 
@@ -243,115 +262,128 @@
 
   Hvis $\mathbf{v}_{\lambda}$ er en egenvektor for $\mathcal{C}$ med egenverdien $\lambda$ så er:
 
- \[\mathcal{C}\mathbf{v}_{\lambda} = \lambda \mathbf{v}_{\lambda}\]
+  \[\mathcal{C}\mathbf{v}_{\lambda} = \lambda \mathbf{v}_{\lambda}\]
 
- \begin{align*}
-   \mathcal{C}\mathbf{v}_{\lambda} &=
-   \begin{bmatrix}
-     \lambda \\
-     \lambda^{2} \\
-     \vdots \\
-     \lambda^{n-1} \\
-     -a_{0} - a_{1}\lambda \cdots -a_{n-1}\lambda^{n-1}\\
-   \end{bmatrix}
-   &\begin{matrix}
-      \begin{split}
-      p(\lambda) &= 0\\
-      -a_{0} - a_{1}\lambda \cdots -a_{n-1}\lambda^{n-1} &= -p(\lambda) + \lambda^{n} \\
-      &= 0 +\lambda^{n}
-      \end{split}
-      \end{matrix} \\
-   &= \lambda
-   \begin{bmatrix}
-     1 \\
-     \lambda \\
-     \vdots \\
-     \lambda^{n-2} \\
-     \lambda^{n-1} \\
-   \end{bmatrix}
-   = \lambda \mathbf{v}_{\lambda}
- \end{align*}
+  \begin{align*}
+    \mathcal{C}\mathbf{v}_{\lambda} &=
+    \begin{bmatrix}
+      \lambda \\
+      \lambda^{2} \\
+      \vdots \\
+      \lambda^{n-1} \\
+      -a_{0} - a_{1}\lambda \cdots -a_{n-1}\lambda^{n-1}\\
+    \end{bmatrix}
+    &\begin{matrix}
+       \begin{split}
+         p(\lambda) &= 0\\
+         -a_{0} - a_{1}\lambda \cdots -a_{n-1}\lambda^{n-1} &= -p(\lambda) + \lambda^{n} \\
+         &= 0 +\lambda^{n}
+       \end{split}
+     \end{matrix} \\
+    &= \lambda
+    \begin{bmatrix}
+      1 \\
+      \lambda \\
+      \vdots \\
+      \lambda^{n-2} \\
+      \lambda^{n-1} \\
+    \end{bmatrix}
+    = \lambda \mathbf{v}_{\lambda}
+  \end{align*}
 
- \subsection*{ii)}
+  \subsection*{ii)}
 
- \[E_{\lambda} = \{\mathbf{x} \in \mathbb{R} \, | \, \mathcal{C} \mathbf{x} = \lambda \mathbf{x}\}\]
+  \[E_{\lambda} = \{\mathbf{x} \in \mathbb{R} \, | \, \mathcal{C} \mathbf{x} = \lambda \mathbf{x}\}\]
 
- Siden $\mathbf{v}_{\lambda}$ er en egenvektor til $\mathcal{C}$ så er $\mathbf{v}_{\lambda} \in E_{\lambda}$
-\ \\
-Anta videre at $\mathbf{x}  \neq c\mathbf{v}_{\lambda}, \, c \in \mathbb{R}$ og $\mathbf{x} \in E_{\lambda}$
-\begin{align*}
-  \mathcal{C}\mathbf{x} &=
-  \mathcal{C}\begin{bmatrix}
-    x_{0} \\
-    x_{1} \\
-    \vdots \\
-    x_{n-1} \\
-  \end{bmatrix}
-  = \begin{bmatrix}
-    x_{1} \\
-    x_{2} \\
-    \vdots \\
-    -(a_{0}x_{0} + a_{1} + \cdots + a_{n-1}x_{x-1}) \\
-  \end{bmatrix}
-  = \lambda \begin{bmatrix}
-    x_{0} \\
-    x_{1} \\
-    \vdots \\
-    x_{n-1} \\
-  \end{bmatrix} \\
-  \intertext{Altså har vi at:} 
-  x_{1} &= \lambda x_{0} \\
-  x_{2} &= \lambda x_{1} \\
-  &\vdots \\
-  \lambda x_{n-1} &= -(a_{0}x_{0} + a_{1}x_{1} + \cdots + a_{n-1}x_{x-1})\\
-  \intertext{Setter vi inn $x_{1}$ i formelen for $x_{2}$ og $x_{2}$ for $x_{3}$ osv. Ser vi at:} 
-  x_{1} &= \lambda x_{0} \\
-  x_{2} &= \lambda^{2} x_{0} \\
-  &\vdots\\
-  \lambda^{n}x_{0} &=-(a_{0}x_{0} + \lambda a_{1}x_{0} + \cdots + \lambda^{n-1}a_{n-1}x_{0}) \implies
-  \lambda^{n} = -(a_{0} + \lambda a_{1} + \cdots + \lambda^{n-1}a_{n-1})
-  \intertext{Dette kan vi se på som følgende:}
-  \mathcal{C}\mathbf{x} &=
-  \begin{bmatrix}
-    \lambda x_{0} \\
-    \lambda^2 x_{0} \\
-    \vdots \\
-    \lambda^{n} x_{0} \\
-  \end{bmatrix} =
-  \lambda \begin{bmatrix}
-    x_{0} \\
-    \lambda x_{0} \\
-    \vdots \\
-    \lambda^{n-1} x_{0} \\
-  \end{bmatrix}
-\end{align*}
+  Siden $\mathbf{v}_{\lambda}$ er en egenvektor til $\mathcal{C}$ så er $\mathbf{v}_{\lambda} \in E_{\lambda}$
+  \ \\
+  Anta videre at $\mathbf{x}  \neq c\mathbf{v}_{\lambda}, \, c \in \mathbb{R}$ og $\mathbf{x} \in E_{\lambda}$
+  \begin{align*}
+    \mathcal{C}\mathbf{x} &=
+    \mathcal{C}\begin{bmatrix}
+      x_{0} \\
+      x_{1} \\
+      \vdots \\
+      x_{n-1} \\
+    \end{bmatrix}
+    = \begin{bmatrix}
+      x_{1} \\
+      x_{2} \\
+      \vdots \\
+      -(a_{0}x_{0} + a_{1} + \cdots + a_{n-1}x_{x-1}) \\
+    \end{bmatrix}
+    = \lambda \begin{bmatrix}
+      x_{0} \\
+      x_{1} \\
+      \vdots \\
+      x_{n-1} \\
+    \end{bmatrix} \\
+    \intertext{Altså har vi at:}
+    x_{1} &= \lambda x_{0} \\
+    x_{2} &= \lambda x_{1} \\
+    &\vdots \\
+    \lambda x_{n-1} &= -(a_{0}x_{0} + a_{1}x_{1} + \cdots + a_{n-1}x_{x-1})\\
+    \intertext{Setter vi inn $x_{1}$ i formelen for $x_{2}$ og $x_{2}$ for $x_{3}$ osv. Ser vi at:}
+    x_{1} &= \lambda x_{0} \\
+    x_{2} &= \lambda^{2} x_{0} \\
+    &\vdots\\
+    \lambda^{n}x_{0} &=-(a_{0}x_{0} + \lambda a_{1}x_{0} + \cdots + \lambda^{n-1}a_{n-1}x_{0}) \implies
+    \lambda^{n} = -(a_{0} + \lambda a_{1} + \cdots + \lambda^{n-1}a_{n-1})
+    \intertext{Dette kan vi se på som følgende:}
+    \mathcal{C}\mathbf{x} &=
+    \begin{bmatrix}
+      \lambda x_{0} \\
+      \lambda^2 x_{0} \\
+      \vdots \\
+      \lambda^{n} x_{0} \\
+    \end{bmatrix} =
+    \lambda \begin{bmatrix}
+      x_{0} \\
+      \lambda x_{0} \\
+      \vdots \\
+      \lambda^{n-1} x_{0} \\
+    \end{bmatrix}
+  \end{align*}
 
-Her har vi en selvmotsigelse siden vi antokk at $\mathbf{x}  \neq c\mathbf{v}_{\lambda}, \, c \in \mathbb{R}$. Men det er nettopp dette vi har fått i utregningene. Altså kan ikke $\mathbf{x}$ være lineært uavhengig av $\mathbf{v}_{\lambda}$ og samtidig være en egenvektor for $\mathcal{C}$ med egnverdi $\lambda$  \\ \ \\
+  Her har vi en selvmotsigelse siden vi antokk at $\mathbf{x}  \neq c\mathbf{v}_{\lambda}, \, c \in \mathbb{R}$. Men det er nettopp dette vi har fått i utregningene. Altså kan ikke $\mathbf{x}$ være lineært uavhengig av $\mathbf{v}_{\lambda}$ og samtidig være en egenvektor for $\mathcal{C}$ med egnverdi $\lambda$  \\ \ \\
 
-Dermed har vi at $E_{\lambda}$ består av alle multipler av $\mathbf{v}_{\lambda}$ som videre betyr at $dim(E) = 1$ og at $E = \text{Span}\{\mathbf{v}_{\lambda}\}$.
+  Dermed har vi at $E_{\lambda}$ består av alle multipler av $\mathbf{v}_{\lambda}$ som videre betyr at $dim(E) = 1$ og at $E = \text{Span}\{\mathbf{v}_{\lambda}\}$.
 
 
-\subsection*{iii)}
+  \subsection*{iii)}
 
-$\mathcal{C}$ er diagonaliserbar, hvis og bare hvis:
+  $\mathcal{C}$ er diagonaliserbar, hvis og bare hvis:
 
-\begin{align*}
-  \mathcal{C} = PDP^{-1}
-\end{align*}
+  \begin{align*}
+    \mathcal{C} = PDP^{-1}
+  \end{align*}
 
-Hvis $p$ har $n$ distinkte røtter, betyr det at $\mathcal{C}$ har $n$ distinkte egenverdier. Det betyr at det finnes en $D$ som består av egenverdiene. Altså finnes det en matrise $P$ hvor kollonnene er de respektive egenvektorene. Siden det er $n$ distinke egenverdier er egenvektorene lineært uavhengide. Altså er kollonnene i $P$ lineærtuavhengige og $P$ er invertibel. Og vi har at $\mathcal{C}$ er diagonaliserbar hvis $p$ har $n$ distikte røtter.
-\\ \ \\
-Hvis $\mathcal{C}$ er diagonaliserbar vet vi det finne sen diagonalmatrise $D$ som består av alle egenverdiene til $\mathcal{C}$. I oppgave 3ii) viste vi at $dim(E_{\lambda}) = 1$ og dette gjelder for alle lamba. Altså for at $P$ skal være invertibel må den bestå av n lineærtuavhengide kolonner. Altså har $\mathcal{C}$ n lineært uavhnegige egenvektorer, og dermed også egenverdir. Siden $p = p(t)$ og $p$ har verdien til $\lambda$ så er løsningen til $p(t)$ lik alle verdiene til $\lambda$ altså $n$ distinkte røtter. 
-\\ \ \\
-\begin{align*}
-  P &= [\mathbf{v}_{0} \, \mathbf{v}_{1} \, (\cdots) \, \mathbf{v}_{n-1} ]  =
-  \begin{bmatrix}
-    1 & 1  & \cdots & 1 \\
-    \lambda_0 & \lambda_1 & \cdots & \lambda_{n-1} \\
-    & & \ddots& \\
-    \lambda^{n-1}_{0} & \lambda^{n-1}_{1} & \cdots & \lambda^{n-a}_{n-1} \\
-  \end{bmatrix}\\
-\end{align*}
+  Hvis $p$ har $n$ distinkte røtter, betyr det at $\mathcal{C}$ har $n$ distinkte egenverdier. Det betyr at det finnes en $D$ som består av egenverdiene. Altså finnes det en matrise $P$ hvor kollonnene er de respektive egenvektorene. Siden det er $n$ distinke egenverdier er egenvektorene lineært uavhengide. Altså er kollonnene i $P$ lineærtuavhengige og $P$ er invertibel. Og vi har at $\mathcal{C}$ er diagonaliserbar hvis $p$ har $n$ distikte røtter.
+  \\ \ \\
+  Hvis $\mathcal{C}$ er diagonaliserbar vet vi det finne sen diagonalmatrise $D$ som består av alle egenverdiene til $\mathcal{C}$. I oppgave 3ii) viste vi at $dim(E_{\lambda}) = 1$ og dette gjelder for alle lamba. Altså for at $P$ skal være invertibel må den bestå av n lineærtuavhengide kolonner. Altså har $\mathcal{C}$ n lineært uavhnegige egenvektorer, og dermed også egenverdir. Siden $p = p(t)$ og $p$ har verdien til $\lambda$ så er løsningen til $p(t)$ lik alle verdiene til $\lambda$ altså $n$ distinkte røtter.
+  \\ \ \\
+  \begin{align*}
+    P &= [\mathbf{v}_{0} \, \mathbf{v}_{1} \, (\cdots) \, \mathbf{v}_{n-1} ]  =
+    \begin{bmatrix}
+      1 & 1  & \cdots & 1 \\
+      \lambda_0 & \lambda_1 & \cdots & \lambda_{n-1} \\
+      & & \ddots& \\
+      \lambda^{n-1}_{0} & \lambda^{n-1}_{1} & \cdots & \lambda^{n-a}_{n-1} \\
+    \end{bmatrix}\\
+  \end{align*}
 
+\newpage
+  \section*{Oppgave 4}
+  \subsection*{i)}
+
+  \lstinputlisting[style = custommat]{stdrot.m}
+\newpage
+  \subsection*{ii)}
+
+  \lstinputlisting[language = Matlab, frame = single]{stdrot_cmp_root}
+\newpage
+
+  Kommentarer: \\
+  Ser at programmet finner den dominante roten for p1, (største av de røttene root(p1) gir ut). Men finner ikke for p2. Dette er fordi selv om det ved første øyenkast kanskje ser slik ut, så har ikke p2 en reell rot, absolutt verdien til de to komplekse er noe, men svært lite større.
 \end{flushleft}
 \end{document}
