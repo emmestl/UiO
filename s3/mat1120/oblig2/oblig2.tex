@@ -380,10 +380,23 @@
 \newpage
   \subsection*{ii)}
 
-  \lstinputlisting[language = Matlab, frame = single]{stdrot_cmp_root}
+  \lstinputlisting[language = Matlab, frame = single]{stdrot_cmd_roots}
 \newpage
 
   Kommentarer: \\
   Ser at programmet finner den dominante roten for p1, (største av de røttene root(p1) gir ut). Men finner ikke for p2. Dette er fordi selv om det ved første øyenkast kanskje ser slik ut, så har ikke p2 en reell rot, absolutt verdien til de to komplekse er noe, men svært lite større.
+
+
+  \section*{Oppgave 5}
+  \lstinputlisting[language = Matlab, frame = single]{pascal_roots}
+
+
+  Ser at stdrot() finner den største roten til A! OSB: hadde vi i i stdrot() satt $\mathbf{x}$ til å være en så ville vi fått ut 1, og dette har med at vi finner roten med en gang, og den sjekker ikke for andre verdier...
+
+\newpage
+  \section*{Oppgave 6}
+  \lstinputlisting[language = Matlab, frame = single]{QR_fact}
+  Printer ikke ut $A_{1}$ til $A_{7}$ men kun den siste. Er for å forhindre en oversvømmelse av unødvendig utskrift.
+  Ser at diagonalen i $A_{8}$ tilsvarer egenverdiene til $A$ altså er $A_{8}$ en diagonalmatrise for $A$
 \end{flushleft}
 \end{document}
