@@ -1,8 +1,10 @@
 function rot = stdrot(p)
-    numtimes = 3000;
+    numtimes = 30;
     tol = 0.5 * 10^(-6);
-    x = ones(max(size(p))-1); %start columarray
+    x = zeros(max(size(p))-1); %start columarray
     x = x(:, 1);
+    x(1) = 1;
+    
     rot = 0; %to stop matlab for complaining
     
     C = zeros(max(size(p))- 1, max(size(p)) - 1);
