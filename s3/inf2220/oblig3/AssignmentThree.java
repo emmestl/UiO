@@ -38,16 +38,20 @@ class AssignmentThree{
 	    return;
 	}
 
-	needle = "";
-	haystack = "";
+	//as to not make a new String every time a new line is read.
+	//Takk til Ole-Christian Hagenes for tips
+	StringBuilder needleBuild = new StringBuilder(filNeedle.nextLine());
+	StringBuilder haystackBuild = new StringBuilder(filHaystack.nextLine());
 	
 	while(filNeedle.hasNextLine()){
-	    needle += filNeedle.nextLine();
+	    needleBuild.append(filNeedle.nextLine());
 	}
 	while(filHaystack.hasNextLine()){
-	    haystack += filHaystack.nextLine() + "\n";
+	    haystackBuild.append(filHaystack.nextLine() + "\n");
 	}
 
-	//System.out.println (haystack);
+
+	needle = needleBuild.toString();
+	haystack = haystackBuild.toString();
     }
 }
