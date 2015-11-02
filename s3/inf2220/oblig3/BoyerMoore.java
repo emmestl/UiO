@@ -13,17 +13,16 @@ class BoyerMoore{
     public BoyerMoore(String sNeedle, String sHaystack){
 	this.NEEDLE = sNeedle;
 	this.HAYSTACK = sHaystack;
-	
+
 	matches = new ArrayList<>();
 
 	needle = sNeedle.toCharArray();
 	haystack = sHaystack.toCharArray();
-
-
+	
 	setupBadCharShift();
 	findMatches();
-    }
 
+    }
 
     public void setupBadCharShift(){
 	badCharShift = new int[256];
@@ -42,7 +41,6 @@ class BoyerMoore{
 	    }
 	}
     }
-
 
     public void findMatches(){
 	if(needle.length > haystack.length){
@@ -63,30 +61,28 @@ class BoyerMoore{
 		    break;
 		}
 	    }
-
-	    System.out.println (shiftedIndex);
 	    shiftedIndex += shift(haystack[shiftedIndex + last], last);
 	}
 	//Nothing found
     }
 
-
     public int shift(char c, int index){
-	if(needle[index] == '_'){
+	if(!equal){ //stemmer ikke
 	    return 1;
 	}
-	if(badCharShift[(int) c] == needle.length){ //does not exists
+
+	if(badCharShift[(int) c] == needle.length || needle.length == 1){ //last does not exists
 	    return needle.length;
 	}
 
 	//exists
-	for(int i = needle.length -1; i >= 0; i --){
+	for(int i = needle.length -2; i >= 0; i --){ //minus 2 to not check te same letter twice
 	    if(needle[i] == c){
-		return needle.length - i;
+		return needle.length - 1 -i; //feil her
 	    }
 	}
 
-	return -1; //is never suposed to happen
+	return needle.length; //exists only one place in text
     } /*checks the last char occurace later on in string*/
 
     public boolean equalChar(int index, int shiftedIndex){
@@ -94,10 +90,9 @@ class BoyerMoore{
 	    return true;
 	}
 
-	return needle[index] == haystack[index + shiftedIndex];
+       	return needle[index] == haystack[index + shiftedIndex];
     }
-
-
+    
     public void printMatches(){
 	if(matches.size() == 0){
 	    System.out.println (NEEDLE +" not found");

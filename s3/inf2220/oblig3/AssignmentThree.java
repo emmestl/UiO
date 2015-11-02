@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 class AssignmentThree{
 
-    private static String needle = null;
-    private static String haystack = null;
+    private static String needle;
+    private static String haystack;
     
     public static void main(String[] args) {
 	try{
@@ -14,6 +14,7 @@ class AssignmentThree{
             System.out.println ("ERROR! Not enough arguments found!");
             System.out.println ("Should be given on the form:\n \njava AssignmentThree <needle> <haystack>\n");
             System.exit(1);
+	    return;
         }
 
 	readFile();
@@ -47,5 +48,6 @@ class AssignmentThree{
 	    haystack += filHaystack.nextLine() + "\n";
 	}
 
+	//System.out.println (haystack);
     }
 }
