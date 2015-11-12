@@ -39,18 +39,19 @@ class AssignmentThree{
 	}
 
 	//as to not make a new String every time a new line is read.
-	//Takk til Ole-Christian Hagenes for tips
-	StringBuilder needleBuild = new StringBuilder(filNeedle.nextLine());
-	StringBuilder haystackBuild = new StringBuilder(filHaystack.nextLine());
+	StringBuilder needleBuild = new StringBuilder();
+	StringBuilder haystackBuild = new StringBuilder();
 	
 	while(filNeedle.hasNextLine()){
-	    needleBuild.append(filNeedle.nextLine());
+	    needleBuild.append(filNeedle.nextLine() + "\n");
 	}
 	while(filHaystack.hasNextLine()){
 	    haystackBuild.append(filHaystack.nextLine() + "\n");
 	}
 
-
+	needleBuild.deleteCharAt(needleBuild.length() -1); //get rid of the last "\n" that was added
+	haystackBuild.deleteCharAt(haystackBuild.length() -1); //get rid of the last "\n" that was added
+	
 	needle = needleBuild.toString();
 	haystack = haystackBuild.toString();
     }
