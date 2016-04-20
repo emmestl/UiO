@@ -84,6 +84,7 @@ class SudokuGUI{
     public void los(){
 	solve.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent e){
+		    long start = System.nanoTime();
 		    if(!brett.los()){
 			lag1.removeAll();
 			lag1.add(new JLabel("Brettet har ingen losninger"), BorderLayout.CENTER);
@@ -98,6 +99,10 @@ class SudokuGUI{
 			lag1.repaint();
 			visLosning();
 		    }
+		    long stop = System.nanoTime();
+
+		    System.out.println ("Time to solve puzzle: " + (stop- start)  + "ns");
+		    System.out.println ("\t\t\t " + (float)(stop - start)/1000000000 + "s"); 
 		}
 	    });
     }

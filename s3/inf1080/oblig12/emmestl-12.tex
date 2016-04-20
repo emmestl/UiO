@@ -7,14 +7,45 @@
 \usepackage{amssymb}
 
 \date{\today}
-\title{Oblig XXXXXXXXX \\ inf1080}
+\title{Oblig 12 \\ inf1080}
 \author{Elsie Mestl}
 
 \begin{document}
 \maketitle
 \begin{flushleft}
 
+  \section*{Oppgave 21.6:}
+
+  
+  \textit{La $K_{n}$ være den komplette grafen til G. $K_{n}$ har $\sum\limits_{i = 1}^{n} (i-1)$ antall kanter.}
+
+  Fører en besvisskisse for at denne summen stemmer:
+
+  Bevis vha iduksjon, men tenker dette ikke er en del av oppgaven så overlater dette til leseren. Forklarer heller tankegangen bak formelen.
+\\ \ \\
+  Tanken er at si du har en komplett graf med n noder, skal du legge til en node til og den nye grafen som lages nå også skal være komplett da vil antall kanter være lik det antall kanter i $K_{n}$ pluss en kant til alle de originale nodene til den tilsatte. Altså er antall kanter i $K_{n+1}$ lik n + antall kanter i $K_{n}$.
+  Kan vha denne tankegangen finne en basis og utlede formelen gitt over.
+\\ \ \\
+Siden G har m kanter og vi vet at alle kanter i G ikke er kanter i $\overline{\text{G}}$ og alle ``ikke'' kanter i G er kanter i $\overline{\text{G}}$ så har vi at $\overline{\text{G}}$ har \textit{antall kanter i $K_{n}$}-m kanter. Tilsvarer dette:
+
+\[\overline{\text{G}} = \sum\limits_{i = 1}^{n} (i-1) - m\]
 
 
+\section*{Oppgave 22.10:}
+
+  \subsection*{a)}
+  $K_{m,n}$ består av n+m noder.
+  
+  \subsection*{b)}
+  Siden $K_{m,n}$ er komplett bipartitt så vet vi at alle nodene i den mengden som består av m noder har kanter til alle nodene i den andre mengden. Da vil automatisk nodene i den andre mengden være naboer til nodene i den første. Altså trenger vi kun å se hvor mange kanter det går ut av den ene mengden for å vite det totale antall kantene i $K_{m,n}$.
+  \\ \ \\
+  Siden hver node i mengden m skal være nabo til alle nodene i mengden n har vi at hver node i mengden med m noder har n kanter. Altså blir det totale antall kanter i $K_{m,n}$ lik $m\cdot n$.
+  
+  \subsection*{c)}
+  En Eulervei er definer som en vandring som er innom alle kantene i grafen en og bare en gang. En Eulerkrets er en Eulervei hvor siste og første node er like.
+  \\ \ \\
+  Grafen $K_{2,3}$ er en Eulerkrets (og dermed også en Eulervei). Tegn for å se.
+
+  
 \end{flushleft}
 \end{document}

@@ -7,14 +7,102 @@
 \usepackage{amssymb}
 
 \date{\today}
-\title{Oblig XXXXXXXXX \\ inf1080}
+\title{Oblig 11 \\ inf1080}
 \author{Elsie Mestl}
 
 \begin{document}
 \maketitle
 \begin{flushleft}
 
+  \section*{Oppgave 19.5:}
+
+  La \[\mathcal{M} =  \{1,2,3,4,5\}\]
+
+  \subsection*{a)}
+
+  Antall delmengder av $\mathcal{M}$ er (inkl den tomme mengden):
+  \begin{align*}
+    &5 + 5\cdot4 + 5\cdot 4 \cdot 3 + 5\cdot 4\cdot 3 \cdot 2 + 5! +1  &\text{uordet}\\*
+    &\frac{5}{1} + \frac{5\cdot 4}{2!} + \frac{5\cdot 4 \cdot 3}{3!} + \frac{5 \cdot 4 \cdot 3 \cdot 2 }{4!} + \frac{5!}{5!}+1 &\text{ordnet}\\
+    &=  5 + 5\cdot 2 + 5\cdot2 + 5 + 1 + 1= 32 &\text{antall delmengder av $\mathcal{M}$}    
+  \end{align*}
+
+  Må nå se på hvor mange av disse mengdene som inneholder enten 1 og/eller 2, gjør dette ved å trekke fra antaller mengder som kan bli laget av $\{3,4,5\}$. Dette inkl den tomme mengden.
+
+  Ant delmengder av $\{3,4,5\}$:
+  \begin{align*}
+    &3 + \frac{3 \cdot 2}{2!} + \frac{3!}{3!} + 1= 3 + 3 + 1 +1 = 8\\
+  \end{align*}
+
+  Altså er antall delmengder av $\mathcal{M}$ som inneholder 1 og/eller 2 lik totale antall delmengder av $\mathcal{M}$ minus delmengder av $\{3,4,5\}$
+  \[32 -8 = 26\]
+
+  
+  \subsection*{b)}
+  En funksjon er definert ved at alle elementene i defenisjonsmengden må treffe et og bare et element i verdimengden.
+  \ \\ \ \\
+  Siden verdimengden ikke trenger å være den minste mengden, kan værdimengden være antallet delmengder av $\mathcal{M}$ minus den tomme mengden. Når det kommer til antall måter å fremstille en funksjon på fra $\mathcal{M}$ til en elmengde av $\mathcal{M}$ ser vi at rekkefølgen spiller en rolle. Ser altså at antall funksjoner $f: \, \mathcal{M} \rightarrow \mathcal{M}$ tilsvarer et uordent antall av delmengder av $\mathcal{M}$ altså:  325 antall funksjoner
+  \ \\ \ \\ \ \\ 
+  En bijektiv funksjon er når hele verdiområdet blir dekket av $f$. Ser vi på formelen over for en antall uordnede kombinasjoner. Så er vi kun interessert i det nest siste leddet i formelen (siste er Ø) for dette er når alle elementene i verdimengden, altså helle $\mathcal{M}$, blir truffet. Det tilsvarer:  $5! = 120$ forskjellige funksjoner.
 
 
+
+  \section*{Oppgave 20.10:}
+  For at $\left<G, \bullet\right>$ skal være en gruppe må:
+  \begin{enumerate}
+  \item $\bullet$ er assosiativt
+  \item Det finnes et identitetselement for $\bullet$
+  \item Alle elemter har en invers
+  \end{enumerate}
+
+  
+  \subsection*{a)}
+  La $\bullet = +$ og $G = \mathbb{Z}$ \\
+    \ \\
+  Har at oppersajonen + er assosiativ og har en identitetselement, 0.
+
+  La $x \in G$ da er $x + x^{-1} = 0$. S ser at det inverse elementet til $x$ er $-x$ men for utenom 0 har finnes ikke $-x$ i de naturlige tallene. Altså er  $\left<G, \bullet \right>$ ikke en gruppe.  
+
+  \subsection*{b)}
+
+  La $\bullet = +$ og $G = \mathbb{N}$ \\
+  \ \\
+  Har at oppersajonen + er assosiativ og har en identitetselement, 0.
+
+  La $x \in G$ da er $x + x^{-1} = 0$. S ser at det inverse elementet til $x$ er $-x$ altså er $\left<G, \bullet \right>$ en gruppe. Siden + er komutativt så er gruppen en abels gruppe.
+
+
+  
+  \subsection*{c)}
+  La $\bullet = \cdot$ og $G = \mathbb{Z}$ \\
+
+  \ \\
+  Har at oppersajonen $\cdot$ er assosiativ og har en identitetselement, 1.
+  La $x \in G$ da er $x \cdot x^{-1} = 1$. S ser at det inverse elementet til $x$ er $\frac{1}{x}$ men det inverset ellementet finnes kun for $x= 1$ altså er $\left<G, \bullet \right>$ ikke en gruppe.  
+  
+  \subsection*{d)}
+  La $\bullet = +$ og $G = \mathbb{R}$ \\
+    \ \\
+  Har at oppersajonen + er assosiativ og har en identitetselement, 0.
+
+  La $x \in G$ da er $x + x^{-1} = 0$. S ser at det inverse elementet til $x$ er $-x$ altså er $\left<G, \bullet \right>$ en gruppe. Siden + er komutativt så er gruppen en abels gruppe.
+
+  
+  \subsection*{e)}
+  La $\bullet = \cdot$ og $G = \mathbb{R} \setminus \{0\}$ \\
+
+  \ \\
+  Har at oppersajonen $\cdot$ er assosiativ og har en identitetselement, 1.
+  La $x \in G$ da er $x \cdot x^{-1} = 1$. S ser at det inverse elementet til $x$ er $\frac{1}{x}$ men det inverset ellementet finnes for alle $x \in G$ altså er $\left<G, \bullet \right>$ en gruppe.  
+  
+
+
+  
+  \subsection*{f)}
+  La $\bullet = /$ og $G = \mathbb{R} \setminus \{0\}$ \\
+  
+  \ \\
+  Har at oppersajonen / er assosiativ men har ikke et identitetselement. Altså er $\left<G, \bullet \right>$ ikke en gruppe    
+  
 \end{flushleft}
 \end{document}

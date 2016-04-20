@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{parskip}
+\usepackage{ upgreek }
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{fancyhdr}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+\author{Elsie Mestl}
+\date{\today}
+\title{Oblig 1 \\ mat2400-Reelanalyse}
+
+
+\pagestyle{fancy}
+\lhead{Oblig 1. \quad mat2400-Reelanalyse}
+\rhead{Elsie Mestl}
+
+\begin{document}
+
+
+\maketitle
+
+
+\section*{Oppgave 1}
+
+\[s(x) = \sum\limits_{n= 1}^\infty v_n(x) = \sum\limits_{n= 1}^\infty \frac{1}{1+n^2x} \]
+
+\subsection*{a)}
+
+Hvis $x = 0$ så er:
+
+\[\sum\limits_{n= 1}^\infty \frac{1}{1+n^2x} = \sum\limits_{n= 1}^\infty 1 \rightarrow \infty\]
+
+
+Hvis $x > 0$
+
+For hver $x > 0$ finnes konstanter $c_x \in \mathbb{R}$, $c_x = x$ slik at. $|v_n(x)| < M_n(x) = \frac{1}{cn^2}$ for alle $n$. Vet at $\sum\limits_{n = 1}^\infty \frac{1}{c_xn^n}$ konvergerer for alle $c_x$. Har da at for hver $x$ finnes en $c_x$ slik at: \[\sum\limits_{n= 1}^\infty \frac{1}{1 + n^2x } < \sum\limits_{n=1}^\infty \frac{1}{c_xn^2}\]
+
+Etter samme argumentasjon som i beviset til Weierstrass' M-test, men hvor uniformbiten har blitt sløyfet, får vi da at $\sum \limits_{n= 1}^\infty \frac{1}{1 + n^2x}$ konvergere punktvis.
+
+
+
+\subsection*{b)}
+Vi har allerede punktvis konvergens må nå vise at rekken konvergerer uniformt på intervallet $[a, \infty), \, a > 0$ \\
+  Har at \[\frac{1}{1 + n^2x}  \leq \frac{1}{1 + n^2a} \text{, \quad for alle $x$ i $[a, \infty)$ }\]
+    Dermed ser vi at:
+    \[ \frac{1}{1 + n^2x}  \leq \frac{1}{1 + n^2a} < \frac{1}{n^2a}\]
+
+    Og siden $\sum \limits_{n= 1}^\infty \frac{1}{n^2a}$ konvergerer, har vi etter Weierstrass' M-test at rekken $\sum \limits_{n= 1}^\infty \frac{1}{1 + n^2x}$ konvergerer uniformt på $[a, \infty)$
+
+
+
+
+      \subsection*{c)}
+
+      For å vise at $f$ er kontinuerlig må vi vise at for enhver $\epsilon > 0$ finnes en $\delta > 0$ slik at når $d_X(a, b) < \delta$ så er $d_Y(f(a), f(b)) < \epsilon$. Hvor $X, Y$ respektivt ugjør $(0, \infty )$ og $\mathbb{R}$. Og metrikkene $d_X, d_Y = d$ er standard metrikken til $\mathbb{R}$
+
+      Anta at $a < b$ (kan bare bytte om hvis motsatt er tilfellet). Det betyr at $a, b \in [a, \infty)$ og vi viste i forrige deloppgave at $\sum \limits_{n = 1}^\infty \frac{1}{1 + n^2x} $ konvergerer uniformt på $[a, \infty)$.
+
+          Altså har vi fra forrige deloppgave at følgen bestående av delsummer $s_n$ konvergerer mot $f$ og at dette er en uniform konvergens på et intervall $[a, \infty)$, og dermed er $f$ konvergent på $[a, \infty)$.\\
+              Men $f$ skulle være konvergent på hele $(0,\infty)$. Ideen bak hvordan fikse dette er at vi velge $a>0$ så liten vi vil. På denne måten kan vi alltid velge en litt mindre $a$ for å få angitt et større område hvor $f$ er kontinuerlig. \\
+              La $x \in (0, \infty)$ være et vilkålig punkt, men hvor $x < a$ så vet vi at $x \notin [a, \infty)$ da utvider vi bare intervallet fra $[a, \infty)$ til $[c, \infty)$ på hvilket vi vet at $f$ fremdeles er kontinuerlig.\\
+                    Altså er $f$ kontinuerlig på $x$, og siden $x$ var et vilkårlig punkt så er $f$ er kontinuerlig på hele $(0, \infty)$.
+
+
+
+                    \subsection*{d)}
+
+                    Da vi viste den uniforme konvergensen i oppgave 1b så belaget vi oss på at intervallet var nedre begrenset og lukket på det nedre av intervallet. Vi kunne altså velge dette nedre randpunktet og dermed ha at $v_n(x) \leq v_n(a)$ for alle $x$.
+
+                    Siden vi har mistet den lukkede egenskapen kan vi nå alltids finne en $a'$ som er litt mindre enn $a$. Vi kan altså lage en følge $\{x_n\}$ som konvergerer mot $0$ men hvor mengden ikke inneholder elementet. Og vi får dermed at følgen $\{v_n(x_n)\}$ som er funksjonsverdien brukt på denne følgen divergerer. Vi kan dermed ikke finne noen $N$ som gjelder for alle $x$ slik at $d(f(a), f(x)) < \epsilon$ siden vi alltid kan få $x$ litt nærmere 0 og dermed f(x) litt større, og dermed avstanden litt større. \\
+                    Altså konvergerer ikke $f$ uniformt på intervallet $(0, \infty)$.
+
+                    \section*{Oppgave 2}
+                    \subsection*{a)}
+
+                    A er lukket hvis og bare hvis A inneholder alle randpunktene. Siden $A \cup \partial A$ inneholder alle randpunktene til A så er $A \cup \partial A$, etter definisjonen, lukket. Og siden $\overline{A} = A \cup \partial A $ er dermed $\overline A $ lukket.
+
+
+
+
+
+                    \subsection*{b)}
+                    \textit{$\pmb{\Rightarrow}$ Hvis $A$ er prekompakt så vil alle følger i $A$ ha en konvergent delfølge.}
+
+                    La $\{x_n\}$ være en følge i $A$ da er $\{x_n\}$ også en følge i $\overline{A}$ siden $A \subseteq \overline{A}$
+
+                    Siden A er prekompakt så vet vi at $\overline{A}$ er kompakt, dermed har vi at alle følger i $\overline{A}$ har en konvergent delfølge. Og siden $\{x_{n}\}$ er en følge i $\overline{A}$ så har den en konvergent delfølge $\{x_{n_{k}}\}$. Og siden $\{x_n\}$ er i $A$ så må alle delfølgen $\{x_{n_k}\}$ nødvendigvis også være i $A$
+
+                    Altså har vi vist at alle følger i $A$ har en konvergent delfølge.
+
+
+
+
+                    \textit{$\pmb{\Leftarrow}$ Hvis alle følger i $A$ har en konvergent delfølge så er $A$ prekompakt.}
+
+                    La  $\{x_n\}$ være en følge i $\overline{A}$ da kan vi kan lage en ball $B(x_n : \frac{1}{n})$ rundt hvert elemenent i følgen hvor $A \cup B(a_n : \frac{1}{n}) \neq \emptyset$. Altså finnes den en $y_n \in B(x_n : \frac{1}{n})$ slik at $y_n \in A$. Ut av disse elementene kan vi lage følgen $\{y_n\}$ som er en følge i A.
+
+                    Etter bevisantagelsen har vi at $\{y_n\}$ har en konvergent delfølge $\{y_{n_k}\}$ som konvergerer mot et punkt $y$. Altså at gitt en $\epsilon > 0$ finnes en $N$ slik at når $n_k \geq N$ så er $d(y_{n_k}, y) < \frac{\epsilon_1}{2}$
+
+                    Videre vet vi at siden alle $y_{n_k} \in B(x_{n_k} : \frac{1}{n_k})$ så er $d(y_{n_k}, x_{n_k}) < \frac{1}{n_k} = \frac{\epsilon_2}{2}$.
+
+
+                    Velger $\epsilon = max(\epsilon_1, \epsilon_2)$\\
+                    Ved trekantulikheten får vi da:
+
+                    \[d(x_{n_k}, y) \leq d(x_{n_k}, y_{n_k}) + d(y_{n_k}, y) < \frac{\epsilon}{2} + \frac{1}{n_k} \leq \epsilon \]
+
+                    Altså har $\{x_n\}$ en konvergent delfølge $\{x_{n_k}\}$, og siden $\overline{A}$ er lukket må $\{x_{n_k}\}$ konvergere mot et punkt i mengden selv. Etter defenisjonen av kompakthet vet vi at $\overline{A}$ er kompakt, altså er $A$ prekompakt.                    
+
+
+
+                    \subsection*{c)}
+
+                    \textit{$\pmb{\Rightarrow}$ Hvis $A \subseteq \mathbb{R}^m$ er prekompakt så er $A$ begrenset.}
+
+                    La $A$ være prekompakt. Da vet vi at $A \subseteq \overline{A}$, hvor $\overline{A}$ er en kompakt mengde, og dermed også lukket og begrenset. Videre vet vi det finnes en $M$ slik at $d(y', x') \leq M$ for alle $x', y' \in \overline{A}$
+                    Og siden $A \subseteq \overline{A}$ så er alle elementer $x, y \in A$ også elementer i $\overline{A}$. Altså vil $d(x,y) \leq M$. Og dermed ser vi at $A$ er begrenset.
+
+
+                    \textit{$\pmb{\Leftarrow}$ Hvis $A \subseteq \mathbb{R}^m$ er begrenset så er $A$ prekompakt}
+
+                    Siden $A$ er bregrenset og en delmengde av $R^m$ vil alle følger i $A$ være begrenset. Da har vi etter Bolazo Wierstrauss teoremet at alle følger i $A$ har en konvergent delfølge. Etter forrige deloppgave har vi da at $A$ er prekompakt.
+
+
+                    \section*{Oppgave 3}
+                    \subsection*{a)}
+                    La $(X, d)$ være et metrisk rom hvor $X = (-1,1)\setminus\{0\}$ og $d(x,y) = |x-y|$
+
+                    Vis a $X$ er usammenhengende:
+
+                    La $O_1$ og $O_2$ være de to åpne mengdene gitt ved $O_1 = (-1,0)$ og $O_2 = (0, 1)$. Ser lett at $O_1 \cap O_2 = \emptyset$. $O_1 \cup O_2 = (-1,0) \cup (0,1) = (-1, 1)\setminus{0} = X$. Altså er X usammenhengdende.
+
+
+
+                    \subsection*{b)}
+                    La $(X, d)$ være et metrisk rom hvor $X = \mathbb{Q}$ og $d(x,y) = |x-y|$
+
+                    Vis at det finnes to åpne mengder $O_1$, $O_2$ slik at $O_1 \cup O_2 = X$ og $O_1 \cap O_2 = \emptyset$.
+
+                    La \[O_1 = \{x | x < \sqrt{2}, x \in \mathbb{Q} \} \text{\, og \,} O_2 = \{x |  x > \sqrt{2}, x \in \mathbb{Q}\}\]
+
+                    Ser da lett at $O_1 \cup O_2 = X$ og $O_1 \cap O_2 = \emptyset$.
+
+
+
+                    \subsection*{c)}
+
+                    La $(X, d)$ være en sammenhengende mengde og la $f: X \rightarrow Y$ være en surjektiv og kontinuerlig funksjon. Vis at $Y$ er sammenhengdende.
+
+                    Anta at $Y$ er usammenhengdene. Det betyr at det finnes to åpne mengder $O_{Y_1}$ og $O_{Y_2}$ slik at $O_{Y_1} \cup O_{Y_1} = Y $ og $O_{Y_1} \cap O_{Y_1} = \emptyset$
+
+                    Siden $f$ er kontinuerlig og $O_{Y_1}, O_{Y_2}$ er åpne mengder i $Y$ så er $f^{-1}(O_{Y_1}) = O_{X_1}, \, f^{-1}(O_{Y_2}) = O_{X_2}$ åpne mengder i $X$.
+
+                    Pga surjektivitet har vi:
+                    \[O_{x_1} \cup O_{x_2} = f^{-1}(O_{Y_1})  \cup f^{-1}(O_{Y_2})=  f^{-1}(O_{Y_1} \cup O_{Y_2}) = f^{-1}(Y) = X \]
+                    og
+                    \[O_{x_1} \cap O_{x_2} = f^{-1}(O_{Y_1})  \cap f^{-1}(O_{Y_2})=  f^{-1}(O_{Y_1} \cap O_{Y_2}) = f^{-1}(\emptyset) = \emptyset\]
+
+                    Men da har vi at $X$ er usammenhengende noe som er en selvmotsigelse. Altså må antagelsen om at $Y$ er usammenhengende være feil og vi har vist at hvis $X$ er sammenhengende og $f$ er en kontinuerlig surjektiv funksjon så har vi at $Y$ er sammenhengende.
+
+
+                    \subsection*{d)}
+
+                    Vis at $(\mathbb{R}^{n}, d)$ er veisammenhengende. Må altså vise at for hvert par av punkter $(x,y) \in \mathbb{R}^n$ så finnes en funksjon $r: [0,1] \rightarrow \mathbb{R}^n$ slik at $r(0) = x$ og $r(1) = y$. Vår jobb blir å konstruere denne $r$
+
+                    La $r$ være gitt ved $r(s) = \vec{x} + (\vec{y} - \vec{x})s$
+
+                    Ser da at $r(0) = \vec{x}$ og $r(1) = \vec{y}$.
+
+                    Må vise at $r$ er kontinuerlig.
+
+                    Gitt $\epsilon > 0$ finnes en $\delta > 0$ slik at når $|a-b| < \delta$ så er $||r(a) - r(b)|| < \epsilon$
+
+                    \begin{align*}
+                      ||\vec{r}(a) - \vec{r}(b)|| &= ||(\vec{x} + (\vec{y} - \vec{x})a) - (\vec{x} + (\vec{y} - \vec{x})b)  || = ||\vec{y}a -\vec{y}b + \vec{x}b - \vec{x}a ||\\
+                      &= ||(a- b)\vec{y} - (a-b)\vec{x} || = ||(a-b)(\vec{y} - \vec{x})|| = |a- b|\cdot||\vec{y} - \vec{x}|| < \delta||\vec{y} - \vec{x}|| = \epsilon
+                    \end{align*}
+
+
+
+                    \subsection*{e)}
+
+                    Anta at $(X, d)$ er usammenhengende. La $O_1$ og $O_2$ være et ikke-tomme åpne mengder slik at $X = O_1 \cup O_2$ og $O_1 \cap O_2 = \emptyset$. Velger punkter $x \in O_1$ og $y \in O_2$ må vise at det ikke finnes en vei mellom $x$ og $y$.
+
+
+                    Anta for selvmotsigelsen skyld at en slik vei finnes. Det betyr at det finnes en kontinuerlig funksjon $r: [0,1] \rightarrow X $ slik at $r(0) = x$ og $r(1) = y$
+
+                    Siden $r$ er kontinuerlig så betyr det at $r^{-1}(O_1)$ er en åpen delmengde av $[0,1]$ og det samme gjelder for $r^{-1}(O_2)$. Og siden vi vet at $O_1 \cup O_2 = X$ og dermed også en åpen mengde så må $r^{-1}(X)$ være åpen.
+
+                    Altså har vi at $r^{-1}(X) = r^{-1}(O_1) \cup r^{-1}(O_2) \subseteq [0,1]$ som gjør at $[0,1] = r^{-1}(X)$ siden $r([0,1]) \subseteq X$ og $r^{-1}(r([0,1])) = [0,1].
+
+                    Men det stemmer ikke siden $[0,1]$ er en lukket mengde mens $r^{-1}(X)$ er åpen.
+
+                    Altså har vi en selvmotsigelse og antagelsen om at en slik vei finnes må være feil. Og ved kontrapositivitet har vi da at enhvert veisammenhengende metrisk rom er sammenhengende.
+
+
+\end{document}

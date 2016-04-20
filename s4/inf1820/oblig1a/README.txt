@@ -1,0 +1,1 @@
+Var litt usikker på hvordan det var dere ville vi skulle bruke den teksten. Så valgte å lese den inn fra fil, lagre som en streng og bruke denne strengen videre. Har derfor lagt ved "MarkensGrode.txt". 

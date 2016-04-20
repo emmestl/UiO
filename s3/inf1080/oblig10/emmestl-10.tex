@@ -7,14 +7,54 @@
 \usepackage{amssymb}
 
 \date{\today}
-\title{Oblig XXXXXXXXX \\ inf1080}
+\title{Oblig 10 \\ inf1080}
 \author{Elsie Mestl}
 
 \begin{document}
 \maketitle
 \begin{flushleft}
 
+  \section*{Oppgave 17.5:}
+  \[\mathcal{U} = \{1,2,3,4,5\}\]
+
+  \subsection*{a)}
+  \[\overline{\{1,2,3\}} = \{4,5\}\]
+
+  \subsection*{b)}
+  \[\mathcal{P}(\{1,4\}) = \{Ø, \{4\}, \{5\}, \{4,5\} \}\]
+
+  \subsection*{c)}
+  En partisjon av mengden $\{a, b, c, d, e, ,f\}$ slik at det ene elementet er $\{a, b, c, d\}$ kan f.eks være $\{\{a,b,c,d\}, \{e,f\}\}$
 
 
+  \subsection*{d)}
+    En partisjon av mengden $\{1, 2, 3, 4\}$ som har to elementer kan f.eks være $\{\{1,2,3\}, \{4\}\}$
+
+    \subsection*{e)}
+    $\{\{1,2\}, \{2,3\}\}$ er ikke en partisjon for mengden $\{1,2,3\}$ fordi elementene i partisjonen ikke er parvis disjunkte mengder. Altså snittet mellom to elementer (de to som er der) ikke er Ø, men heller $\{2\}$ som strider mot defeninsjonen av partisjoner som sier alle to elementer i mengder skal snittet være den tomme mengden. 
+
+    \subsection*{f)}
+    Ja, potensmengden til $X$ består av alle delmengder av $X$. $X$ er en delmengde av seg selv, fordi alle elementer i $X$ også finnes i $X$. Hvis $X$ er den tomme mengden så er potensmengden mengden av den tomme mengden. Som betyr at $X \in \mathcal{P}(X)$ er samt for alle verdier av $X$.
+
+
+    \section*{Oppgave 18.10:}
+    \subsection*{a)}
+    Formelen for antall måter man kan sette sammen en mengde på hvor rekkefølgen er viktig er, men hvor vi ikke teller dobblet opp:
+    \[\binom{n}{k}\]
+    Kan velge å se på oppgaven på følgende måte:
+    n er lengden på strengen. Videre kan vi velge å se på det som at alle elementene i stringen er satt til O og at vi skal finne alle mulig kombinasjoner hvor vi endrer fire av dem til L. Da får vi at k = 4 (antall vi skal endre) og n = 7 (totale antallet). 
+    
+    \[\binom{7}{4} = \frac{7!}{(7-4)!4!} = \frac{7!}{3!\cdot4!} = \frac{7\cdot6\cdot 5}{3!} = \frac{7\cdot6\cdot 5}{6} = 7\cdot 5 = 35\]
+
+
+    \subsection*{b)}
+    
+    Hvor mange forskjellige måter kan vi skrive: ``0122333'' på?
+
+    Hadde alle tegnene vært forskjellige ser vi at vi ville fått: \quad $7! = 5040$ forskjellige skrivemåter. \\
+    0 og 1 kan hver seg stokkes om på $1! = 1$ måte, 2 på $2! = 2$ måter og 3 lik $3! = 6$ måter.
+    \\
+    Den totale antall unike måtene å stokke om på ordene er hvis alle hadde vært unike for så å fjerne alle måtene de inbyrdes seg imellom kan stokkes på. Altså:
+    \[\frac{7!}{2!\cdot3!} = \frac{7\cdot 6 \cdot 5 \cdot 4}{2} = 420\] 
 \end{flushleft}
 \end{document}
