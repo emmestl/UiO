@@ -27,7 +27,7 @@
 
 La $\phi \in$ DNFSAT for at $\phi$ skal være sant så holder det at en av klausulene er sann. For å sjekke om $\phi$ kan gjøres sann holder det altså å gå gjennom hver klausul og sette inn verdier til litteralene helt til en klausul er sann. Lager TM M som løser for DNFSAT som beskrevet.
 
-M på input $\phi$:
+M på input $\left<\phi\right>$:
 \begin{enumerate}
 \item for hver klausul $k_i$ i $\phi$ gjør 2
 \item for hver litteral $l_j^i$ finn tilhørende variabel.
@@ -40,17 +40,25 @@ Her er det beskrevet en determenistisk turing masking og analyserer vi den ser v
 
 
 
-\section{CNFSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is satisfiable$\}$}
 
+\subsection{DNFUNSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is unsatisfiable$\}$}
+
+Dette er den konjugerte av DNFSAT. Vi kan altså bruke akkurat samme TM som for DNFSAT men hvor vi reverserer output. Og siden DNFSAT er i P, og det å endre aksepter til avvis og avis til aksepter er i O(1) så er TM til DNFUNSAT også i P.
+
+
+
+\section{Oppgave 2: NP-komplett}
+\subsection{CNFSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is satisfiable$\}$}
+
+
+Viser først at CNFSAT er med i NP
 La N være en TM som bestemmer SAT og la  M være gitt ved følgende:
 
 M på input $\left<w\right>$:
 \begin{enumerate}
-\item Kjør N på $w$.
-\item Hvis N aksepterer (dvs det finnes en tilegning av verdier til litteralene som gjør $w$ sann) aksepter. Ellers avvis.
+\item Kjør N på $\phi$.
+\item Hvis N aksepterer (dvs det finnes en tilegning av verdier til litteralene som gjør $\phi$ sann) aksepter. Ellers avvis.
 \end{enumerate}
-
-
 Siden CNFSAT er polynomisk reduserbar til SAT, som er i NP, så er CNFSAT i NP.
 
 
@@ -58,17 +66,24 @@ For å vise at CNFSAT er NP-komplett holder det å vise at et anntet NP-komplett
 
 Vi har at 3-SAT er NP-komplett.
 
-Kan skrive en TM S for 3-SAT som tar inn et input $\phi$. Kjører M på $\phi$ hvis M aksepterer finnes en valuasjon av litteralene som gjør utrykket sant, og vi aksepterer. Aviser M, avis.
-
-Siden 3-SAT er NP-komplett holder det å vise at 3-SAT kan reduseres til CNFSAT.
+Kan skrive en TM S for 3-SAT som tar inn et input $\phi$. Sjekker først om input er på lovlig format, hvis nei avvis ellers fortsett. Kjører så M på $\phi$ hvis M aksepterer finnes en valuasjon av litteralene som gjør utrykket sant, og vi aksepterer. Aviser M, avis.
 
 
-\section{CNFUNSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is unsatisfiable$\}$}
 
-Siden CNFSAT $\in$ NP må $\overline{\text{CNFSAT}} \in co\text{NP}$.
-Og vi vet at $\overline{\text{CNFSAT}} = \text{CNFUNSAT}$ så må CNFUNSAT $\in co$NP.
+\section{Oppgave 3: coNP-komplett}
+\subsection{CNFUNSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is unsatisfiable$\}$}
 
-VIS AT coNP-komplett
+Siden CNFSAT $\in$ NP-komplett må $\overline{\text{CNFSAT}} \in \text{coNP-komplett}$.
+Og vi vet at $\overline{\text{CNFSAT}} = \text{CNFUNSAT}$ altså er CNFUNSAT $\in $ coNP-komplett.
+
+
+
+\section{Kilder:}
+https://www.cl.cam.ac.uk/teaching/0910/Complexity/lecture9.pdf
+
+\newpage
+
+
 
 
 
@@ -113,61 +128,19 @@ Selvmotsigelsesbevis:
 
 \newpage
 
-\section{ALTERNATIVT \quad DNFSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is satisfiable$\}$}
-
-Reduserer problemte til det å finne en sti i en graf. Det å finne en sti mellom to noder s,t i en graf er i P. Hvis vi klarer å redusere problemet er også DNFSAT i P.
-
-
-
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
-
-M på input $\left< w \right>$:
-\begin{enumerate}
-\item Gå gjennom w og sjekk den er på DNF
-\item For hver literal i hver klausul. Gjør step 3.
-\item Hvis det ikke finnes noen litteraler $l_i^m, l_j^m$ slik at $l_i^m = \overline{l_j^m}$, aksepter. Ellers prøv neste klausul.
-\item Hvis alle klausulene har ittealer $l_i^m, l_j^m$ slik at $l_i^m = \overline{l_j^m}$ avvis
-\end{enumerate}
-
-Analyserer vi TM maskinen får vi: La N være lengden til input w. Step 1 vil gå i O(N). Stem 2-4 vil i worst-case være hvis det ikke finnes en gyldig tildeling av litteraler til w som gjør utrykket sant. La $k_i$ tilsvare antall elementer i den $i$-te klausulen. Da vil hver klausul ha vært gått kjennom $k_i^{k_i}$ ganger
-
-
-
-
-\section{jobber herfra}
-
-\begin{align*}\overline{\text{CNFSAT}} &= \{\phi | \phi \text{ ikke er på CNF eller } \phi \text{ er ikke-tilfredsstillbar } \} \\ &= \{\phi | \phi \text{ er på DNF eller }\phi \text{ er ikke-tilfredsstillbar }\}\end{align*}
-
-
-
- 
-
-
-
-
-\section{DNFUNSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is unsatisfiable$\}$}
-
-
-
-
-
-
-
-
 
 
 \section{CNFTAUT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is a tautology$\}$}
 
 Lager en TM for CNFTAUT som avgjør språket.
 
-M på input $\left<w\right>$:
+M på input $\left<\phi\right>$:
 \begin{enumerate}
-\item Ikke deterministisk vel en valuasjon av litteralene til $w$
-\item Hvis $w$ er usann på denne valuasjonen avvis, ellers aksepter.
+\item Ikke deterministisk vel en valuasjon av litteralene til $\phi$
+\item Hvis $\phi$ er usann på denne valuasjonen avvis, ellers aksepter.
 \end{enumerate}
 
-M vil altså kun akseptere hvis det ikke finnes noen tilegning av verdier til litteralene i $w$ som gjør utrykket usant.
+M vil altså kun akseptere hvis det ikke finnes noen tilegning av verdier til litteralene i $\phi$ som gjør utrykket usant.
 
 
 
@@ -176,14 +149,14 @@ M vil altså kun akseptere hvis det ikke finnes noen tilegning av verdier til li
 
 
 
-CNFSAT   - NP-komplett
-CNFUNSAT - coNP-komplett
-CNFTAUT  - P
-DNFUNSAT - reverse av Taut
+
+CNFTAUT  - P \\
 DNFTAUT  - coNP-complete
 
 
 Gi en mini introduksjon til hver seksjon med hva det vil si å være et medlem i den klassen. 
+
+
 
 
 \end{document}

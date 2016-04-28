@@ -1,10 +1,11 @@
 \BOOKMARK [1][-]{section*.1}{Oppgave 1: P}{}% 1
 \BOOKMARK [2][-]{section*.2}{DNFSAT = \173 | \040 is on DNF, and \040is satisfiable\175}{section*.1}% 2
-\BOOKMARK [1][-]{section*.3}{CNFSAT = \173 | \040 is on CNF, and \040is satisfiable\175}{}% 3
-\BOOKMARK [1][-]{section*.4}{CNFUNSAT = \173 | \040 is on CNF, and \040is unsatisfiable\175}{}% 4
-\BOOKMARK [1][-]{section*.5}{Oppgave 4}{}% 5
-\BOOKMARK [1][-]{section*.6}{ALTERNATIVT \040DNFSAT = \173 | \040 is on DNF, and \040is satisfiable\175}{}% 6
-\BOOKMARK [1][-]{section*.7}{jobber herfra}{}% 7
-\BOOKMARK [1][-]{section*.8}{DNFUNSAT = \173 | \040 is on DNF, and \040is unsatisfiable\175}{}% 8
-\BOOKMARK [1][-]{section*.9}{CNFTAUT = \173 | \040 is on CNF, and \040is a tautology\175}{}% 9
-\BOOKMARK [1][-]{section*.10}{DNFTAUT = \173 | \040 is on DNF, and \040is a tautology\175}{}% 10
+\BOOKMARK [2][-]{section*.3}{DNFUNSAT = \173 | \040 is on DNF, and \040is unsatisfiable\175}{section*.1}% 3
+\BOOKMARK [1][-]{section*.4}{Oppgave 2: NP-komplett}{}% 4
+\BOOKMARK [2][-]{section*.5}{CNFSAT = \173 | \040 is on CNF, and \040is satisfiable\175}{section*.4}% 5
+\BOOKMARK [1][-]{section*.6}{Oppgave 3: coNP-komplett}{}% 6
+\BOOKMARK [2][-]{section*.7}{CNFUNSAT = \173 | \040 is on CNF, and \040is unsatisfiable\175}{section*.6}% 7
+\BOOKMARK [1][-]{section*.8}{Kilder:}{}% 8
+\BOOKMARK [1][-]{section*.9}{Oppgave 4}{}% 9
+\BOOKMARK [1][-]{section*.10}{CNFTAUT = \173 | \040 is on CNF, and \040is a tautology\175}{}% 10
+\BOOKMARK [1][-]{section*.11}{DNFTAUT = \173 | \040 is on DNF, and \040is a tautology\175}{}% 11
