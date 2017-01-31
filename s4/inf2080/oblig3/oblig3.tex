@@ -7,14 +7,19 @@
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{parskip}
 \usepackage{ upgreek }
-\usepackage{tikz}
-\usetikzlibrary{arrows,automata}
+\usepackage{fancyhdr}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+ 
 
-\title{INF2080\\Oblig 1}
+\title{INF2080\\Oblig 3}
 \date{\today}
 \author{Elsie Mestl}
 
-\setcounter{secnumdepth}{0}
+
+\pagestyle{fancy}
+\lhead{Oblig 3. \quad INF2080}
+\rhead{Elsie Mestl}
+
 
 \begin{document}
 
@@ -22,8 +27,11 @@
 
 
 
-\section{Oppgave 1: P}
-\subsection{DNFSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is satisfiable$\}$}
+\section*{Oppgave 1: P}
+
+Det å være medlem i P vil si at det finnes en determenistisk TM som avgjør problemet i polynom tid.
+
+\subsection*{DNFSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is satisfiable$\}$}
 
 La $\phi \in$ DNFSAT for at $\phi$ skal være sant så holder det at en av klausulene er sann. For å sjekke om $\phi$ kan gjøres sann holder det altså å gå gjennom hver klausul og sette inn verdier til litteralene helt til en klausul er sann. Lager TM M som løser for DNFSAT som beskrevet.
 
@@ -36,19 +44,41 @@ M på input $\left<\phi\right>$:
 \item Er det siste klausulen avvis, ellers nullstill variablene og gå til steg1. 
 \end{enumerate}
 
-Her er det beskrevet en determenistisk turing masking og analyserer vi den ser vi den vil kjøre i $O(N^2)$ altså er DNFSAT i P. 
+Her er det beskrevet en determenistisk turing masking og analyserer vi den ser vi den vil kjøre i $O(N)$, hvor $N$ er det totale antallet litteraler i $\phi$. Altså er DNFSAT i P. 
 
 
 
 
-\subsection{DNFUNSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is unsatisfiable$\}$}
+\subsection*{DNFUNSAT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is unsatisfiable$\}$}
 
 Dette er den konjugerte av DNFSAT. Vi kan altså bruke akkurat samme TM som for DNFSAT men hvor vi reverserer output. Og siden DNFSAT er i P, og det å endre aksepter til avvis og avis til aksepter er i O(1) så er TM til DNFUNSAT også i P.
 
 
 
-\section{Oppgave 2: NP-komplett}
-\subsection{CNFSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is satisfiable$\}$}
+
+\subsection*{CNFTAUT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is a tautology$\}$}
+For at et utrykk på CNF skal være en tautologi må hver klausul inneholde minst en litteral hvor komplementet til variabelen også er en litteral i samme klausul.
+
+Lager vi en turingmaskin som beskrevet under
+
+For hver klausul lager vi to mengder ``invers''  og ``ikke invers''. For hver litteral $l_i^j$ i klausul $j$ henter vi ut variabelen $v$. Hvis $\overline{v} = l_i^j$ settes den i mengden ``invers'' ellers settes $v$ i  ``ikke invers''. Når klausulen er ferdig oppdelt som beskrevet over går man gjennom og ser om det er en variabel som finnes i begge mengdene. Er det så vil klausulen alltid være sann og man går videre til neste klausul og gjør det samme. Hvis ikke avvis, for da er det mulig å velge en tilordning som gjør klausulen usann, og dermed også resten av utrykket usann.
+Hvis man kommer gjennom alle klausulene og finner minst et element i hver av mengdene ``invers'' og ``ikke invers'' for alle klausulene så aksepterer man.
+
+Denne TM vil kjøre i $O(N^2)$ på en determenistisk turingmaskin og CNFTAUT ligger altså i P.
+
+
+
+
+\section*{Oppgave 2: NP-komplett}
+For at et problem A skal være NP-komplett må følgende to være oppfylt:
+\begin{enumerate}
+\item A $\in $ NP
+\item B $\leq_p $ A, \quad for alle B $\in$ NP
+\end{enumerate}
+
+Men her kan steg2 erstattes med å vise at B $\leq_p $ A og B $\in$ NP-komplett.
+
+\subsection*{CNFSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is satisfiable$\}$}
 
 
 Viser først at CNFSAT er med i NP
@@ -70,91 +100,65 @@ Kan skrive en TM S for 3-SAT som tar inn et input $\phi$. Sjekker først om inpu
 
 
 
-\section{Oppgave 3: coNP-komplett}
-\subsection{CNFUNSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is unsatisfiable$\}$}
+\section*{Oppgave 3: coNP-komplett}
+For at et problem A skal være NP-komplett må følgende to være oppfylt:
+\begin{enumerate}
+\item A $\in $ coNP
+\item B $\leq_p $ A, \quad for alle B $\in$ coNP
+\end{enumerate}
+
+Men her kan steg2 erstattes med å vise at B $\leq_p $ A og B $\in$ coNP-komplett. Eller at hvis $\neg$A $\in$ NP-komplett så er A $\in$ coNP-komplett$^1$.
+
+
+\subsection*{CNFUNSAT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is unsatisfiable$\}$}
 
 Siden CNFSAT $\in$ NP-komplett må $\overline{\text{CNFSAT}} \in \text{coNP-komplett}$.
 Og vi vet at $\overline{\text{CNFSAT}} = \text{CNFUNSAT}$ altså er CNFUNSAT $\in $ coNP-komplett.
 
 
 
-\section{Kilder:}
-https://www.cl.cam.ac.uk/teaching/0910/Complexity/lecture9.pdf
+\subsection*{DNFTAUT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is a tautology$\}$}
 
-\newpage
-
-
-
-
-
+La $\phi$ være gitt ved:
+\begin{align*}
+  \phi &= (l_1^1 \land l_2^1 \land \cdots \land l_{k_1}^1)\lor \cdots \lor (l_1^n \land l_2^n \land \cdots \land l_{k_n}^n) = \overline{\overline{(l_1^1 \land l_2^1 \land \cdots \land l_{k_1}^1)\lor \cdots \lor (l_1^n \land l_2^n \land \cdots \land l_{k_n}^n)}} \\
+  &= \overline{(\neg l_1^1 \lor \neg l_2^1 \lor \cdots \lor \neg l_{k_1}^1)\land \cdots \land (\neg l_1^n \lor \neg l_2^n \lor \cdots \lor \neg l_{k_n}^n)}
+\end{align*}
 
 
+Hvis vi kan vise at det under første negasjon alltid er usant så vil selve utrykket alltid være sant (siden det er negert en gang til).\\
+Vi ser at det som er under negasjonen er et utrykk på CNF, og hvis dette utrykket alltid skal være usant så blir det en oppgave for CNFUNSAT.
+Vi lager altså en maskin som negerer utrykket, kjører det negerte utrykket på CNFUNSAT. Aksepterer hvis CNFUNSAT avviser og avviser hvis CNFUNSAT aksepterer.
+
+Dette viser at DNFTAUT er i coNP. For å vise at DNFTAUT er coNP-komplett så må vi vise at CNFUNSAT kan reduseres til DNFTAUT. Men det gjøres på akkurat samme måte som for å vise at DNFTAUT kan reduseres til CNFUNSAT. Neger utrykket en gang, og kjør negasjonen på DNFTAUT og neger utfallet som maskinenen gir.
+
+DNFTAUT er altså i coNP-komplett
 
 
-\section{Oppgave 4}
+\section*{Oppgave 4}
 
-Har antatt at $P \subset NP$ hvor $P \neq NP$
-
-Hvis $A \in NP \Rightarrow \overline{A} \in coNP$
-
-A er NP-komplett hvis $(A \in NP) \land (B \leq_p A \, \forall B \in NP)$
-
-
-Selvmotsigelsesbevis:
+\subsection*{Et språk i P kan ikke være NP-komplett}
+\begin{proof}
+Bevis ved selvmotsigelse:
 
 Anta at $A \in P$ og at $A \in NP-komplett$. Altså kan alle $B \in NP$ reduseres til $A$. Men da er $B \in P$ Men da er $NP = P$ noe som ikke stemmer. Altså må bevisantagelsen være feil og vi har at et språk kan ikke både være i $P $ og i $NP-komplett$ samtidig.
 
-
-Selvmotsigelsesbevis:
-
+\end{proof}
 
 
+\subsection*{Et språk kan ikke være både NP-komplett og coNP-komplett}
+\begin{proof}
+Bevis ved selvmotsigelse:
+
+Anta for selvmotsigelsens skyld at det finnes et språk A som er både NP-komplett og coNP-komplett. Dvs at A $\in$ NP og  B $\leq_p$ A for alle språk B $\in$ NP,  og at A $\in$ coNP og C $\leq_p$ A for alle språk C $\in$ coNP.
+
+Siden B $\leq_p$ A, hvor A er i coNP så er B i coNP. Det samme gjelder for at C er i NP. Men da er nødvendigvis NP = coNP, noe som ikke er sant. Altså er antagelsen feil, og A kan ikke både være NP-komplett og coNP-komplett.
+
+\end{proof}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-
-
-
-\section{CNFTAUT = $\{\phi \, |  \, \phi $ is on CNF, and $\phi$ is a tautology$\}$}
-
-Lager en TM for CNFTAUT som avgjør språket.
-
-M på input $\left<\phi\right>$:
-\begin{enumerate}
-\item Ikke deterministisk vel en valuasjon av litteralene til $\phi$
-\item Hvis $\phi$ er usann på denne valuasjonen avvis, ellers aksepter.
-\end{enumerate}
-
-M vil altså kun akseptere hvis det ikke finnes noen tilegning av verdier til litteralene i $\phi$ som gjør utrykket usant.
-
-
-
-\section{DNFTAUT = $\{\phi \, |  \, \phi $ is on DNF, and $\phi$ is a tautology$\}$}
-
-
-
-
-
-CNFTAUT  - P \\
-DNFTAUT  - coNP-complete
-
-
-Gi en mini introduksjon til hver seksjon med hva det vil si å være et medlem i den klassen. 
+\section*{Kilder:}
+[1] University of Cambridge, Complexity Theory (2009-2010): \\ \url{https://www.cl.cam.ac.uk/teaching/0910/Complexity/lecture9.pdf} Lastet ned 28.04.2016
 
 
 
