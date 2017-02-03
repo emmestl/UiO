@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{parskip}
+\usepackage{ upgreek }
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+\author{Elsie Mestl}
+\date{\today}
+\title{Oblig 1. \\ matinf3100- Linear optimization}
+
+
+\pagestyle{fancy}
+\lhead{Oblig 1. \quad matinf3100- Linear optimization}
+\rhead{Elsie Mestl}
+
+\begin{document}
+\maketitle
+
+
+\section*{Problem 1}
+\subsection*{a)}
+
+\begin{align*}
+  \vec{x} &=
+  \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+  \end{bmatrix}
+  \quad
+  \vec{c} =
+  \begin{bmatrix}
+    -7 \\
+    0 \\
+    2 \\
+  \end{bmatrix}
+  \quad
+  \vec{b} =
+  \begin{bmatrix}
+    1 \\
+    2 \\
+    0 \\
+  \end{bmatrix} \\ \ \\
+  \mathrm{A} &=
+  \begin{bmatrix}
+    0 && -3 && 4 \\
+    1 && -1 && 0 \\
+    -3 && 0 && 1 \\
+  \end{bmatrix}
+\end{align*}
+
+Now the LP problem given kan be written as max$(\vec{c}^\mathrm{T}\vec{x})$ subject to $\mathrm{A}\vec{x} \leq \vec{0}$, $\vec{x} \geq \vec{0}$
+
+
+\subsection*{b)}
+Introduce slack variables $w_1, w_2, w_3$, and get the following dictionary.
+
+\begin{align*}
+  &\begin{matrix}
+     \eta = & & - &7x_1 & & &+ &2x_3 \\
+     \\
+     w_1 = & 1 &  & & + &3x_2 &- &4x_3 \\
+     w_2 = & 2 & -&x_1 & +&x_2 \\
+     w_3 = & & & 3x_1 & & & - & x_3
+   \end{matrix} \\
+  &x_1, x_2, x_3, w_1, w_2, w_3 \geq 0 \\
+  \intertext{Since $2x_3$ is the only variable that we can increase to make the objective value increas. This means $x_3$ is the entering variable. And by observation on the dictionary we se that $w_3$ is the leaving variable and $x_3$ can not increas at all. After change we get the following dictionary.}
+  &\begin{matrix}
+     \eta = & & - &x_1 & & &- &2w_3 \\
+     \\
+     w_1 = & 1 &  -&12x_1 & + &3x_2 &+ &4w_3 \\
+     w_2 = & 2 & -&x_1 & +&x_2 \\
+     x_3 = & & & 3x_1 & & & - & w_3
+   \end{matrix} \\
+  &x_1, x_2, x_3, w_1, w_2, w_3 \geq 0 \\
+\end{align*}
+Now we can not increase the objective value any more so the optimal solution is $x_1 = 0, x_2 = 0, x_3 = 0$ vith the objective value 0.
+
+\subsection*{c)}
+
+\end{document}
