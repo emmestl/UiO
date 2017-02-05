@@ -11,6 +11,8 @@
 \usetikzlibrary{arrows,automata}
 \usepackage{fancyhdr}
 \usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{listings}
 \usetikzlibrary{intersections}
 \usepackage{mathtools}
 
@@ -225,6 +227,21 @@ Start by introducing slack variables and get the following intitial dictionary.
   \text{subject to: \quad} &-t_i \leq b_i - \sum_ja_{ij}x_j \leq t_i, \text{\quad for $i = 1, 2, \cdots, n$}\\
 \end{align*}
 
+
 \subsection*{b)}
+\subsubsection*{Using the following code to compute $\vec{x}$ using $L_2$-regression.}
+\lstinputlisting[language = Matlab, frame = single]{oblig1.m}
+Here $\vec{x} = [2.1212, 0.4545]$
+
+\newpage
+\subsubsection*{Using the followin code to compute $\vec{x}$ usin $L_2$-regression.}
+\lstinputlisting[language = OCL, frame = single]{Oblig1.mod}
+With the given data:
+\lstinputlisting[language = OCL, frame = single]{Oblig1.dat}
+
+Here $\vec{x}= [2, 0]$
+
+And by comparing them to the original data we get the following plot:
+\includegraphics{matlabplot.fig}
 
 \end{document}

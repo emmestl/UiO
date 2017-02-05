@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.8)  5 FEB 2017 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.8)  5 FEB 2017 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1018,26 +1018,50 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
 de.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-)))
+))) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count138
+\lst@gtempboxa=\box62
+\lst@token=\toks46
+\lst@length=\count139
+\lst@currlwidth=\dimen179
+\lst@column=\count140
+\lst@pos=\count141
+\lst@lostspace=\dimen180
+\lst@width=\dimen181
+\lst@newlines=\count142
+\lst@lineno=\count143
+\lst@maxwidth=\dimen182
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count144
+\lst@skipnumbers=\count145
+\lst@framebox=\box63
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryintersections.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersection
 s.code.tex
-\pgf@intersect@solutions=\count138
+\pgf@intersect@solutions=\count146
 )) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count139
-\calc@Bcount=\count140
-\calc@Adimen=\dimen179
-\calc@Bdimen=\dimen180
+\calc@Acount=\count147
+\calc@Bcount=\count148
+\calc@Adimen=\dimen183
+\calc@Bdimen=\dimen184
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count141
+\calc@Ccount=\count149
 \calc@Cskip=\skip61
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
@@ -1047,60 +1071,60 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count142
-\l_MT_multwidth_dim=\dimen181
+\g_MT_multlinerow_int=\count150
+\l_MT_multwidth_dim=\dimen185
 \origjot=\skip62
-\l_MT_shortvdotswithinadjustabove_dim=\dimen182
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen183
-\l_MT_above_intertext_sep=\dimen184
-\l_MT_below_intertext_sep=\dimen185
-\l_MT_above_shortintertext_sep=\dimen186
-\l_MT_below_shortintertext_sep=\dimen187
+\l_MT_shortvdotswithinadjustabove_dim=\dimen186
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen187
+\l_MT_above_intertext_sep=\dimen188
+\l_MT_below_intertext_sep=\dimen189
+\l_MT_above_shortintertext_sep=\dimen190
+\l_MT_below_shortintertext_sep=\dimen191
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count143
-\Gm@cntv=\count144
-\c@Gm@tempcnt=\count145
-\Gm@bindingoffset=\dimen188
-\Gm@wd@mp=\dimen189
-\Gm@odd@mp=\dimen190
-\Gm@even@mp=\dimen191
-\Gm@layoutwidth=\dimen192
-\Gm@layoutheight=\dimen193
-\Gm@layouthoffset=\dimen194
-\Gm@layoutvoffset=\dimen195
-\Gm@dimlist=\toks46
+\Gm@cnth=\count151
+\Gm@cntv=\count152
+\c@Gm@tempcnt=\count153
+\Gm@bindingoffset=\dimen192
+\Gm@wd@mp=\dimen193
+\Gm@odd@mp=\dimen194
+\Gm@even@mp=\dimen195
+\Gm@layoutwidth=\dimen196
+\Gm@layoutheight=\dimen197
+\Gm@layouthoffset=\dimen198
+\Gm@layoutvoffset=\dimen199
+\Gm@dimlist=\toks47
 ) (./emmestl.aux)
 \openout1 = `emmestl.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-\AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring ON on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+\AtBeginShipoutBox=\box64
+Package hyperref Info: Link coloring ON on input line 33.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count146
+\c@section@level=\count154
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./emmestl.out) (./emmestl.out)
 \@outlinefile=\write4
@@ -1109,17 +1133,17 @@ LaTeX Info: Redefining \nameref on input line 31.
  ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count147
-\scratchdimen=\dimen196
-\scratchbox=\box63
-\nofMPsegments=\count148
-\nofMParguments=\count149
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count150
-\MPscratchDim=\dimen197
-\MPnumerator=\count151
-\makeMPintoPDFobject=\count152
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count155
+\scratchdimen=\dimen256
+\scratchbox=\box65
+\nofMPsegments=\count156
+\nofMParguments=\count157
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count158
+\MPscratchDim=\dimen257
+\MPnumerator=\count159
+\makeMPintoPDFobject=\count160
+\everyMPtoPDFconversion=\toks49
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1139,8 +1163,9 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.13} into 
 your preamble.
- on input line 31.
+ on input line 33.
 
+\c@lstlisting=\count161
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1175,11 +1200,11 @@ your preamble.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1193,7 +1218,7 @@ See the PGF Math package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.179 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
+l.181 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
                                                   
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1207,7 +1232,7 @@ See the PGF Math package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.179 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
+l.181 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
                                                   
 (That was another \errmessage.)
 
@@ -1218,7 +1243,7 @@ See the PGF Math package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.179 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
+l.181 ...oordinate[label={\p:\t}] (\t) at (\x,\y);
                                                   
 (That was another \errmessage.)
 
@@ -1229,14 +1254,14 @@ See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.185     \end{tikzpicture}
+l.187     \end{tikzpicture}
                            
 (That was another \errmessage.)
 
 ! Undefined control sequence.
 <argument> \pgf@baseline 
                          
-l.185     \end{tikzpicture}
+l.187     \end{tikzpicture}
                            
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1245,28 +1270,71 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 166--190
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 168--192
 []$[]$ $[]$ 
  []
 
-[2] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
+[2] [3] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 233.
+
+(./oblig1.m
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+) [4]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2015/06/04 1.6 listings language file
+) (./Oblig1.mod
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 22.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 22.
+) (./Oblig1.dat)
+
+! LaTeX Error: Unknown graphics extension: .fig.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.245 \includegraphics{matlabplot.fig}
+                                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
  (./emmestl.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 247.
 Package rerunfilecheck Info: File `emmestl.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
  ) 
 Here is how much of TeX's memory you used:
- 27964 strings out of 494333
- 670147 string characters out of 6163939
- 873061 words of memory out of 5000000
- 30813 multiletter control sequences out of 15000+600000
+ 30409 strings out of 494333
+ 701760 string characters out of 6163939
+ 896038 words of memory out of 5000000
+ 33156 multiletter control sequences out of 15000+600000
  13820 words of font info for 53 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 55i,16n,77p,752b,760s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,77p,743b,1848s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -1280,10 +1348,10 @@ s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on emmestl.pdf (4 pages, 141165 bytes).
+Output written on emmestl.pdf (5 pages, 153943 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 76 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
