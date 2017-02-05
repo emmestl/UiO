@@ -228,6 +228,8 @@ Start by introducing slack variables and get the following intitial dictionary.
 \end{align*}
 
 
+
+DETTE MÅ FIKSES!!!!!  TEKSTEN TIL SLUTT!!!!
 \subsection*{b)}
 \subsubsection*{Using the following code to compute $\vec{x}$ using $L_2$-regression.}
 \lstinputlisting[language = Matlab, frame = single]{oblig1.m}
@@ -242,6 +244,15 @@ With the given data:
 Here $\vec{x}= [2, 0]$
 
 And by comparing them to the original data we get the following plot:
-\includegraphics{matlabplot.fig}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale = 0.3]{plot.jpg}
+\end{figure}
+
+Yes, the difference is as expected. The $L_2$ doesn't hit any of the data points but lies more in the middel, where as the $L_1$ regression hist 4 points but then som of the outliners become quite far of.
+
+I suppose depending on what kind of data-set one has they have both their preferences. As said above the $L_1$ regression, using the simplex method, does not care about abnormalities in such extent as $L_2$ so if there is not a lot of data I would say $L_1$ is to prefer.
+
+
 
 \end{document}
