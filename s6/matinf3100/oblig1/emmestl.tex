@@ -212,4 +212,19 @@ Start by introducing slack variables and get the following intitial dictionary.
 \end{align*}
 
 
+\section*{Problem 3}
+\subsection*{a)}
+
+\begin{align*}
+  \text{minimize: \quad} &\sum_i|b_i - \sum_ja_{ij}x_j|\\
+  \intertext{The minimalization problem above can easaly be written as the bellow by introducing $t_i = |b_i - \sum_ja_{ij}x_j|$ for $i = 1, 2, \cdots, n$:}
+  \text{minimize: \quad} &\sum_i t_i \\
+  \text{subject to: \quad} &t_i - |b_i - \sum_ja_{ij}x_j|  = 0, \text{\quad for $i = 1, 2, \cdots, n$}\\
+  \intertext{but then $b_i - \sum_ja_{ij}x_j$ has to either be equal to $t_i$ or $-t_i$ hence we can say $b_i - \sum_ja_{ij}x_j$ lies in between the two, for all $i = 1, 2, \cdots, n$. Thus we can rewrite the prevoius to:}
+  \text{minimize: \quad} &\sum_i t_i \\
+  \text{subject to: \quad} &-t_i \leq b_i - \sum_ja_{ij}x_j \leq t_i, \text{\quad for $i = 1, 2, \cdots, n$}\\
+\end{align*}
+
+\subsection*{b)}
+
 \end{document}
