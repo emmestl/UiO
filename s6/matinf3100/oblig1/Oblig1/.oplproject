@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<description>Problem 3b</description>
+	<configs>
+		<config default="true" name="Configuration1" category="opl">
+			<ref type="model" name="Oblig1.mod">
+			</ref>
+			<ref type="data" name="Oblig1.dat">
+			</ref>
+		</config>
+	</configs>
+	
+</project>
